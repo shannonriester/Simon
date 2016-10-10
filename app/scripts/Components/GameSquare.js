@@ -7,6 +7,6 @@ export default React.createClass({
     console.log('tapping ' + this.props.color);
   },
   render() {
-    return (<li className="game-square" onClick={this.tapSquare} ref={"color"+this.props.color}></li>);
+    return (<li id={this.props.color} className="outter-square" onClick={this.tapSquare} ref={"color"+this.props.color}><div className="inner-square"></div></li>);
   }
 });
