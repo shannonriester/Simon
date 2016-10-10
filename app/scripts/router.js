@@ -5,7 +5,7 @@ import store from './store';
 import GameBoard from './Components/GameBoard';
 
 const router = (
-  <Router>
+  <Router history={browserHistory}>
     <Route path="/" component={GameBoard} />
   </Router>
 );
