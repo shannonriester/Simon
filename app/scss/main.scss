@@ -1,7 +1,8 @@
 @import '_variables.scss';
 @import '_neon_animaions.scss';
-@import 'gameboard.scss';
+@import 'GameBoard.scss';
+@import 'Nav.scss';
 
 body {
-  background: #DCE0E0;
+  background: $background;
 }
