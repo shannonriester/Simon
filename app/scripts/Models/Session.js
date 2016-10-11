@@ -8,5 +8,6 @@ export default Backbone.Model.extend({
     score: 0,
     hits: [],
     highScore: 0,
+    gamesPlayed: 0,
   },
 });

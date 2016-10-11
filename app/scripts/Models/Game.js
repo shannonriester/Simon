@@ -13,14 +13,13 @@ export default Backbone.Model.extend({
   },
   newGame: function(username) {
     // this.reset();
+    let newColor = this.randomColor(1, this.get('colors').length);
     this.set({
       score: 0,
       hits: [],
+      currentColor: newColor,
     });
-    //randomColor(level, of all the colors )
-    let newColor = this.randomColor(1, this.get('colors'));
-    this.set('currentColor', newColor);
-    // console.log('newColor', newColor);
+    // this.set('currentColor', newColor);
     // this.set('hits', newColor);
     return newColor;
   },
@@ -30,23 +29,23 @@ export default Backbone.Model.extend({
     // console.log('newHit', newHit);
     hitArr.concat(newHit);
   },
-  randomColor(level) {
-    let randomColor = Math.floor(Math.random() * 4);
+  randomColor(level, colorsLength) {
+    let randomColor = Math.floor(Math.random() * colorsLength);
     switch(randomColor) {
       case 0:
-        console.log('random color', 'green');
+        // console.log('random color', 'green');
         return 'green';
         break;
       case 1:
-        console.log('random color', 'red');
+        // console.log('random color', 'red');
         return 'red';
         break;
       case 2:
-        console.log('random color', 'yellow');
+        // console.log('random color', 'yellow');
         return 'yellow';
         break;
       case 3:
-        console.log('random color', 'blue');
+        // console.log('random color', 'blue');
         return 'blue';
         break;
     }

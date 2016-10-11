@@ -10,34 +10,30 @@ export default React.createClass({
       hoverColor: false,
     }
   },
-  showColor(color) {
-    // this.setState({hoverColor: true});
-    // console.log(this.state.currentColor);
-    // $(`#${color}`).trigger('hover');
-    let currentColor = this.state.currentColor;
-    this.refs.currentColor.SimulateNative.mouseOver();
-    setTimeout(()=> {
-      this.refs.currentColor.SimulateNative.mouseOut();
-      // this.setState({hoverColor:false});
-      // $(`#${color}`).trigger('mouseout');
+  showColor() {
+    console.log(this.refs.innerDiv.id);
+    window.setTimeout(()=> {
+
     }, 500);
-  },
-  componentWillReceiveProps(newProps) {
-    console.log('newProps', newProps.currentColor);
-    this.setState({
-      currentColor: newProps.currentColor,
-    });
-    this.showColor(newProps.currentColor);
   },
   tapSquare() {
     // console.log('tapping ' + this.props.color);
   },
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      currentColor: newProps.currentColor,
+    });
+  },
+  componentDidMount(){},
   render() {
-    let classNames = ("outter-square " + this.props.children);
+    // console.log(this.props.children);
     let color = this.state.currentColor;
+    let classLi = ("outter-square " + color);
+    let classDiv = ("inner-square " + color + "Div");
+
     return (
-      <li id={this.props.color} className={classNames} onClick={this.tapSquare} ref={color}>
-        <div id={this.state.currentColor} className="inner-square"></div>
+      <li className={this.props.classLi} onClick={this.tapSquare} ref="li">
+        <div className={this.props.classDiv} ref="innerDiv"></div>
       </li>);
   }
 });

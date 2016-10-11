@@ -13,15 +13,23 @@ export default React.createClass({
   },
   updateState() {
     this.setState({currentColor: store.game.get('currentColor')});
-    // this.hoverColor();
   },
   componentDidMount() {
     store.game.on('change update', this.updateState);
   },
   render() {
     let gameSquare = store.colors.map((color, i) => {
-      return (<GameSquare className="game-square" color={color} currentColor={this.state.currentColor} key={i}/>);
+      let classLi = "outter-square " + color;
+      let classDiv = "inner-square " + color + "Div";
+      return (<GameSquare
+                className="game-square"
+                color={color}
+                currentColor={this.state.currentColor}
+                classLi={classLi}
+                classDiv={classDiv}
+                key={i}/>);
     });
+
     return (
       <div className="gameboard-component">
         <Nav />

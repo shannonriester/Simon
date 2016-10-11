@@ -5,7 +5,8 @@
   justify-content: center;
   padding: 0;
   margin: 4rem auto;
-  max-width: 75%;
+  width: 40rem;
+  // max-width: 40rem;
 }
 
 .outter-square {
@@ -31,13 +32,13 @@
   transition: all 0.5s;
 }
 
-.red, #red {
+.red, {
   border-top-right-radius: 100%;
   border-top: solid $border 2px;
   border-right: solid $border 2px;
   border-left: solid $border 1px;
   border-bottom: solid $border 1px;
-    div {
+    .redDiv {
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
@@ -52,13 +53,13 @@
     }
 }
 
-.green, #green {
+.green, {
   border-top-left-radius: 100%;
   border-top: solid $border 2px;
   border-left: solid $border 2px;
   border-right: solid $border 1px;
   border-bottom: solid $border 1px;
-    div {
+    .greenDiv {
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
@@ -73,13 +74,13 @@
     }
 }
 
-.yellow, #yellow {
+.yellow, {
   border-bottom-left-radius: 100%;
   border-top: solid $border 1px;
   border-right: solid $border 1px;
   border-left: solid $border 2px;
   border-bottom: solid $border 2px;
-    div {
+    .yellowDiv {
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
@@ -100,7 +101,7 @@
   border-right: solid $border 2px;
   border-left: solid $border 1px;
   border-bottom: solid $border 2px;
-    div {
+    .blueDiv  {
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
