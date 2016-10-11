@@ -15,7 +15,7 @@ export default React.createClass({
     this.setState({currentColor: store.game.get('currentColor')});
   },
   componentDidMount() {
-    store.game.on('change update', this.updateState);
+    store.game.on('change', this.updateState);
   },
   render() {
     let gameSquare = store.colors.map((color, i) => {

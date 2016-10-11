@@ -1,8 +1,9 @@
 @import '_variables.scss';
 @import '_neon_animaions.scss';
-@import 'GameBoard.scss';
-@import 'Nav.scss';
 @import 'Landing.scss';
+@import 'Nav.scss';
+@import 'GameBoard.scss';
+@import 'GameSquare.scss';
 @import 'StartButton.scss';
 
 body {

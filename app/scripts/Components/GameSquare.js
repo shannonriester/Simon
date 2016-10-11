@@ -6,34 +6,38 @@ import store from '../store';
 export default React.createClass({
   getInitialState() {
     return {
-      currentColor: null,
+      currentColor: false,
       hoverColor: false,
     }
   },
   showColor() {
-    console.log(this.refs.innerDiv.id);
+    this.setState({hoverColor: true});
     window.setTimeout(()=> {
-
+      this.setState({hoverColor: false});
     }, 500);
   },
   tapSquare() {
-    // console.log('tapping ' + this.props.color);
   },
   componentWillReceiveProps(newProps) {
-    this.setState({
-      currentColor: newProps.currentColor,
-    });
-  },
-  componentDidMount(){},
-  render() {
-    // console.log(this.props.children);
-    let color = this.state.currentColor;
-    let classLi = ("outter-square " + color);
-    let classDiv = ("inner-square " + color + "Div");
+    if (newProps.currentColor) {
+      this.setState({currentColor: newProps.currentColor});
+      this.showColor();
+    }
 
+  },
+  componentDidMount(){
+
+  },
+  render() {
+    console.log('color:', this.state.currentColor);
+    let hoverColor;
+    if (this.state.hoverColor) {
+      hoverColor = 'hover-' + this.state.currentColor;
+      console.log(hoverColor);
+    }
     return (
       <li className={this.props.classLi} onClick={this.tapSquare} ref="li">
-        <div className={this.props.classDiv} ref="innerDiv"></div>
+        <div id={hoverColor} className={this.props.classDiv} ref="innerDiv"></div>
       </li>);
   }
 });
