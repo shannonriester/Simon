@@ -1,0 +1,19 @@
+.start-btn-component {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-family: $font-family;
+  height: 20rem;
+  width: 20rem;
+  border-radius: 50%;
+  background-color: $font-color;
+  &:hover {
+    cursor: pointer;
+  }
+}

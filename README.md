@@ -26,3 +26,9 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 
 ## Dependencies
 - `sass` [install guide here](http://sass-lang.com/install)
+
+
+##Extra Features
+  - Repeat button appears after computer gives memory test
+    - User can use this button 3 times until death
+    - User can only use this button to repeat _once_ per memory round
