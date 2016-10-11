@@ -42,13 +42,13 @@
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
-      background-color: rgba($color1, 0.8);
+      background-color: rgba($color2, 0.8);
       border-top-right-radius: 100%;
       &:hover {
-        background-color: $color1;
-        -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-        -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-        animation: neon1 1.5s ease-in-out infinite alternate;
+        background-color: $color2;
+        -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+        -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+        animation: neon2 1.5s ease-in-out infinite alternate;
       }
     }
 }
@@ -63,13 +63,13 @@
       -webkit-animation: none;
       -moz-animation: none;
       animation: none;
-      background-color: rgba($color2, 0.8);
+      background-color: rgba($color1, 0.8);
       border-top-left-radius: 100%;
       &:hover {
-        background-color: $color2;
-        -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
-        -moz-animation: neon2 1.5s ease-in-out infinite alternate;
-        animation: neon2 1.5s ease-in-out infinite alternate;
+        background-color: $color1;
+        -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+        -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+        animation: neon1 1.5s ease-in-out infinite alternate;
       }
     }
 }

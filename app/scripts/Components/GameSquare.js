@@ -11,33 +11,36 @@ export default React.createClass({
     }
   },
   showColor() {
-    this.setState({hoverColor: true});
-    window.setTimeout(()=> {
-      this.setState({hoverColor: false});
-    }, 500);
+    // console.log(this.refs.li.children);
+    console.log(this.state.currentColor);
+    console.log();
+
+    if (this.refs.li.children[0].className.indexOf(this.state.currentColor) !== -1) {
+      console.log('props-color:',this.props.color);
+      console.log('state-color:', this.state.currentColor);
+      this.setState({hoverColor: true});
+      window.setTimeout(()=> {
+        this.setState({hoverColor: false});
+      }, 200);
+    }
   },
   tapSquare() {
   },
   componentWillReceiveProps(newProps) {
-    if (newProps.currentColor) {
-      this.setState({currentColor: newProps.currentColor});
-      this.showColor();
-    }
-
+    this.setState({currentColor: newProps.currentColor});
+    this.showColor();
   },
   componentDidMount(){
 
   },
   render() {
-    console.log('color:', this.state.currentColor);
     let hoverColor;
     if (this.state.hoverColor) {
       hoverColor = 'hover-' + this.state.currentColor;
-      console.log(hoverColor);
     }
     return (
       <li className={this.props.classLi} onClick={this.tapSquare} ref="li">
-        <div id={hoverColor} className={this.props.classDiv} ref="innerDiv"></div>
+        <div id={hoverColor} className={this.props.classDiv} value={this.state.currentColor}></div>
       </li>);
   }
 });

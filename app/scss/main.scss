@@ -1,10 +1,13 @@
 @import '_variables.scss';
 @import '_neon_animaions.scss';
-@import 'Landing.scss';
 @import 'Nav.scss';
 @import 'GameBoard.scss';
 @import 'GameSquare.scss';
 @import 'StartButton.scss';
+
+//make landing last
+@import 'Landing.scss';
+
 
 body {
   background: $background;
