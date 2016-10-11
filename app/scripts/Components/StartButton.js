@@ -4,7 +4,8 @@ import store from '../store';
 
 export default React.createClass({
   startGame() {
-    store.game.newGame(store.session.get('username'));
+    let username = 'shannon';
+    store.game.newGame(username);
   },
   render() {
     return (

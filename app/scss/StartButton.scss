@@ -1,18 +1,21 @@
 .start-btn-component {
+  z-index: 2;
   position: absolute;
-  top: 0;
+  top: 50%;
   right: 0;
   bottom: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFF;
-  font-family: $font-family;
-  height: 20rem;
-  width: 20rem;
+  height: 5rem;
+  width: 5rem;
+  margin: 0 auto;
   border-radius: 50%;
+  color: #FFF;
   background-color: $font-color;
+  font-family: $font-family;
+  font-size: 11px;
   &:hover {
     cursor: pointer;
   }

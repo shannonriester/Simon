@@ -1,9 +1,9 @@
 import Backbone from 'backbone';
 
-import ColorModel from '../Models/ColorModel';
+import GameModel from '../Models/Game';
 
 export default Backbone.Collection.extend({
-  model: ColorModel,
+  model: GameModel,
   colors: ['green', 'red', 'yellow', 'blue'],
 
 });

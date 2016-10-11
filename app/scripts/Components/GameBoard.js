@@ -3,11 +3,24 @@ import React from 'react';
 import store from '../store';
 import Nav from './Nav';
 import GameSquare from './GameSquare';
+import StartButton from './StartButton';
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      currentColor: store.game.get('currentColor'),
+    }
+  },
+  updateState() {
+    this.setState({currentColor: store.game.get('currentColor')});
+    // this.hoverColor();
+  },
+  componentDidMount() {
+    store.game.on('change update', this.updateState);
+  },
   render() {
     let gameSquare = store.colors.map((color, i) => {
-      return (<GameSquare className="game-square" color={color} key={i}/>);
+      return (<GameSquare className="game-square" color={color} currentColor={this.state.currentColor} key={i}/>);
     });
     return (
       <div className="gameboard-component">
@@ -15,6 +28,7 @@ export default React.createClass({
         <ul className="gameboard">
           {gameSquare}
         </ul>
+        <StartButton />
       </div>
     )
   }
