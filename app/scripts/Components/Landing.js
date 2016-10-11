@@ -6,14 +6,15 @@ export default React.createClass({
     browserHistory.push("/SimonSays");
   },
   route(e) {
+
   },
   render() {
     return (
       <ul className="landing-component">
-        <li id="green" className="landing-li" onClick={this.routeStartGame} ref="green">Start Game</li>
-        <li id="red" className="landing-li" onClick={this.route} ref="red">Login</li>
-        <li id="yellow" className="landing-li" onClick={this.route} ref="yellow">Sign Up</li>
-        <li id="blue" className="landing-li" onClick={this.route} ref="blue">High Score</li>
+        <li className="landing-li outter-square green" onClick={this.routeStartGame} ref="green"><div className="landing-inner inner-square"> Start Game</div></li>
+        <li className="landing-li outter-square red" onClick={this.route} ref="red"><div className="landing-inner inner-square">Login</div></li>
+        <li className="landing-li outter-square yellow" onClick={this.route} ref="yellow"><div className="landing-inner inner-square">Sign Up</div></li>
+        <li className="landing-li outter-square blue" onClick={this.route} ref="blue"><div className="landing-inner inner-square">High Score</div></li>
       </ul>
     );
   }

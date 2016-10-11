@@ -31,7 +31,7 @@
   transition: all 0.5s;
 }
 
-#red {
+.red, #red {
   border-top-right-radius: 100%;
   border-top: solid $border 2px;
   border-right: solid $border 2px;
@@ -52,7 +52,7 @@
     }
 }
 
-#green {
+.green, #green {
   border-top-left-radius: 100%;
   border-top: solid $border 2px;
   border-left: solid $border 2px;
@@ -73,7 +73,7 @@
     }
 }
 
-#yellow {
+.yellow, #yellow {
   border-bottom-left-radius: 100%;
   border-top: solid $border 1px;
   border-right: solid $border 1px;
@@ -94,7 +94,7 @@
     }
 }
 
-#blue {
+.blue, #blue {
   border-bottom-right-radius: 100%;
   border-top: solid $border 1px;
   border-right: solid $border 2px;

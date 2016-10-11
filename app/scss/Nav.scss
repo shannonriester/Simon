@@ -17,4 +17,7 @@
 
 .nav-li {
   list-style-type: none;
+  &:hover {
+    cursor: pointer;
+  }
 }

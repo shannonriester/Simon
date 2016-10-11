@@ -1,0 +1,39 @@
+.landing-component {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+
+.landing-li {
+  width: 50%;
+  height: 50%;
+  max-width: 50%;
+  max-height: 50%;
+  border: none;
+  border-radius: 0;
+  .inner-square {
+    border-radius: 0;
+    // width: 50%;
+  }
+}
+
+.landing-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    cursor: pointer;
+    font-family: $font-family;
+  }
+
+}
+
+.green, .yellow, .red, .blue {
+
+}
