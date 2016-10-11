@@ -10,37 +10,38 @@ export default React.createClass({
       hoverColor: false,
     }
   },
-  showColor() {
-    // console.log(this.refs.li.children);
-    console.log(this.state.currentColor);
-    console.log();
+  showColor(color) {
+    // console.log(this);
+    // console.log(color);
 
-    if (this.refs.li.children[0].className.indexOf(this.state.currentColor) !== -1) {
-      console.log('props-color:',this.props.color);
-      console.log('state-color:', this.state.currentColor);
-      this.setState({hoverColor: true});
-      window.setTimeout(()=> {
-        this.setState({hoverColor: false});
-      }, 200);
-    }
-  },
-  tapSquare() {
+    this.setState({hoverColor: true});
+
+    window.setTimeout(()=> {
+      this.setState({hoverColor: false});
+    }, 500);
+
   },
   componentWillReceiveProps(newProps) {
-    this.setState({currentColor: newProps.currentColor});
-    this.showColor();
-  },
-  componentDidMount(){
-
+    if (newProps.currentColor) {
+      this.setState({currentColor: newProps.currentColor});
+      this.showColor(newProps.currentColor);
+    }
   },
   render() {
+    console.log('current color in the render', this.state.currentColor);
+
     let hoverColor;
-    if (this.state.hoverColor) {
+    if (this.refs.li){
+    let targetLiColor = this.refs.li.className.split(' ');
+    if (targetLiColor[1] === this.state.currentColor && this.state.hoverColor) {
+      console.log(targetLiColor[1]);
+      console.log(this.refs.li.className.children);
       hoverColor = 'hover-' + this.state.currentColor;
     }
+  }
     return (
       <li className={this.props.classLi} onClick={this.tapSquare} ref="li">
-        <div id={hoverColor} className={this.props.classDiv} value={this.state.currentColor}></div>
+        <div id={hoverColor} className={this.props.classDiv} ref="div"></div>
       </li>);
   }
 });

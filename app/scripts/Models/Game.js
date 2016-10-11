@@ -19,8 +19,6 @@ export default Backbone.Model.extend({
       hits: [],
       currentColor: newColor,
     });
-    // this.set('currentColor', newColor);
-    // this.set('hits', newColor);
     return newColor;
   },
   addHit(level) {

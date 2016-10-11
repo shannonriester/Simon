@@ -9,13 +9,20 @@ export default React.createClass({
   getInitialState() {
     return {
       currentColor: store.game.get('currentColor'),
+      firstColor: '',
     }
+  },
+  startGame() {
+    let username = 'shannon';
+    let firstColor = store.game.newGame(username);
+    // console.log('firstColor', firstColor);
+    this.setState({firstColor: firstColor});
   },
   updateState() {
     this.setState({currentColor: store.game.get('currentColor')});
   },
   componentDidMount() {
-    store.game.on('change', this.updateState);
+    store.game.on('change update', this.updateState);
   },
   render() {
     let gameSquare = store.colors.map((color, i) => {
@@ -24,6 +31,7 @@ export default React.createClass({
       return (<GameSquare
                 className="game-square"
                 color={color}
+                firstColor={this.state.firstColor}
                 currentColor={this.state.currentColor}
                 classLi={classLi}
                 classDiv={classDiv}
@@ -36,7 +44,7 @@ export default React.createClass({
         <ul className="gameboard">
           {gameSquare}
         </ul>
-        <StartButton />
+        <StartButton startGame={this.startGame}/>
       </div>
     )
   }
