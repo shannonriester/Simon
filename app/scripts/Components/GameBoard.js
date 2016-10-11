@@ -15,9 +15,6 @@ export default React.createClass({
         <ul className="gameboard">
           {gameSquare}
         </ul>
-        <section>
-          <button className="btn start-game">Start Game</button>
-        </section>
       </div>
     )
   }
