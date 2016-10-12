@@ -37,7 +37,7 @@ export default Backbone.Model.extend({
     let nextColor = this.randomColor(this.get('colors').length);
     let newHitArr = hitArr.concat(nextColor);
 
-    // let arr
+
     this.set('userHits', []);
     let userHitArr = this.get('userHits');
     userHitArr = userHitArr.concat(userHit);

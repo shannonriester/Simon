@@ -44,8 +44,7 @@ export default React.createClass({
                 classDiv={classDiv}
                 key={i}/>);
     });
-    // console.log('this.state.hits',this.state.hits);
-    // console.log('this.state.userHits',this.state.userHits);
+
     return (
       <div className="gameboard-component">
         <Nav />
