@@ -9,20 +9,26 @@ export default React.createClass({
   getInitialState() {
     return {
       currentColor: store.game.get('currentColor'),
-      firstColor: '',
+      hits: store.game.get('hits'),
+      userHits: store.game.get('userHits'),
     }
   },
   startGame() {
     let username = 'shannon';
-    let firstColor = store.game.newGame(username);
-    // console.log('firstColor', firstColor);
-    this.setState({firstColor: firstColor});
+    store.game.newGame(username);
   },
   updateState() {
-    this.setState({currentColor: store.game.get('currentColor')});
+    this.setState({
+      currentColor: store.game.get('currentColor'),
+      hits: store.game.get('hits'),
+      userHits: store.game.get('userHits'),
+    });
   },
   componentDidMount() {
     store.game.on('change update', this.updateState);
+  },
+  componentWillUnmount() {
+    store.game.off('change update', this.updateState);
   },
   render() {
     let gameSquare = store.colors.map((color, i) => {
@@ -31,13 +37,15 @@ export default React.createClass({
       return (<GameSquare
                 className="game-square"
                 color={color}
-                firstColor={this.state.firstColor}
                 currentColor={this.state.currentColor}
+                hits={this.state.hits}
+                userHits={this.state.userHits}
                 classLi={classLi}
                 classDiv={classDiv}
                 key={i}/>);
     });
-
+    // console.log('this.state.hits',this.state.hits);
+    // console.log('this.state.userHits',this.state.userHits);
     return (
       <div className="gameboard-component">
         <Nav />

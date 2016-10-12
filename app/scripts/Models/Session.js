@@ -6,7 +6,7 @@ export default Backbone.Model.extend({
   defaults: {
     username: '',
     score: 0,
-    hits: [],
+    userHits: [],
     highScore: 0,
     gamesPlayed: 0,
   },

@@ -7,27 +7,72 @@ export default Backbone.Model.extend({
     player: '',
     score: 0,
     hits: [],
+    userHits: [],
     highScore: 0,
     colors: ['green', 'red', 'yellow', 'blue'],
     currentColor: '',
   },
+  restart: function() {
+    this.set({
+      hits: [],
+      score: 0,
+      userHits: [],
+      currentColor: '',
+    });
+  },
   newGame: function(username) {
-    // this.reset();
-    let newColor = this.randomColor(1, this.get('colors').length);
+    this.restart();
+
+    let newColor = this.randomColor(this.get('colors').length);
     this.set({
       score: 0,
-      hits: [],
-      currentColor: newColor,
+      hits: [newColor],
+      currentColor: [newColor],
     });
+
     return newColor;
   },
-  addHit(level) {
+  userHits(userHit, hits) {
     let hitArr = this.get('hits');
-    let newHit = this.randomColor(level);
-    // console.log('newHit', newHit);
-    hitArr.concat(newHit);
+    let nextColor = this.randomColor(this.get('colors').length);
+    let newHitArr = hitArr.concat(nextColor);
+
+    // let arr
+    this.set('userHits', []);
+    let userHitArr = this.get('userHits');
+    userHitArr = userHitArr.concat(userHit);
+
+    if (userHitArr.length === hitArr.length) {
+      newHitArr.forEach((hit, i) => {
+        if (userHitArr[i] === newHitArr[i]) {
+          console.log('user answer: ', userHitArr[i]);
+          console.log('comp answer: ', newHitArr[i]);
+        } else {
+          console.log('user guessed wrong!');
+
+        }
+      });
+
+      this.set({
+        score: hitArr.length + 1,
+        hits: newHitArr,
+        userHits: userHitArr,
+        currentColor: nextColor,
+      });
+    }
+
+
+    // if (newUserHitArr === newHitArr) {
+    //   window.setTimeout(() => {
+    //     return true;
+    //   },1000);
+    //
+    // } else {
+    //   return false;
+    // }
+
   },
-  randomColor(level, colorsLength) {
+  randomColor(colorsLength) {
     let randomColor = Math.floor(Math.random() * colorsLength);
     switch(randomColor) {
       case 0:
