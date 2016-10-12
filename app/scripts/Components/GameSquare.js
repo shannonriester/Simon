@@ -14,38 +14,23 @@ export default React.createClass({
     }
   },
   showColor(hitsArr) {
-    console.log('hitsArr', hitsArr);
     let totalColorsArr = [];
-    let newCurrColor;
-    if (hitsArr.length) {
-      newCurrColor = hitsArr.shift();
-      totalColorsArr = totalColorsArr.concat(newCurrColor);
-    }
+    let newCurrColor = hitsArr.shift();
 
+    totalColorsArr = totalColorsArr.concat(newCurrColor);
 
     this.setState({
       currentColor: newCurrColor,
       hoverColor: true,
+      hoverId: 'hover-' + newCurrColor,
     });
-
     window.setTimeout(()=> {
-      if (this.refs.li) {
-        this.state.hits.forEach((hitColor, i) => {
-          if (this.refs.li.className.split(' ')[1] === this.state.hits[i] && this.state.hoverColor) {
-              let hoverId = 'hover-' + this.state.hits[i];
-              this.setState({hoverId: hoverId});
-          }
-        });
-      }
-
-    }, 500);
-
-    if (totalColorsArr !== this.state.hits) {
-      this.showColor();
-    } else {
       this.setState({hoverColor: false});
-    }
-
+      if (hitsArr.length) {
+        console.log('running recursive function...');
+        this.showColor(hitsArr);
+      }
+    }, 500);
   },
   selectSquare(e) {
     let className = e.target.className.split(' ')[1];
@@ -53,20 +38,29 @@ export default React.createClass({
     store.game.userHits(userHit, this.state.hits);
   },
   componentWillReceiveProps(newProps) {
-    if (newProps.currentColor) {
       this.setState({
         currentColor: newProps.currentColor,
         hits: newProps.hits,
         userHits: newProps.userHits,
       });
-      this.showColor(newProps.hits);
-    }
+      // let hitsArr = newProps.hits;
+      let hitsArr = ['red', 'blue', 'yellow'];
+
+      this.showColor(hitsArr);
   },
   render() {
-    // console.log('this.state.currentColor', this.state.currentColor);
+    let id;
+    if (this.refs.li) {
+      console.log('targeted li:', this.refs.li.className.split(' ')[1]);
+      console.log('this.state.currentColor', this.state.currentColor);
+      console.log(this.state.hoverColor);
+      if ((this.refs.li.className.split(' ')[1] === this.state.currentColor) && this.state.hoverColor) {
+        id = this.state.hoverId;
+      }
+    }
     return (
       <li className={this.props.classLi} onClick={this.selectSquare} ref="li">
-        <div id={this.state.hoverId} className={this.props.classDiv} ref="div"></div>
+        <div id={id} className={this.props.classDiv} ref="div"></div>
       </li>);
   }
 });
