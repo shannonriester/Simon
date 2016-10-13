@@ -14,8 +14,7 @@ export default React.createClass({
     }
   },
   startGame() {
-    let username = 'shannon';
-    store.game.newGame(username);
+    store.game.newGame();
   },
   updateState() {
     this.setState({
@@ -44,6 +43,7 @@ export default React.createClass({
                 classDiv={classDiv}
                 key={i}/>);
     });
+    // console.log('this.state.hits', this.state.hits);
 
     return (
       <div className="gameboard-component">

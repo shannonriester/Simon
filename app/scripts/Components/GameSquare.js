@@ -29,7 +29,7 @@ export default React.createClass({
         if (hitsArr.length) {
           this.showColor(hitsArr);
         }
-      }, 500);
+      }, 800);
 
     } else {
       this.setState({
@@ -39,24 +39,29 @@ export default React.createClass({
       });
       window.setTimeout(()=> {
         this.setState({hoverColor: false});
-      }, 500);
+      }, 800);
     }
 
   },
   selectSquare(e) {
     let className = e.target.className.split(' ')[1];
     let userHit = className.slice(0, className.length - 3);
-    store.game.userHits(userHit, this.state.hits);
+    store.game.userHits(userHit);
   },
   componentWillReceiveProps(newProps) {
+      let newHitsArr = newProps.hits;
+      if (newHitsArr.length >= 1) {
+        newHitsArr = newHitsArr.concat(newProps.hits)
+      }
       this.setState({
         currentColor: newProps.currentColor,
         hits: newProps.hits,
         userHits: newProps.userHits,
       });
+
       // let hitsArr = ['blue', 'red', 'yellow', 'green'];
-      let hitsArr = newProps.hits;
-      this.showColor(hitsArr);
+      // let hitsArr = newProps.hits;
+      this.showColor(newHitsArr);
 
   },
   componentDidMount() {
@@ -66,12 +71,11 @@ export default React.createClass({
     let id;
     if (this.state.hoverColor) {
       let targetLiColor = this.refs.li.className.split(' ')[1];
-
       if (targetLiColor === this.state.currentColor) {
         id = this.state.hoverId;
       }
-
     }
+    // console.log('this.state.hits', this.state.hits);
     return (
       <li className={this.props.classLi} onClick={this.selectSquare} ref="li">
         <div id={id} className={this.props.classDiv} ref="div"></div>

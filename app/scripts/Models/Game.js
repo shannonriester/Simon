@@ -20,75 +20,74 @@ export default Backbone.Model.extend({
       currentColor: '',
     });
   },
-  newGame: function(username) {
+  newGame: function() {
     this.restart();
 
     let newColor = this.randomColor(this.get('colors').length);
     this.set({
       score: 0,
       hits: [newColor],
-      currentColor: [newColor],
+      currentColor: [],
     });
-
     return newColor;
   },
-  userHits(userHit, hits) {
-    let hitArr = this.get('hits');
+  addHit() {
     let nextColor = this.randomColor(this.get('colors').length);
-    let newHitArr = hitArr.concat(nextColor);
+    let hitArr = this.get('hits').concat(nextColor);
+    console.log('hitArr', hitArr);
+    console.log('hitArr.lenght', hitArr.length);
+    this.set({
+      hits: hitArr,
+      currentColor: nextColor,
+      userHits: [],
+    });
+    return hitArr;
+  },
+  userHits(newHit) {
+    let compHitsArr = this.get('hits');
+    let userHitsArr = this.get('userHits').concat(newHit);
 
-
-    this.set('userHits', []);
-    let userHitArr = this.get('userHits');
-    userHitArr = userHitArr.concat(userHit);
-
-    if (userHitArr.length === hitArr.length) {
-      newHitArr.forEach((hit, i) => {
-        if (userHitArr[i] === newHitArr[i]) {
-          console.log('user answer: ', userHitArr[i]);
-          console.log('comp answer: ', newHitArr[i]);
+    console.log('compHitsArr', compHitsArr);
+    console.log('userHitsArr', userHitsArr);
+    if (compHitsArr.length !== userHitsArr.length) {
+      for (var i=0; i < compHitsArr.length; i++) {
+        if (userHitsArr[i] === compHitsArr[i]) {
+          let newUserHitsArr = this.get('userHits').concat(newHit);
+          this.set('userHits', newUserHitsArr);
+          console.log('ok...keep going');
+          return this.set('userHits', newUserHitsArr);
         } else {
           console.log('user guessed wrong!');
-
+          this.restart();
+        }
+      }
+    } else {
+      compHitsArr.forEach((color, i) => {
+        if (userHitsArr[i] === compHitsArr[i]) {
+          console.log('right on! you guessed right');
+          window.setTimeout(() => {
+            this.addHit();
+          },1000);
+        } else {
+          console.log('user guessed wrong!');
+          this.restart();
         }
       });
-
-      this.set({
-        score: hitArr.length + 1,
-        hits: newHitArr,
-        userHits: userHitArr,
-        currentColor: nextColor,
-      });
     }
-
-
-    // if (newUserHitArr === newHitArr) {
-    //   window.setTimeout(() => {
-    //     return true;
-    //   },1000);
-    //
-    // } else {
-    //   return false;
-    // }
-
   },
   randomColor(colorsLength) {
     let randomColor = Math.floor(Math.random() * colorsLength);
     switch(randomColor) {
       case 0:
-        // console.log('random color', 'green');
         return 'green';
         break;
       case 1:
-        // console.log('random color', 'red');
         return 'red';
         break;
       case 2:
-        // console.log('random color', 'yellow');
         return 'yellow';
         break;
       case 3:
-        // console.log('random color', 'blue');
         return 'blue';
         break;
     }
