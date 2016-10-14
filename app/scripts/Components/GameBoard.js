@@ -12,7 +12,22 @@ export default React.createClass({
       currentColor: store.game.get('currentColor'),
       hits: store.game.get('hits'),
       userHits: store.game.get('userHits'),
+      showBorder: false,
+      colorId: '',
     }
+  },
+  toggleBorderColor(color) {
+    // this.setState({
+    //   showBorder: true,
+    //   colorId: 'border-' + color,
+    // });
+    // window.setTimeout(() => {
+    //   this.setState({
+    //     showBorder: false,
+    //     colorId: '',
+    //   });
+    // }, 400);
+
   },
   startGame() {
     store.game.newGame();
@@ -26,6 +41,7 @@ export default React.createClass({
   },
   componentDidMount() {
     store.game.on('change update', this.updateState);
+    // store.session.on('change update', this.updateState);
   },
   componentWillUnmount() {
     store.game.off('change update', this.updateState);
@@ -42,11 +58,18 @@ export default React.createClass({
                 userHits={this.state.userHits}
                 classLi={classLi}
                 classDiv={classDiv}
+                borderColorOn={this.borderColorOn}
+                borderColorOff={this.borderColorOff}
+                toggleBorderColor={this.toggleBorderColor}
                 key={i}/>);
     });
-
+    let id;
+    // if (this.state.showBorder) {
+      // id = this.state.colorId;
+      // console.log('this.state.colorId',this.state.colorId);
+    // }
     return (
-      <div className="gameboard-component">
+      <div className="gameboard-component" id={id}>
         <Nav />
         <ScoreBoard level={this.state.hits}/>
         <div className="gameboard-container">

@@ -30,11 +30,8 @@
   font-size: 2rem;
   &:hover {
     cursor: pointer;
-    font-family: $font-family;
+    .landing-li {
+      width: 49.6%;
+    }
   }
-
-}
-
-.green, .yellow, .red, .blue {
-
 }

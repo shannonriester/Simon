@@ -14,9 +14,11 @@ export default Backbone.Model.extend({
   },
   restart: function() {
     this.set({
-      hits: [],
       score: 0,
+      hits: [],
       userHits: [],
+      highScore: 0,
+      colors: ['green', 'red', 'yellow', 'blue'],
       currentColor: '',
     });
   },
@@ -24,10 +26,9 @@ export default Backbone.Model.extend({
     this.restart();
 
     let newColor = this.randomColor(this.get('colors').length);
+
     this.set({
-      score: 0,
       hits: [newColor],
-      currentColor: [],
     });
     return newColor;
   },
@@ -35,7 +36,7 @@ export default Backbone.Model.extend({
     let nextColor = this.randomColor(this.get('colors').length);
     let hitArr = this.get('hits').concat(nextColor);
     window.setTimeout(() => {
-      console.log('newHitArr: ', hitArr);
+      // console.log('newHitArr: ', hitArr);
 
       this.set({
         hits: hitArr,

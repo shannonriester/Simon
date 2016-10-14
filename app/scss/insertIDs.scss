@@ -1,0 +1,51 @@
+//hover color over <li></li>
+#hover-green {
+  background-color: $color1;
+  -webkit-animation: neon1 1s ease-in-out infinite alternate;
+  -moz-animation: neon1 1s ease-in-out infinite alternate;
+  animation: neon1 1s ease-in-out infinite alternate;
+}
+#hover-red {
+  border: solid 2px $color2;
+  -webkit-animation: neon2 1s ease-in-out infinite alternate;
+  -moz-animation: neon2 1s ease-in-out infinite alternate;
+  animation: neon2 1s ease-in-out infinite alternate;
+}
+#hover-yellow {
+  border: solid 2px $color3;
+  -webkit-animation: neon3 1s ease-in-out infinite alternate;
+  -moz-animation: neon3 1s ease-in-out infinite alternate;
+  animation: neon3 1s ease-in-out infinite alternate;
+}
+#hover-blue {
+  border: solid 2px $color4;
+  -webkit-animation: neon4 1s ease-in-out infinite alternate;
+  -moz-animation: neon4 1s ease-in-out infinite alternate;
+  animation: neon4 1s ease-in-out infinite alternate;
+}
+
+//border
+#border-green {
+  border: solid 1rem $color1;
+  -webkit-animation: neon1 1s ease-in-out infinite alternate;
+  -moz-animation: neon1 1s ease-in-out infinite alternate;
+  animation: neon1 1s ease-in-out infinite alternate;
+}
+#border-red {
+  border: solid 1rem $color2;
+  -webkit-animation: neon2 1s ease-in-out infinite alternate;
+  -moz-animation: neon2 1s ease-in-out infinite alternate;
+  animation: neon2 1s ease-in-out infinite alternate;
+}
+#border-yellow {
+  border: solid 1rem $color3;
+  -webkit-animation: neon3 1s ease-in-out infinite alternate;
+  -moz-animation: neon3 1s ease-in-out infinite alternate;
+  animation: neon3 1s ease-in-out infinite alternate;
+}
+#border-blue {
+  border: solid 1rem $color4;
+  -webkit-animation: neon4 1s ease-in-out infinite alternate;
+  -moz-animation: neon4 1s ease-in-out infinite alternate;
+  animation: neon4 1s ease-in-out infinite alternate;
+}

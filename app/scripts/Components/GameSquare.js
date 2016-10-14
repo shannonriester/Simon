@@ -9,12 +9,12 @@ export default React.createClass({
       currentColor: false,
       hoverColor: false,
       hoverId: '',
+      clickColor: '',
       hits: [],
       userHits: [],
     }
   },
   showColor(hitsArr) {
-    if (hitsArr.length > 1) {
       let totalColorsArr = [];
       let newCurrColor = hitsArr.shift();
       totalColorsArr = totalColorsArr.concat(newCurrColor);
@@ -23,27 +23,14 @@ export default React.createClass({
         hoverColor: true,
         hoverId: 'hover-' + newCurrColor,
       });
-
+      this.props.toggleBorderColor(newCurrColor);
       window.setTimeout(()=> {
         this.setState({hoverColor: false});
 
         window.setTimeout(() => {
           if (hitsArr.length) {this.showColor(hitsArr);}
         }, 400);
-
       }, 800);
-
-    } else {
-      this.setState({
-        currentColor: hitsArr[0],
-        hoverColor: true,
-        hoverId: 'hover-' + hitsArr[0],
-      });
-      window.setTimeout(()=> {
-        this.setState({hoverColor: false});
-      }, 800);
-    }
-
   },
   selectSquare(e) {
     let className = e.target.className.split(' ')[1];
@@ -62,6 +49,7 @@ export default React.createClass({
     });
 
     this.showColor(newHitsArr);
+    // this.showColor(['blue','red','green']);
   },
   render() {
     let id;
