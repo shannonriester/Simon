@@ -81,6 +81,9 @@
   .nav-li:hover {
     cursor: pointer; }
 
+.gameboard-component {
+  background-color: #000; }
+
 .gameboard-container {
   display: flex;
   align-items: center;
@@ -193,19 +196,43 @@
   animation: neon1 1s ease-in-out infinite alternate; }
 
 #hover-red {
-  background-color: #FF1177;
+  border: solid 2px #FF1177;
   -webkit-animation: neon2 1s ease-in-out infinite alternate;
   -moz-animation: neon2 1s ease-in-out infinite alternate;
   animation: neon2 1s ease-in-out infinite alternate; }
 
 #hover-yellow {
-  background-color: #FFDD1B;
+  border: solid 2px #FFDD1B;
   -webkit-animation: neon3 1s ease-in-out infinite alternate;
   -moz-animation: neon3 1s ease-in-out infinite alternate;
   animation: neon3 1s ease-in-out infinite alternate; }
 
 #hover-blue {
-  background-color: #228DFF;
+  border: solid 2px #228DFF;
+  -webkit-animation: neon4 1s ease-in-out infinite alternate;
+  -moz-animation: neon4 1s ease-in-out infinite alternate;
+  animation: neon4 1s ease-in-out infinite alternate; }
+
+#border-green {
+  border: solid 1rem #00CD36;
+  -webkit-animation: neon1 1s ease-in-out infinite alternate;
+  -moz-animation: neon1 1s ease-in-out infinite alternate;
+  animation: neon1 1s ease-in-out infinite alternate; }
+
+#border-red {
+  border: solid 1rem #FF1177;
+  -webkit-animation: neon2 1s ease-in-out infinite alternate;
+  -moz-animation: neon2 1s ease-in-out infinite alternate;
+  animation: neon2 1s ease-in-out infinite alternate; }
+
+#border-yellow {
+  border: solid 1rem #FFDD1B;
+  -webkit-animation: neon3 1s ease-in-out infinite alternate;
+  -moz-animation: neon3 1s ease-in-out infinite alternate;
+  animation: neon3 1s ease-in-out infinite alternate; }
+
+#border-blue {
+  border: solid 1rem #228DFF;
   -webkit-animation: neon4 1s ease-in-out infinite alternate;
   -moz-animation: neon4 1s ease-in-out infinite alternate;
   animation: neon4 1s ease-in-out infinite alternate; }
@@ -269,8 +296,9 @@
   justify-content: center;
   font-size: 2rem; }
   .landing-inner:hover {
-    cursor: pointer;
-    font-family: monospace; }
+    cursor: pointer; }
+    .landing-inner:hover .landing-li {
+      width: 49.6%; }
 
 body {
   background: #F6F6F6;
