@@ -4,6 +4,7 @@ import store from '../store';
 import Nav from './Nav';
 import GameSquare from './GameSquare';
 import StartButton from './StartButton';
+import ScoreBoard from './ScoreBoard';
 
 export default React.createClass({
   getInitialState() {
@@ -47,11 +48,12 @@ export default React.createClass({
     return (
       <div className="gameboard-component">
         <Nav />
+        <ScoreBoard level={this.state.hits}/>
         <div className="gameboard-container">
-          <StartButton startGame={this.startGame}/>
           <ul className="gameboard">
             {gameSquare}
           </ul>
+          <StartButton startGame={this.startGame}/>
         </div>
 
       </div>

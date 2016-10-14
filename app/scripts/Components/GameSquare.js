@@ -62,10 +62,6 @@ export default React.createClass({
     });
 
     this.showColor(newHitsArr);
-    // this.showColor(['green','green','green']);
-  },
-  componentDidMount() {
-
   },
   render() {
     let id;
