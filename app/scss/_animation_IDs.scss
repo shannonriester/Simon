@@ -1,27 +1,27 @@
 //border color
 #border-green {
-  border-color: solid 3px $color1;
+  border: solid 5px $color1;
   -webkit-animation: neon1 1s ease-in-out infinite alternate;
   -moz-animation: neon1 1s ease-in-out infinite alternate;
   animation: neon1 1s ease-in-out infinite alternate;
 }
 #border-red {
-  border: solid 3px $color2;
-  -webkit-animation: neon2 1s ease-in-out infinite alternate;
-  -moz-animation: neon2 1s ease-in-out infinite alternate;
-  animation: neon2 1s ease-in-out infinite alternate;
+  border: solid 5px $color2;
+  -webkit-animation: neonBorder2 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder2 1s ease-in-out infinite alternate;
+  animation: neonBorder2 1s ease-in-out infinite alternate;
 }
 #border-yellow {
-  border: solid 3px $color3;
-  -webkit-animation: neon3 1s ease-in-out infinite alternate;
-  -moz-animation: neon3 1s ease-in-out infinite alternate;
-  animation: neon3 1s ease-in-out infinite alternate;
+  border: solid 5px $color3;
+  -webkit-animation: neonBorder3 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder3 1s ease-in-out infinite alternate;
+  animation: neonBorder3 1s ease-in-out infinite alternate;
 }
 #border-blue {
-  border: solid 3px $color4;
-  -webkit-animation: neon4 1s ease-in-out infinite alternate;
-  -moz-animation: neon4 1s ease-in-out infinite alternate;
-  animation: neon4 1s ease-in-out infinite alternate;
+  border: solid 5px $color4;
+  -webkit-animation: neonBorder4 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder4 1s ease-in-out infinite alternate;
+  animation: neonBorder4 1s ease-in-out infinite alternate;
 }
 
 //background-color for <li>s

@@ -30,13 +30,13 @@ export default React.createClass({
       });
 
       window.setTimeout(()=> {
-        this.setState({flashColor: false});
+        // this.setState({flashColor: false});
 
-        window.setTimeout(() => {
-          if (compHitsArr.length) {
-            this.flashColorArr(compHitsArr);
-          }
-        }, 400);
+        // window.setTimeout(() => {
+        //   if (compHitsArr.length) {
+        //     this.flashColorArr(compHitsArr);
+        //   }
+        // }, 400);
 
       }, 800);
     }
