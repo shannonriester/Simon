@@ -61,29 +61,49 @@
     box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
   to {
     box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
+@keyframes neonBorder1 {
+  from {
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #00CD36, 0 0 70px #00CD36, 0 0 80px #00CD36, 0 0 100px #00CD36, 0 0 150px #00CD36; }
+  to {
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #00CD36, 0 0 35px #00CD36, 0 0 40px #00CD36, 0 0 50px #00CD36, 0 0 75px #00CD36; } }
+@keyframes neonBorder2 {
+  from {
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177; }
+  to {
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177; } }
+@keyframes neonBorder3 {
+  from {
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B; }
+  to {
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B; } }
+@keyframes neonBorder4 {
+  from {
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
+  to {
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
 #border-green {
-  border-color: solid 3px #00CD36;
+  border: solid 5px #00CD36;
   -webkit-animation: neon1 1s ease-in-out infinite alternate;
   -moz-animation: neon1 1s ease-in-out infinite alternate;
   animation: neon1 1s ease-in-out infinite alternate; }
 
 #border-red {
-  border: solid 3px #FF1177;
-  -webkit-animation: neon2 1s ease-in-out infinite alternate;
-  -moz-animation: neon2 1s ease-in-out infinite alternate;
-  animation: neon2 1s ease-in-out infinite alternate; }
+  border: solid 5px #FF1177;
+  -webkit-animation: neonBorder2 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder2 1s ease-in-out infinite alternate;
+  animation: neonBorder2 1s ease-in-out infinite alternate; }
 
 #border-yellow {
-  border: solid 3px #FFDD1B;
-  -webkit-animation: neon3 1s ease-in-out infinite alternate;
-  -moz-animation: neon3 1s ease-in-out infinite alternate;
-  animation: neon3 1s ease-in-out infinite alternate; }
+  border: solid 5px #FFDD1B;
+  -webkit-animation: neonBorder3 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder3 1s ease-in-out infinite alternate;
+  animation: neonBorder3 1s ease-in-out infinite alternate; }
 
 #border-blue {
-  border: solid 3px #228DFF;
-  -webkit-animation: neon4 1s ease-in-out infinite alternate;
-  -moz-animation: neon4 1s ease-in-out infinite alternate;
-  animation: neon4 1s ease-in-out infinite alternate; }
+  border: solid 5px #228DFF;
+  -webkit-animation: neonBorder4 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder4 1s ease-in-out infinite alternate;
+  animation: neonBorder4 1s ease-in-out infinite alternate; }
 
 #background-green {
   background-color: #00CD36;
@@ -130,7 +150,8 @@
     cursor: pointer; }
 
 .gameboard-component {
-  background-color: #000; }
+  background-color: #000;
+  border: solid #000 3px; }
 
 .gameboard-container {
   display: flex;
