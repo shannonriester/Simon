@@ -4,7 +4,7 @@ import store from '../store';
 
 export default React.createClass({
   startGame() {
-    this.props.startGame();
+    store.game.newGame();
   },
   render() {
     return (
