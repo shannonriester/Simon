@@ -26,10 +26,12 @@ export default React.createClass({
 
       window.setTimeout(()=> {
         this.setState({hoverColor: false});
-        if (hitsArr.length) {
-          this.showColor(hitsArr);
-        }
-      }, 500);
+
+        window.setTimeout(() => {
+          if (hitsArr.length) {this.showColor(hitsArr);}
+        }, 400);
+
+      }, 800);
 
     } else {
       this.setState({
@@ -39,7 +41,7 @@ export default React.createClass({
       });
       window.setTimeout(()=> {
         this.setState({hoverColor: false});
-      }, 500);
+      }, 800);
     }
 
   },
@@ -49,33 +51,27 @@ export default React.createClass({
     store.game.userHits(userHit);
   },
   componentWillReceiveProps(newProps) {
-      let newHitsArr = [];
-      if (newProps.hits.length !== this.props.hits) {
-        newHitsArr = newHitsArr.concat(newProps.hits)
-      }
-      this.setState({
-        currentColor: newProps.currentColor,
-        hits: newProps.hits,
-        userHits: newProps.userHits,
-      });
+    let newHitsArr = [];
+    if (newProps.hits.length !== this.props.hits) {
+      newHitsArr = newHitsArr.concat(newProps.hits)
+    }
+    this.setState({
+      currentColor: newProps.currentColor,
+      hits: newProps.hits,
+      userHits: newProps.userHits,
+    });
 
-      // let hitsArr = ['blue', 'red', 'yellow', 'green'];
-      // let hitsArr = newProps.hits;
-      this.showColor(newHitsArr);
-
+    this.showColor(newHitsArr);
+    // this.showColor(['green','green','green']);
   },
   componentDidMount() {
 
   },
   render() {
     let id;
-    if (this.state.hoverColor) {
-      let targetLiColor = this.refs.li.className.split(' ')[1];
-      if (targetLiColor === this.state.currentColor) {
+    if (this.state.hoverColor && (this.refs.li.className.split(' ')[1] === this.state.currentColor)) {
         id = this.state.hoverId;
       }
-    }
-    // console.log('this.state.hits', this.state.hits);
     return (
       <li className={this.props.classLi} onClick={this.selectSquare} ref="li">
         <div id={id} className={this.props.classDiv} ref="div"></div>

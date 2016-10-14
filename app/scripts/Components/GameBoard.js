@@ -43,15 +43,17 @@ export default React.createClass({
                 classDiv={classDiv}
                 key={i}/>);
     });
-    // console.log('this.state.hits', this.state.hits);
 
     return (
       <div className="gameboard-component">
         <Nav />
-        <ul className="gameboard">
-          {gameSquare}
-        </ul>
-        <StartButton startGame={this.startGame}/>
+        <div className="gameboard-container">
+          <StartButton startGame={this.startGame}/>
+          <ul className="gameboard">
+            {gameSquare}
+          </ul>
+        </div>
+
       </div>
     )
   }

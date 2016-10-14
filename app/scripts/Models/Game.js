@@ -42,15 +42,10 @@ export default Backbone.Model.extend({
         currentColor: nextColor,
         userHits: [],
       });
-    },1500);
-    // return hitArr;
+    },1000);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
-    if (userHitsArr[n] === compHitsArr[n]) {
-      console.log('good job..keep going...?');
-
-      // console.log('newUserHitsArr:', userHitsArr);
-    } else {
+    if (userHitsArr[n] !== compHitsArr[n]) {
       console.log('wrong!');
       this.restart();
     }
@@ -59,48 +54,14 @@ export default Backbone.Model.extend({
     let compHitsArr = this.get('hits');
     let userHitsArr = this.get('userHits').concat(newHit);
 
-    console.log('compHitsArr:', compHitsArr);
-    console.log('userHitsArr:', userHitsArr);
-
     let n = userHitsArr.length - 1;
 
     if (userHitsArr.length === compHitsArr.length) {
-      // window.setTimeout(() => {
       this.addLevel();
-      // },1500);
     } else {
       this.checkUserInput(userHitsArr, compHitsArr, n);
       this.set({userHits: userHitsArr}, {silent: true });
     }
-
-
-    // if (compHitsArr.length !== userHitsArr.length) {
-    //   for (var i=0; i < compHitsArr.length; i++) {
-    //     if (userHitsArr[i] === compHitsArr[i]) {
-    //       userHitsArr = this.get('userHits').concat(newHit);
-    //       // console.log('newUserHitsArr', newUserHitsArr);
-    //       console.log('ok...keep going');
-    //       return this.set('userHits', userHitsArr);
-    //     } else {
-    //       console.log('user guessed wrong!');
-    //       this.restart();
-    //     }
-    //   }
-    // } else if ((compHitsArr.length === userHitsArr.length)) {
-    //   console.log('compHitsArr', compHitsArr);
-    //   console.log('userHitsArr', userHitsArr);
-    //   compHitsArr.forEach((color, i) => {
-    //     if (userHitsArr[i] === compHitsArr[i]) {
-    //       console.log('right on! you guessed right');
-          // window.setTimeout(() => {
-          //   this.addHit();
-          // },1200);
-    //     } else {
-    //       console.log('user guessed wrong!');
-    //       this.restart();
-    //     }
-    //   });
-    // }
   },
   randomColor(colorsLength) {
     let randomColor = Math.floor(Math.random() * colorsLength);
