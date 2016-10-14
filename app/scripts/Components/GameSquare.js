@@ -29,7 +29,7 @@ export default React.createClass({
         if (hitsArr.length) {
           this.showColor(hitsArr);
         }
-      }, 800);
+      }, 500);
 
     } else {
       this.setState({
@@ -39,7 +39,7 @@ export default React.createClass({
       });
       window.setTimeout(()=> {
         this.setState({hoverColor: false});
-      }, 800);
+      }, 500);
     }
 
   },
@@ -49,8 +49,8 @@ export default React.createClass({
     store.game.userHits(userHit);
   },
   componentWillReceiveProps(newProps) {
-      let newHitsArr = newProps.hits;
-      if (newHitsArr.length >= 1) {
+      let newHitsArr = [];
+      if (newProps.hits.length !== this.props.hits) {
         newHitsArr = newHitsArr.concat(newProps.hits)
       }
       this.setState({
