@@ -199,10 +199,7 @@
     background-color: rgba(255, 17, 119, 0.8);
     border-top-right-radius: 100%; }
     .red .redDiv:hover {
-      background-color: #FF1177;
-      -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
-      -moz-animation: neon2 1.5s ease-in-out infinite alternate;
-      animation: neon2 1.5s ease-in-out infinite alternate; }
+      background-color: #FF1177; }
 
 .green {
   border-top-left-radius: 100%;
@@ -217,10 +214,7 @@
     background-color: rgba(0, 205, 54, 0.8);
     border-top-left-radius: 100%; }
     .green .greenDiv:hover {
-      background-color: #00CD36;
-      -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-      -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-      animation: neon1 1.5s ease-in-out infinite alternate; }
+      background-color: #00CD36; }
 
 .yellow {
   border-bottom-left-radius: 100%;
@@ -235,10 +229,7 @@
     background-color: rgba(255, 221, 27, 0.8);
     border-bottom-left-radius: 100%; }
     .yellow .yellowDiv:hover {
-      background-color: #FFDD1B;
-      -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
-      -moz-animation: neon3 1.5s ease-in-out infinite alternate;
-      animation: neon3 1.5s ease-in-out infinite alternate; }
+      background-color: #FFDD1B; }
 
 .blue, #blue {
   border-bottom-right-radius: 100%;
@@ -253,10 +244,7 @@
     background-color: rgba(34, 141, 255, 0.8);
     border-bottom-right-radius: 100%; }
     .blue .blueDiv:hover, #blue .blueDiv:hover {
-      background-color: #228DFF;
-      -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-      -moz-animation: neon4 1.5s ease-in-out infinite alternate;
-      animation: neon4 1.5s ease-in-out infinite alternate; }
+      background-color: #228DFF; }
 
 .start-btn-component {
   z-index: 2;
@@ -317,7 +305,10 @@
   justify-content: center;
   font-size: 2rem; }
   .landing-inner:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+    animation: neon1 1.5s ease-in-out infinite alternate; }
     .landing-inner:hover .landing-li {
       width: 49.6%; }
 
@@ -327,5 +318,9 @@ body {
   padding: 0;
   font-family: monospace;
   color: #393d3f; }
+
+#container {
+  padding: 10px;
+  background: black; }
 
 /*# sourceMappingURL=main.css.map */

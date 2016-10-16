@@ -30,6 +30,9 @@
   font-size: 2rem;
   &:hover {
     cursor: pointer;
+    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+    animation: neon1 1.5s ease-in-out infinite alternate;
     .landing-li {
       width: 49.6%;
     }
