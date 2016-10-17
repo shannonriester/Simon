@@ -305,12 +305,33 @@
   justify-content: center;
   font-size: 2rem; }
   .landing-inner:hover {
-    cursor: pointer;
-    -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-    -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-    animation: neon1 1.5s ease-in-out infinite alternate; }
+    cursor: pointer; }
     .landing-inner:hover .landing-li {
       width: 49.6%; }
+
+.landing-inner.greenDiv:hover {
+  cursor: pointer;
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; }
+
+.landing-inner.redDiv:hover {
+  cursor: pointer;
+  -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+  animation: neon2 1.5s ease-in-out infinite alternate; }
+
+.landing-inner.yellowDiv:hover {
+  cursor: pointer;
+  -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon3 1.5s ease-in-out infinite alternate;
+  animation: neon3 1.5s ease-in-out infinite alternate; }
+
+.landing-inner.blueDiv:hover {
+  cursor: pointer;
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate; }
 
 body {
   background: #F6F6F6;
@@ -320,7 +341,7 @@ body {
   color: #393d3f; }
 
 #container {
-  padding: 10px;
+  padding: 5px;
   background: black; }
 
 /*# sourceMappingURL=main.css.map */
