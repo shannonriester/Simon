@@ -49,20 +49,20 @@ export default React.createClass({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
     });
+
     this.flashColorArr(store.game.get('compHits'));
   },
   componentDidMount() {
-    store.game.on('change update', this.updateState);
+    store.game.on('change', this.updateState);
   },
   componentWillUnmount() {
-    store.game.off('change update', this.updateState);
+    store.game.off('change', this.updateState);
   },
   render() {
     let colorId;
     if (this.state.flashColor) {
       colorId = 'border-' + this.state.colorId;
     }
-    console.log('this.state.colorId', this.state.colorId);
 
     let gameSquare = store.colors.map((color, i) => {
       let classLi = "outer-square " + color;

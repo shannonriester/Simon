@@ -14,7 +14,6 @@ export default React.createClass({
     if (!this.props.showCompArr) {
       let className = e.target.className.split(' ')[1];
       let userHit = className.slice(0, className.length - 3);
-      // this.setState({colorId: userHit});
 
       store.game.userHits(userHit);
 
@@ -22,11 +21,10 @@ export default React.createClass({
         clicked: true,
         clickColor: userHit,
       });
+
       window.setTimeout(() => {
         this.setState({clicked: false});
       }, 250);
-    } else {
-      console.log('wait to click your turn!');
     }
   },
   render() {

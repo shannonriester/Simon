@@ -6,6 +6,11 @@ const store = {
   session: new Session(),
   game: new Game(),
   colors: ['green', 'red', 'yellow', 'blue'],
+  settings: {
+      appKey: 'kid_BJ6LcoFC',
+      appSecret: '3bc50cb8c627411d8ea3732dc83f13e3',
+      basicAuth: btoa('kid_BJ6LcoFC:3bc50cb8c627411d8ea3732dc83f13e3'),
+  },
 }
 
 export default store;

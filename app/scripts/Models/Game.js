@@ -58,7 +58,6 @@ export default Backbone.Model.extend({
   },
   userHits(newHit, compHits) {
     let compHitsArr = this.get('compHits');
-    console.log('compHitsArr', compHitsArr);
     let userHitsArr = this.get('userHits').concat(newHit);
 
     let n = userHitsArr.length - 1;
