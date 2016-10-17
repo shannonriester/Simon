@@ -15,29 +15,34 @@ export default React.createClass({
       currentCompHitsArr: [],
       flashColor: false,
       colorId: '',
-      fetched: false,
     }
   },
   flashColorArr(compHitsArr) {
-    console.log('compHitsArr', compHitsArr);
-    if (compHitsArr.length) {
+    if (compHitsArr.length > 1) {
+      let totalColorsArr = [];
       let newCurrColor = compHitsArr.shift();
-      console.log('newCurrColor', newCurrColor);
+      totalColorsArr = totalColorsArr.concat(newCurrColor);
       this.setState({
         flashColor: true,
         colorId: newCurrColor,
-        fetched: true,
       });
 
       window.setTimeout(()=> {
         this.setState({flashColor: false});
 
         window.setTimeout(() => {
-          if (compHitsArr.length) {
-            this.flashColorArr(compHitsArr);
-          }
+          if (compHitsArr.length) {this.flashColorArr(compHitsArr);}
         }, 400);
 
+      }, 800);
+
+    } else {
+      this.setState({
+        flashColor: true,
+        colorId: compHitsArr[0],
+      });
+      window.setTimeout(()=> {
+        this.setState({flashColor: false});
       }, 800);
     }
   },
@@ -88,6 +93,6 @@ export default React.createClass({
         </div>
 
       </div>
-    )
+    );
   }
 });

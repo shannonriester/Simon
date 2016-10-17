@@ -6,6 +6,7 @@ export default Backbone.Model.extend({
   defaults: {
     player: '',
     score: 0,
+    compSliceArr: [],
     compHits: [],
     userHits: [],
     highScore: 0,
@@ -25,18 +26,25 @@ export default Backbone.Model.extend({
   newGame: function() {
     this.restart();
 
+    let newCompHitsArr = [];
     let newColor = this.randomColor(this.get('colors').length);
+    newCompHitsArr = newCompHitsArr.concat(newColor);
+    // console.log('newCompHitsArr', newCompHitsArr);
     this.set({
-      compHits: [newColor],
+      compSliceArr: newCompHitsArr,
+      compHits: newCompHitsArr,
+      compSliceArr: newCompHitsArr,
       currentColor: newColor,
     });
   },
   addLevel() {
     let nextColor = this.randomColor(this.get('colors').length);
     let nextCompHits = this.get('compHits').concat(nextColor);
+
     window.setTimeout(() => {
       this.set({
         compHits: nextCompHits,
+        compSliceArr: nextCompHits,
         currentColor: nextColor,
         userHits: [],
       });
@@ -48,8 +56,9 @@ export default Backbone.Model.extend({
       this.restart();
     }
   },
-  userHits(newHit) {
+  userHits(newHit, compHits) {
     let compHitsArr = this.get('compHits');
+    console.log('compHitsArr', compHitsArr);
     let userHitsArr = this.get('userHits').concat(newHit);
 
     let n = userHitsArr.length - 1;

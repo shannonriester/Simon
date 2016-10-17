@@ -6,24 +6,32 @@ import store from '../store';
 export default React.createClass({
   getInitialState() {
     return {
-      currentColor: false,
-      flashingColor: false,
-      colorId: '',
+      clicked: false,
       clickColor: '',
-      hits: [],
-      userHits: [],
     }
   },
   selectSquare(e) {
     let className = e.target.className.split(' ')[1];
     let userHit = className.slice(0, className.length - 3);
     store.game.userHits(userHit);
+
+    this.setState({
+      clicked: true,
+      clickColor: userHit,
+    });
+    window.setTimeout(() => {
+      this.setState({clicked: false});
+    }, 250);
   },
   render() {
     let id;
+
     if (this.props.flashColor && (this.refs.li.className.split(' ')[1] === this.props.currentColor)) {
         id = 'background-' + this.props.colorId;
-        console.log('id', id);
+        // console.log('id', id);
+    }
+    if (this.state.clicked && (this.refs.li.className.split(' ')[1] === this.state.clickColor)) {
+      id = 'background-' + this.props.colorId;
     }
     return (
       <li className={this.props.classLi} onClick={this.selectSquare} ref="li">
