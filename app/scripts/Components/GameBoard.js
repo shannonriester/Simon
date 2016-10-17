@@ -11,19 +11,23 @@ export default React.createClass({
     return {
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
-      currentColor: store.game.get('currentColor'),
+      showCompArr: false,
+      currentColor: '',
       currentCompHitsArr: [],
       flashColor: false,
       colorId: '',
     }
   },
   flashColorArr(compHitsArr) {
-    if (compHitsArr.length > 1) {
-      let totalColorsArr = [];
-      let newCurrColor = compHitsArr.shift();
-      totalColorsArr = totalColorsArr.concat(newCurrColor);
+      let mapCompHits = compHitsArr.map((color, i) => {
+        return color;
+      });
+      let newCurrColor = mapCompHits.shift();
+
       this.setState({
+        showCompArr: true,
         flashColor: true,
+        currentColor: newCurrColor,
         colorId: newCurrColor,
       });
 
@@ -31,26 +35,19 @@ export default React.createClass({
         this.setState({flashColor: false});
 
         window.setTimeout(() => {
-          if (compHitsArr.length) {this.flashColorArr(compHitsArr);}
+          if (mapCompHits.length) {
+            this.flashColorArr(mapCompHits);
+          } else {
+            this.setState({showCompArr: false});
+          }
         }, 400);
 
       }, 800);
-
-    } else {
-      this.setState({
-        flashColor: true,
-        colorId: compHitsArr[0],
-      });
-      window.setTimeout(()=> {
-        this.setState({flashColor: false});
-      }, 800);
-    }
   },
   updateState() {
     this.setState({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
-      currentColor: store.game.get('currentColor'),
     });
     this.flashColorArr(store.game.get('compHits'));
   },
@@ -65,6 +62,7 @@ export default React.createClass({
     if (this.state.flashColor) {
       colorId = 'border-' + this.state.colorId;
     }
+    console.log('this.state.colorId', this.state.colorId);
 
     let gameSquare = store.colors.map((color, i) => {
       let classLi = "outer-square " + color;
@@ -78,6 +76,7 @@ export default React.createClass({
                 classDiv={classDiv}
                 colorId={this.state.colorId}
                 flashColor={this.state.flashColor}
+                showCompArr={this.state.showCompArr}
                 key={i}/>);
     });
 
