@@ -81,6 +81,11 @@
     box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
   to {
     box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
+@keyframes showModal {
+  from {
+    width: 0px; }
+  to {
+    width: 20rem; } }
 #border-green {
   border: solid 5px #00CD36;
   -webkit-animation: neon1 1s ease-in-out infinite alternate;
@@ -255,7 +260,7 @@
       background-color: #228DFF; }
 
 .start-btn-component {
-  z-index: 2;
+  z-index: 1;
   position: relative;
   top: -20rem;
   right: 0;
@@ -289,6 +294,7 @@
   margin: 0; }
 
 .modal-component {
+  z-index: 2;
   position: fixed;
   top: 0;
   right: 0;
@@ -296,8 +302,18 @@
   left: 0;
   background-color: rgba(0, 0, 0, 0.5); }
 
-.modal-container {
-  background: white; }
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #F6F6F6;
+  max-width: 25rem;
+  height: 100%;
+  color: #000;
+  -webkit-animation: showModal 1s ease-in-out;
+  -moz-animation: showModal 1s ease-in-out;
+  animation: showModal 1s ease-in-out; }
 
 .landing-component {
   display: flex;
@@ -358,7 +374,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: monospace;
-  color: #393d3f; }
+  color: #393d3f;
+  line-height: 1.3; }
 
 #container {
   padding: 5px;

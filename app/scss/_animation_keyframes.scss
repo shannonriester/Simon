@@ -147,3 +147,13 @@
     box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color4, 0 0 35px $color4, 0 0 40px $color4, 0 0 50px $color4, 0 0 75px $color4;
   }
 }
+
+
+@keyframes showModal {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 20rem;
+  }
+}
