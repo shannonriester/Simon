@@ -14,9 +14,10 @@ export default React.createClass({
     }
   },
   showModal(e) {
-    this.props.showModal(e.target.id)
-    // this.setState({modal: e.target.id});
-    // console.log(e.target.id);
+    e.stopPropagation();
+    e.preventDefault();
+    console.log('e.target.id', e.target.id);
+    this.props.showModal(e.target.id);
   },
   logout() {
     store.session.logout();
@@ -24,7 +25,7 @@ export default React.createClass({
   render() {
     let sessionNav = (
       <ul className="nav-ul nav-session">
-        <li id="login" className="nav-li" onClick={this.showModal.}>Log In</li>
+        <li id="login" className="nav-li" onClick={this.showModal}>Log In</li>
         <li id="signup" className="nav-li" onClick={this.showModal}>Sign Up</li>
       </ul>
     );

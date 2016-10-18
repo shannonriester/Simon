@@ -2,6 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 import store from '../store';
+import SessionNav from './SessionNav';
 import Modal from './Modal';
 import GameSquare from './GameSquare';
 
@@ -12,8 +13,8 @@ export default React.createClass({
       modal: false,
     }
   },
-  showModal(id) {
-    this.setState({modal: id});
+  showModal(e) {
+    this.setState({modal: e.target.id});
   },
   hideModal() {
     this.setState({modal: false});
@@ -48,7 +49,7 @@ export default React.createClass({
           <li className="nav-li" onClick={this.showModal}><i id="sideModal" className="bars-icon fa fa-bars" aria-hidden="true"></i></li>
           <li id="Home" className="nav-li" onClick={this.routeTo}>Home</li>
           <li className="nav-li" onClick={this.newGame}>New Game</li>
-          <li id="HighScore" className="nav-li" onClick={this.routeTo}>High Score</li>
+          <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
         </ul>
 
         <SessionNav username={this.state.username} />
