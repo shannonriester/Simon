@@ -13,8 +13,8 @@ export default React.createClass({
       modal: false,
     }
   },
-  showModal(e) {
-    this.setState({modal: e.target.id});
+  showModal(modalID) {
+    this.setState({modal: modalID});
   },
   hideModal() {
     this.setState({modal: false});
@@ -39,20 +39,24 @@ export default React.createClass({
   },
   render() {
     let sideModal;
+    let dashboardBtn;
     if (this.state.modal) {
-      sideModal = (<Modal modal={this.state.modal} username={this.state.username}/> );
+      sideModal = (<Modal modal={this.state.modal} username={this.state.username}/>);
+    }
+    if (localStorage.authtoken) {
+      dashboardBtn = (<li className="nav-li" onClick={this.showModal}><i id="sideModal" className="bars-icon fa fa-bars" aria-hidden="true"></i></li>);
     }
 
     return (
       <nav className="nav-component">
         <ul className="nav-ul nav-main">
-          <li className="nav-li" onClick={this.showModal}><i id="sideModal" className="bars-icon fa fa-bars" aria-hidden="true"></i></li>
+          {dashboardBtn}
           <li id="Home" className="nav-li" onClick={this.routeTo}>Home</li>
           <li className="nav-li" onClick={this.newGame}>New Game</li>
           <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
         </ul>
 
-        <SessionNav username={this.state.username} />
+        <SessionNav username={this.state.username} showModal={this.showModal} />
 
         {sideModal}
       </nav>

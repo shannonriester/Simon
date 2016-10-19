@@ -1,8 +1,6 @@
 .landing-component {
-  display: flex;
+  @include flex-center;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   width: 100vw;
   padding: 0;
@@ -24,9 +22,10 @@
 }
 
 .landing-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   font-size: 2rem;
   &:hover {
     cursor: pointer;

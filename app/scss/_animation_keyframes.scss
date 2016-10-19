@@ -151,9 +151,9 @@
 
 @keyframes showModal {
   from {
-    width: 0px;
+    left: -100%;
   }
   to {
-    width: 20rem;
+    left: 0;
   }
 }

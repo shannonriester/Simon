@@ -51,6 +51,7 @@
     "browserify": "^13.0.1",
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
+    "gulp": "^3.9.1",
     "jsdom": "^9.4.1",
     "onchange": "^2.5.0",
     "parallelshell": "^2.0.0",

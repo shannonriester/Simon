@@ -9,7 +9,6 @@ export default React.createClass({
   getInitialState() {
     return {
       username: store.session.get('username'),
-      loggedIn: false,
       modal: false,
     }
   },
