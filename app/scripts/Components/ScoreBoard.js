@@ -9,7 +9,8 @@ export default React.createClass({
   render() {
     return (
       <div className="scoreboard-component">
-        <h2 className="h2-level">Level: {this.props.level.length}</h2>
+        <h2 className="h2-level">Level: {this.props.level}</h2>
+        <h5 className="h5-hits">No. of Hits: {this.props.hits}</h5>
       </div>
     )
   }

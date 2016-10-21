@@ -11,12 +11,13 @@ export default React.createClass({
     return {
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
+      userHitLevel: store.game.get('userHitLevel'),
+      // level: store.game.get('level'),
       showCompArr: false,
       currentColor: '',
       currentCompHitsArr: [],
       flashColor: false,
       colorId: '',
-      timer: 400,
     }
   },
   flashColorArr(compHitsArr) {
@@ -41,14 +42,16 @@ export default React.createClass({
           } else {
             this.setState({showCompArr: false});
           }
-        }, 400);
+        }, 500);
 
-      }, 800);
+      }, 1000);
   },
   updateState() {
     this.setState({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
+      // level: store.game.get('level'),
+      userHitLevel: store.game.get('userHitLevel'),
     });
 
     this.flashColorArr(store.game.get('compHits'));
@@ -80,11 +83,11 @@ export default React.createClass({
                 showCompArr={this.state.showCompArr}
                 key={i}/>);
     });
-
+    // console.log(this.state.userHitLevel);
     return (
       <div className="gameboard-component" id={colorId}>
         <Nav />
-        <ScoreBoard level={this.state.compHits}/>
+        <ScoreBoard hits={this.state.userHitLevel} level={this.state.level}/>
         <div className="gameboard-container">
           <ul className="gameboard">
             {gameSquare}
