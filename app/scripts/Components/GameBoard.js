@@ -32,7 +32,7 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
-
+      console.log(this.state.level);
       window.setTimeout(()=> {
         this.setState({flashColor: false});
 
@@ -50,8 +50,8 @@ export default React.createClass({
     this.setState({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
-      level: store.game.get('level'),
       userHitLevel: store.game.get('userHitLevel'),
+      level: store.game.get('level'),
     });
 
     this.flashColorArr(store.game.get('compHits'));
@@ -75,15 +75,14 @@ export default React.createClass({
                 className="game-square"
                 currentColor={this.state.currentColor}
                 compHits={this.state.compHits}
-                userHits={this.state.userHits}
                 classLi={classLi}
                 classDiv={classDiv}
                 colorId={this.state.colorId}
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
+                calcUserHits={this.calcUserHits}
                 key={i}/>);
     });
-    console.log('this.state.compHits', this.state.compHits);
     return (
       <div className="gameboard-component" id={colorId}>
         <Nav />
@@ -92,7 +91,7 @@ export default React.createClass({
           <ul className="gameboard">
             {gameSquare}
           </ul>
-          <StartButton startGame={this.startGame}/>
+          <StartButton startGame={this.startGame} resetUserHits={this.resetUserHits}/>
         </div>
 
       </div>

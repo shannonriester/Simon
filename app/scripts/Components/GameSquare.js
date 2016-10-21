@@ -24,7 +24,7 @@ export default React.createClass({
 
       window.setTimeout(() => {
         this.setState({clicked: false});
-      }, 250);
+      }, 200);
     }
   },
   render() {
