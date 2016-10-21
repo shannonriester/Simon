@@ -12,7 +12,7 @@ export default React.createClass({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
-      // level: store.game.get('level'),
+      level: store.game.get('level'),
       showCompArr: false,
       currentColor: '',
       currentCompHitsArr: [],
@@ -42,15 +42,15 @@ export default React.createClass({
           } else {
             this.setState({showCompArr: false});
           }
-        }, 500);
+        }, 400);
 
-      }, 1000);
+      }, 800);
   },
   updateState() {
     this.setState({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
-      // level: store.game.get('level'),
+      level: store.game.get('level'),
       userHitLevel: store.game.get('userHitLevel'),
     });
 
@@ -83,7 +83,7 @@ export default React.createClass({
                 showCompArr={this.state.showCompArr}
                 key={i}/>);
     });
-    // console.log(this.state.userHitLevel);
+    console.log('this.state.compHits', this.state.compHits);
     return (
       <div className="gameboard-component" id={colorId}>
         <Nav />

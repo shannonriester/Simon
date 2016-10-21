@@ -62,16 +62,14 @@ export default Backbone.Model.extend({
   addLevel() {
     let nextColor = this.randomColor(this.get('colors').length);
     let nextCompHits = this.get('compHits').concat(nextColor);
-    this.increaseTime(nextCompHits.length)
 
-    console.log('nextCompHits.length', nextCompHits.length);
     window.setTimeout(() => {
       this.set({
         compHits: nextCompHits,
         compSliceArr: nextCompHits,
-        level: 0,
         userHits: [],
       });
+      this.increaseTime(nextCompHits.length);
     }, 1000);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
@@ -90,13 +88,13 @@ export default Backbone.Model.extend({
     if (userHitsArr.length === compHitsArr.length) {
       this.addLevel();
       let score = this.get('userHitLevel') + 1;
-      this.set({userHitLevel: score});
+      this.set({userHitLevel: score}, {silent: true });
     } else {
       this.checkUserInput(userHitsArr, compHitsArr, n);
       this.set({userHits: userHitsArr}, {silent: true });
 
       let score = this.get('userHitLevel') + 1;
-      this.set({userHitLevel: score});
+      this.set({userHitLevel: score}, {silent: true });
     }
   },
   randomColor(colorsLength) {
