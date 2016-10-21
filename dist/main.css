@@ -63,49 +63,49 @@
     box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
 @keyframes neonBorder1 {
   from {
-    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #00CD36, 0 0 70px #00CD36, 0 0 80px #00CD36, 0 0 100px #00CD36, 0 0 150px #00CD36; }
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF inset, 0 0 40px #00CD36, 0 0 70px #00CD36, 0 0 80px #00CD36, 0 0 100px #00CD36, 0 0 150px #00CD36 inset; }
   to {
-    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #00CD36, 0 0 35px #00CD36, 0 0 40px #00CD36, 0 0 50px #00CD36, 0 0 75px #00CD36; } }
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF inset, 0 0 20px #00CD36, 0 0 35px #00CD36, 0 0 40px #00CD36, 0 0 50px #00CD36, 0 0 75px #00CD36 inset; } }
 @keyframes neonBorder2 {
   from {
-    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177; }
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF inset, 0 0 40px #FF1177, 0 0 70px #FF1177, 0 0 80px #FF1177, 0 0 100px #FF1177, 0 0 150px #FF1177 inset; }
   to {
-    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177; } }
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF inset, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177 inset; } }
 @keyframes neonBorder3 {
   from {
-    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B; }
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF inset, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B inset; }
   to {
-    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B; } }
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF inset, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B inset; } }
 @keyframes neonBorder4 {
   from {
-    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF; }
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF inset, 0 0 40px #228DFF, 0 0 70px #228DFF, 0 0 80px #228DFF, 0 0 100px #228DFF, 0 0 150px #228DFF inset; }
   to {
-    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF; } }
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF inset, 0 0 20px #228DFF, 0 0 35px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF, 0 0 75px #228DFF inset; } }
 @keyframes showModal {
   from {
     left: -100%; }
   to {
     left: 0; } }
 #border-green {
-  border: solid 5px #00CD36;
-  -webkit-animation: neon1 1s ease-in-out infinite alternate;
-  -moz-animation: neon1 1s ease-in-out infinite alternate;
-  animation: neon1 1s ease-in-out infinite alternate; }
+  border: solid 8px #00CD36;
+  -webkit-animation: neonBorder1 1s ease-in-out infinite alternate;
+  -moz-animation: neonBorder1 1s ease-in-out infinite alternate;
+  animation: neonBorder1 1s ease-in-out infinite alternate; }
 
 #border-red {
-  border: solid 5px #FF1177;
+  border: solid 8px #FF1177;
   -webkit-animation: neonBorder2 1s ease-in-out infinite alternate;
   -moz-animation: neonBorder2 1s ease-in-out infinite alternate;
   animation: neonBorder2 1s ease-in-out infinite alternate; }
 
 #border-yellow {
-  border: solid 5px #FFDD1B;
+  border: solid 8px #FFDD1B;
   -webkit-animation: neonBorder3 1s ease-in-out infinite alternate;
   -moz-animation: neonBorder3 1s ease-in-out infinite alternate;
   animation: neonBorder3 1s ease-in-out infinite alternate; }
 
 #border-blue {
-  border: solid 5px #228DFF;
+  border: solid 8px #228DFF;
   -webkit-animation: neonBorder4 1s ease-in-out infinite alternate;
   -moz-animation: neonBorder4 1s ease-in-out infinite alternate;
   animation: neonBorder4 1s ease-in-out infinite alternate; }
@@ -171,7 +171,8 @@
 
 .gameboard-component {
   background-color: #000;
-  border: solid #000 3px; }
+  border: solid 8px transparent;
+  border-radius: 3px; }
 
 .gameboard-container {
   display: flex;
@@ -267,15 +268,15 @@
       background-color: #228DFF; }
 
 .start-btn-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1;
   position: relative;
   top: -20rem;
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 5rem;
   width: 5rem;
   margin: 0 auto;
@@ -415,7 +416,7 @@ body {
   line-height: 1.3; }
 
 #container {
-  padding: 5px;
+  padding: 3px;
   background: #000; }
 
 /*# sourceMappingURL=main.css.map */

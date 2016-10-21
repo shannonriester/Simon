@@ -16,6 +16,7 @@ export default React.createClass({
       currentCompHitsArr: [],
       flashColor: false,
       colorId: '',
+      timer: 400,
     }
   },
   flashColorArr(compHitsArr) {
