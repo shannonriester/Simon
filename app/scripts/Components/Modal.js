@@ -3,6 +3,13 @@ import React from 'react';
 import store from '../store';
 
 export default React.createClass({
+  closeModal(e) {
+    console.log(e.target);
+    if (e.target.id === 'modal-component' && e.target.id !== 'modal-content') {
+      console.log(e.target.id);
+      this.props.hideModal();
+    }
+  },
   render() {
     let modal;
     if (this.props.modal === 'login') {
@@ -33,8 +40,8 @@ export default React.createClass({
     }
 
     return (
-      <div className="modal-component">
-        <div className="modal-content">
+      <div id="modal-component" className="modal-component" onClick={this.closeModal}>
+        <div id="modal-content" className="modal-content">
           {modal}
         </div>
       </div>

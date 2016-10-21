@@ -26,9 +26,7 @@ export default React.createClass({
         return color;
       });
       let newCurrColor = mapCompHits.shift();
-      console.log(timeout);
       let secondTime = timeout * 2;
-      console.log(secondTime);
 
       this.setState({
         showCompArr: true,

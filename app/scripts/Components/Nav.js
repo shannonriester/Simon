@@ -41,7 +41,7 @@ export default React.createClass({
     let sideModal;
     let dashboardBtn;
     if (this.state.modal) {
-      sideModal = (<Modal modal={this.state.modal} username={this.state.username}/>);
+      sideModal = (<Modal modal={this.state.modal} hideModal={this.props.hideModal} username={this.state.username}/>);
     }
     if (localStorage.authtoken) {
       dashboardBtn = (<li className="nav-li" onClick={this.showModal}><i id="sideModal" className="bars-icon fa fa-bars" aria-hidden="true"></i></li>);

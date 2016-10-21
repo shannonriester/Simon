@@ -15,7 +15,6 @@ export default React.createClass({
   showModal(e) {
     e.stopPropagation();
     e.preventDefault();
-    console.log('e.target.id', e.target.id);
     this.props.showModal(e.target.id);
   },
   logout() {
