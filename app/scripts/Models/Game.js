@@ -13,6 +13,7 @@ export default Backbone.Model.extend({
     highScore: 0,
     colors: ['green', 'red', 'yellow', 'blue'],
     level: 1,
+    timeout: 400,
   },
   restart: function() {
     this.set({
@@ -23,6 +24,7 @@ export default Backbone.Model.extend({
       highScore: 0,
       colors: ['green', 'red', 'yellow', 'blue'],
       level: 1,
+      timeout: 400,
     });
   },
   newGame: function() {
@@ -40,16 +42,28 @@ export default Backbone.Model.extend({
   increaseTime(length) {
     length = length - 1;
     if (length === 5) {
-      this.set({level: 2}, {silent: true});
+      this.set({
+        level: 2,
+        timeout: 350,
+      }, {silent: true});
       console.log('5 hits!');
     } else if (length === 10) {
-      this.set({level: 3}, {silent: true});
+      this.set({
+        level: 3,
+        timeout: 300,
+      }, {silent: true});
       console.log('10 hits!');
     } else if (length === 15) {
-      this.set({level: 4}, {silent: true});
+      this.set({
+        level: 4,
+        timeout: 250,
+      }, {silent: true});
       console.log('15 hits!');
     } else if (length === 20) {
-      this.set({level: 5}, {silent: true});
+      this.set({
+        level: 5,
+        timeout: 200,
+      }, {silent: true});
       console.log('20 hits!');
     } else if (length === 25) {
       this.set({level: 6}, {silent: true});
@@ -71,6 +85,7 @@ export default Backbone.Model.extend({
   addLevel() {
     let nextColor = this.randomColor(this.get('colors').length);
     let nextCompHits = this.get('compHits').concat(nextColor);
+    console.log('nextCompHits', nextCompHits);
     window.setTimeout(() => {
       this.increaseTime(nextCompHits.length);
       this.set({
@@ -78,7 +93,7 @@ export default Backbone.Model.extend({
         compSliceArr: nextCompHits,
         userHits: [],
       });
-    }, 1000);
+    }, 1500);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
     if (userHitsArr[n] !== compHitsArr[n]) {

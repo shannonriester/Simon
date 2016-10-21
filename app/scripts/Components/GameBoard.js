@@ -12,6 +12,7 @@ export default React.createClass({
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
+      timeout: store.game.get('timeout'),
       level: store.game.get('level'),
       showCompArr: false,
       currentColor: '',
@@ -20,11 +21,14 @@ export default React.createClass({
       colorId: '',
     }
   },
-  flashColorArr(compHitsArr) {
+  flashColorArr(compHitsArr, timeout) {
       let mapCompHits = compHitsArr.map((color, i) => {
         return color;
       });
       let newCurrColor = mapCompHits.shift();
+      console.log(timeout);
+      let secondTime = timeout * 2;
+      console.log(secondTime);
 
       this.setState({
         showCompArr: true,
@@ -32,19 +36,18 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
-      console.log(this.state.level);
       window.setTimeout(()=> {
         this.setState({flashColor: false});
 
         window.setTimeout(() => {
           if (mapCompHits.length) {
-            this.flashColorArr(mapCompHits);
+            this.flashColorArr(mapCompHits, timeout);
           } else {
             this.setState({showCompArr: false});
           }
-        }, 400);
+        }, timeout);
 
-      }, 800);
+      }, secondTime);
   },
   updateState() {
     this.setState({
@@ -52,9 +55,10 @@ export default React.createClass({
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
       level: store.game.get('level'),
+      timeout: store.game.get('timeout'),
     });
 
-    this.flashColorArr(store.game.get('compHits'));
+    this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
   },
   componentDidMount() {
     store.game.on('change', this.updateState);
