@@ -6,12 +6,6 @@ import Modal from './Modal';
 import GameSquare from './GameSquare';
 
 export default React.createClass({
-  getInitialState() {
-    return {
-      username: store.session.get('username'),
-      modal: false,
-    }
-  },
   showModal(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -31,7 +25,7 @@ export default React.createClass({
     if (this.props.username) {
       sessionNav = (
         <ul className="nav-ul nav-session">
-          <li className="nav-li">Hi, {this.state.username}</li>
+          <li className="nav-li">Hi {this.props.username}!</li>
           <li className="nav-li" onClick={this.logout}>Logout</li>
         </ul>
       );

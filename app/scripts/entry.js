@@ -15,5 +15,8 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   }
 });
 
+if (localStorage.authtoken) {
+  store.session.retrieve();
+}
 
 ReactDOM.render(router, document.getElementById('container'));

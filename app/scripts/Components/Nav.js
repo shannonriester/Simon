@@ -38,6 +38,7 @@ export default React.createClass({
     store.session.off('change', this.updateState);
   },
   render() {
+    // console.log(this.state.username);
     let sideModal;
     let dashboardBtn;
     if (this.state.modal) {

@@ -152,48 +152,4 @@ export default Backbone.Model.extend({
         break;
     }
   },
-  parse(response) {
-    if (response) {
-      return {
-        _id: response._id,
-        username: response.username,
-        authtoken: response._kmd.authtoken,
-        highScore: response.highScore,
-      }
-    }
-  },
-  login(username, password) {
-    this.save({
-      username: username,
-      password: password,
-    }, {
-      url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/login`,
-      type: 'POST',
-      success: (model, response) => {
-        localStorage.setItem('authtoken', response._kmd.authtoken);
-        this.unset('password');
-      },
-      error: function(model, response) {
-        throw new Error('LOGIN FAILED');
-      }
-    });
-  },
-  signup(username, password, password2){
-    if (password === password2) {
-      this.save({
-        username: username,
-        password: password,
-      },{
-        url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/`,
-        type: 'POST',
-        success: (model, response) => {
-          localStorage.setItem('authtoken', response._kmd.authtoken);
-          this.unset('password');
-        },
-        error: function(model, response) {
-          throw new Error('LOGIN FAILED');
-        }
-      });
-    }
-  },
 });
