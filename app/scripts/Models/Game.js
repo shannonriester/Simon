@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
-import moment from 'moment';
+
+import store from '../store';
 
 export default Backbone.Model.extend({
   idAttribute: '_id',
@@ -17,6 +18,7 @@ export default Backbone.Model.extend({
     timeout: 400,
   },
   parse(response) {
+    // console.log(response);
     if (response) {
       return {
         _id: response._id,
@@ -26,16 +28,6 @@ export default Backbone.Model.extend({
         gamesPlayed: response.gamesPlayed,
       }
     }
-  },
-  saveGame: function(score) {
-    let player = this.get('player');
-    let date = moment().format('MM Do YYYY, h:mm a');
-    if (player !== '') {
-      this.save({highScore:score, player:player, date:date}, {silent: true});
-    }
-  },
-  setUser: function(username) {
-    this.set({player: username}, {silent: true});
   },
   restart: function() {
     this.set({
@@ -55,10 +47,10 @@ export default Backbone.Model.extend({
     let newCompHitsArr = [];
     let newColor = this.randomColor(this.get('colors').length);
     newCompHitsArr = newCompHitsArr.concat(newColor);
+
     this.set({
       compSliceArr: newCompHitsArr,
       compHits: newCompHitsArr,
-      compSliceArr: newCompHitsArr,
     });
   },
   increaseTime(length) {
@@ -130,13 +122,10 @@ export default Backbone.Model.extend({
         compSliceArr: nextCompHits,
         userHits: [],
       });
-    }, 1500);
+    }, 1250);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
-    if (this.get('highScore') < userHitsArr.length) {
-      this.saveGame(userHitsArr.length);
-    }
-
+    // store.session.saveGame(userHitsArr.length);
     if (userHitsArr[n] !== compHitsArr[n]) {
       console.log('wrong!');
       this.restart();
@@ -150,14 +139,12 @@ export default Backbone.Model.extend({
 
     let n = userHitsArr.length - 1;
 
+    store.session.saveGame(userHitsArr.length);
+
     if (userHitsArr.length === compHitsArr.length) {
-      if (this.get('highScore') < userHitsArr.length) {
-        this.saveGame(userHitsArr.length);
-      }
       this.addLevel();
     } else {
       this.checkUserInput(userHitsArr, compHitsArr, n);
-
       this.set({userHits: userHitsArr}, {silent: true });
     }
   },

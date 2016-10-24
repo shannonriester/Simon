@@ -1,4 +1,6 @@
 import Backbone from 'backbone';
+import moment from 'moment';
+
 
 export default Backbone.Model.extend({
   idAttribute: '_id',
@@ -19,6 +21,22 @@ export default Backbone.Model.extend({
         highScore: response.highScore,
       }
     }
+  },
+  saveGame(newHighScore) {
+    let date = moment().format('MM Do YYYY, h:mm a');
+    let numGames = this.get('gamesPlayed');
+    numGames = numGames + 1;
+    console.log('numGames', numGames);
+
+    if (newHighScore > this.get('highScore')) {
+      this.save({highScore: newHighScore});
+    }
+    this.save({gamesPlayed: numGames});
+  },
+  addGame() {
+    let numGames = this.get('gamesPlayed');
+    numGames = numGames + 1;
+    this.set({gamesPlayed: })
   },
   login(username, password) {
     this.save({

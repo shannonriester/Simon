@@ -17,6 +17,7 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
 
 if (localStorage.authtoken) {
   store.session.retrieve();
+  // store.game.setUser()
 }
 
 ReactDOM.render(router, document.getElementById('container'));
