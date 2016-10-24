@@ -52,6 +52,8 @@
   background: none;
   padding: 5px;
   outline: none;
+  border: none;
+  color: grey;
 }
 
 .modal-ul {
@@ -70,4 +72,7 @@
   color: $light-color;
   background: $font-color;
   border-top: solid 1px $light-color;
+  &:hover {
+    background: rgba($font-color, .7);
+  }
 }

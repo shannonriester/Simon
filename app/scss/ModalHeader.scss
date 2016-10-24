@@ -1,0 +1,23 @@
+.modal-header-component {
+  width: 100%;
+}
+
+.greeting-container {
+  @include flex-center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 0 1rem 1rem;
+  overflow: hidden;
+}
+
+.profile-pic {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.greeting {
+  margin: 0 0 1rem 1rem;
+}

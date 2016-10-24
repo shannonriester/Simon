@@ -1,6 +1,7 @@
 import React from 'react';
 
 import store from '../store';
+import ModalHeader from './ModalHeader';
 
 export default React.createClass({
   getInitialState() {
@@ -36,17 +37,20 @@ export default React.createClass({
     let password2 = this.refs.password2.value;
     store.session.signup(username, password, password2)
   },
+  logout() {
+    store.game.logout();
+  },
   render() {
     let modal;
+    let modalHeader;
     let sessionLIs = (
       <ul className="session-modal-ul modal-ul">
-        <li className="modal-li session-modal-li btn" onClick={ store.game.logout }>Logout</li>
+        <li className="modal-li session-modal-li btn" onClick={this.logout}>Logout</li>
       </ul>);
 
     if (this.state.modal && this.state.type === 'login') {
       modal = (
         <div className="modal-content-container login-modal">
-          <div id="cancel-btn" className="cancel-container btn"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.props.hideModal}>X</button></div>
           <h2>Login</h2>
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -58,7 +62,6 @@ export default React.createClass({
     } else if (this.state.modal && this.state.type === 'signup') {
       modal = (
         <div className="modal-content-container login-modal">
-          <div id="cancel-btn" className="cancel-container btn"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
           <h2>Sign Up</h2>
           <form className="login-form session-form" type="submit" onSubmit={this.signup}>
             <input type="text" tabIndex="2" placeholder="Choose a username?" role="textbox" ref="username"/>
@@ -77,11 +80,15 @@ export default React.createClass({
           <li className="modal-li session-modal-li btn" id="signup" onClick={this.toggleView}>Sign Up {modal}</li>
         </ul>
       );
+    } else {
+      modalHeader = (<ModalHeader username ={this.props.username}/>);
     }
 
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">
+        <div id="cancel-btn" className="cancel-container"><button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
+          {modalHeader}
           {sessionLIs}
           <ul className="modal-ul">
             <li className="modal-li btn">High Score</li>
