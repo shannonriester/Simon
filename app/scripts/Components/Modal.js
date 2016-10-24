@@ -5,23 +5,24 @@ import store from '../store';
 export default React.createClass({
   getInitialState() {
     return {
-      login: false,
-      signup: false,
+      modal: false,
+      type: false,
     }
-  }
+  },
   closeModal(e) {
     if (e.target.id === 'modal-component' && e.target.id !== 'modal-content') {
       this.props.hideModal();
     }
   },
   closeModalBtn() {
-    this.props.hideModal()
+    this.props.hideModal();
   },
   toggleView(e) {
-    e.preventDefault();
-    let id = e.target.id
-    this.setState({{id}: !this.state.login});
-  }
+    this.setState({
+      modal: !this.state.login,
+      type: e.target.id,
+    });
+  },
   login(e) {
     e.preventDefault();
     let username = this.refs.username.value;
@@ -37,11 +38,15 @@ export default React.createClass({
   },
   render() {
     let modal;
-    let sessionLIs = (<li onClick={ store.game.logout(); }>Logout</li>);
-    if (this.props.modal === 'login') {
+    let sessionLIs = (
+      <ul className="session-modal-ul modal-ul">
+        <li className="modal-li session-modal-li btn" onClick={ store.game.logout }>Logout</li>
+      </ul>);
+
+    if (this.state.modal && this.state.type === 'login') {
       modal = (
         <div className="modal-content-container login-modal">
-          <div id="cancel-btn" className="cancel-container"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
+          <div id="cancel-btn" className="cancel-container btn"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.props.hideModal}>X</button></div>
           <h2>Login</h2>
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -50,36 +55,38 @@ export default React.createClass({
           </form>
         </div>
       );
-    } else if (this.props.modal === 'signup') {
+    } else if (this.state.modal && this.state.type === 'signup') {
       modal = (
         <div className="modal-content-container login-modal">
-          <div id="cancel-btn" className="cancel-container"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
+          <div id="cancel-btn" className="cancel-container btn"><button className="cancel-btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
           <h2>Sign Up</h2>
           <form className="login-form session-form" type="submit" onSubmit={this.signup}>
             <input type="text" tabIndex="2" placeholder="Choose a username?" role="textbox" ref="username"/>
             <input type="password" tabIndex="3" placeholder="password" role="textbox" ref="password1"/>
             <input type="password" tabIndex="4" placeholder="confirm password" role="textbox" ref="password2"/>
-            <button className="submit-btn" tabIndex="5" role="button" onClick={this.signup}>Enter</button>
+            <button className="submit-btn btn" tabIndex="5" role="button" onClick={this.signup}>Enter</button>
           </form>
         </div>
       );
     }
 
-
-    if (this.props.username) {
+    if (!this.props.username) {
       sessionLIs = (
-        <li id="login" onClick={this.toggleView}>Login</li>
-        <li id="signup" onClick={this.toggleView}>Sign Up</li>
+        <ul className="session-modal-ul modal-ul">
+          <li className="modal-li session-modal-li btn" id="login" onClick={this.toggleView}>Login {modal}</li>
+          <li className="modal-li session-modal-li btn" id="signup" onClick={this.toggleView}>Sign Up {modal}</li>
+        </ul>
       );
     }
 
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">
-          <ul>
-            {sessionLIs}
+          {sessionLIs}
+          <ul className="modal-ul">
+            <li className="modal-li btn">High Score</li>
+            <li className="modal-li btn">Leader Board</li>
           </ul>
-          {modal}
         </div>
       </div>
     );

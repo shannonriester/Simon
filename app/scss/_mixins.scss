@@ -8,3 +8,11 @@
   @include flex-center();
   justify-content: space-around;
 }
+
+@mixin ul-normalize() {
+  padding: 0;
+  margin: 0;
+  li {
+    list-style-type: none;
+  }
+}

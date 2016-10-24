@@ -8,7 +8,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className="start-btn-component" onClick={this.startGame}>
+      <div className="start-btn-component btn" onClick={this.startGame}>
         Start Game
       </div>
     )

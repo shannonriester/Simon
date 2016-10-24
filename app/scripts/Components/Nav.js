@@ -52,8 +52,8 @@ export default React.createClass({
 
     return (
       <nav className="nav-component">
-        <div id="sideModal" className="nav-li icon-container" onClick={this.showModal}>
-          <i className="bars-icon fa fa-bars" aria-hidden="true"></i>
+        <div id="sideModal" className="icon-container" onClick={this.showModal}>
+          <i className="bars-icon nav-li fa fa-bars" aria-hidden="true"></i>
         </div>
 
         <ul className="nav-ul nav-main">

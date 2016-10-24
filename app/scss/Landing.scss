@@ -7,7 +7,6 @@
   margin: 0;
 }
 
-
 .landing-li {
   width: 50%;
   height: 50%;
@@ -25,7 +24,6 @@
   @include flex-center;
   font-size: 2rem;
   &:hover {
-    cursor: pointer;
     // -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
     // -moz-animation: neon1 1.5s ease-in-out infinite alternate;
     // animation: neon1 1.5s ease-in-out infinite alternate;
@@ -37,7 +35,6 @@
 
 .landing-inner.greenDiv {
   &:hover {
-    cursor: pointer;
     -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
     -moz-animation: neon1 1.5s ease-in-out infinite alternate;
     animation: neon1 1.5s ease-in-out infinite alternate;
@@ -45,7 +42,6 @@
 }
 .landing-inner.redDiv {
   &:hover {
-    cursor: pointer;
     -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
     -moz-animation: neon2 1.5s ease-in-out infinite alternate;
     animation: neon2 1.5s ease-in-out infinite alternate;
@@ -53,7 +49,6 @@
 }
 .landing-inner.yellowDiv {
   &:hover {
-    cursor: pointer;
     -webkit-animation: neon3 1.5s ease-in-out infinite alternate;
     -moz-animation: neon3 1.5s ease-in-out infinite alternate;
     animation: neon3 1.5s ease-in-out infinite alternate;
@@ -61,7 +56,6 @@
 }
 .landing-inner.blueDiv {
   &:hover {
-    cursor: pointer;
     -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
     -moz-animation: neon4 1.5s ease-in-out infinite alternate;
     animation: neon4 1.5s ease-in-out infinite alternate;
