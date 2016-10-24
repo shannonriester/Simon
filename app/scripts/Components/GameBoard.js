@@ -93,7 +93,12 @@ export default React.createClass({
           <ul className="gameboard">
             {gameSquare}
           </ul>
-          <StartButton startGame={this.startGame} resetUserHits={this.resetUserHits}/>
+          <StartButton
+            startGame={this.startGame}
+            resetUserHits={this.resetUserHits}
+            flashColor={this.state.flashColor}
+            compHits={this.state.compHits}
+            />
         </div>
 
       </div>

@@ -14,4 +14,13 @@
   background-color: $font-color;
   font-family: $font-family;
   font-size: 11px;
+
+}
+
+#startGame {
+  &:hover {
+    -webkit-animation: startBtn 1s ease-in-out infinite alternate;
+    -moz-animation: startBtn 1s ease-in-out infinite alternate;
+    animation: startBtn 1s ease-in-out infinite alternate;
+  }
 }

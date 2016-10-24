@@ -7,8 +7,13 @@ export default React.createClass({
     store.game.newGame();
   },
   render() {
+    let id;
+    console.log(this.props.compHits);
+    if (!this.props.flashColor && this.props.compHits < 1) {
+      id = "startGame"
+    }
     return (
-      <div className="start-btn-component btn" onClick={this.startGame}>
+      <div id={id} className="start-btn-component btn" onClick={this.startGame}>
         Start Game
       </div>
     )

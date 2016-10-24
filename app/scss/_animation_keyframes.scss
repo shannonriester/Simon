@@ -148,12 +148,21 @@
   }
 }
 
-
 @keyframes showModal {
   from {
     left: -100%;
   }
   to {
     left: 0;
+  }
+}
+
+
+@keyframes startBtn {
+  from {
+    box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #000, 0 0 70px #000, 0 0 80px #000, 0 0 100px #000, 0 0 150px #000;
+  }
+  to {
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #000, 0 0 35px #000, 0 0 40px #000, 0 0 50px #000, 0 0 75px #000;
   }
 }
