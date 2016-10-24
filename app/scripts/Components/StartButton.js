@@ -8,7 +8,6 @@ export default React.createClass({
   },
   render() {
     let id;
-    console.log(this.props.compHits);
     if (!this.props.flashColor && this.props.compHits < 1) {
       id = "startGame"
     }

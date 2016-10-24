@@ -1,9 +1,11 @@
 import ColorsCollection from './Collections/Colors';
+import Users from './Collections/Users';
 import Game from './Models/Game';
 import Session from './Models/Session';
 
 const store = {
   session: new Session(),
+  userCollection: new Users(),
   game: new Game(),
   colors: ['green', 'red', 'yellow', 'blue'],
   settings: {

@@ -12,8 +12,6 @@ export default Backbone.Model.extend({
   },
   parse(response) {
     if (response) {
-      // response = response.toJSON();
-      console.log('response', response);
       return {
         _id: response._id,
         username: response.username,

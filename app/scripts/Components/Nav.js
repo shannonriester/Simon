@@ -58,7 +58,8 @@ export default React.createClass({
 
         <ul className="nav-ul nav-main">
           <li id="Home" className="nav-li" onClick={this.routeTo}>Home</li>
-          <li className="nav-li" onClick={this.newGame}>New Game</li>
+          <li className="nav-li" onClick={this.newGame}>Start Game</li>
+          <li id="GameBoard" className="nav-li" onClick={this.routeTo}>Game Board</li>
           <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
         </ul>
 
