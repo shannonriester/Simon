@@ -171,6 +171,7 @@
   width: 50%; }
 
 .bars-icon {
+  width: 1rem;
   font-size: 2rem;
   color: #F6F6F6; }
 
@@ -367,7 +368,9 @@
 .cancel-btn {
   background: none;
   padding: 5px;
-  outline: none; }
+  outline: none;
+  border: none;
+  color: grey; }
 
 .modal-ul {
   padding: 0;
@@ -389,6 +392,30 @@
   color: #F6F6F6;
   background: #393d3f;
   border-top: solid 1px #F6F6F6; }
+  .modal-li:hover {
+    background: rgba(57, 61, 63, 0.7); }
+
+.modal-header-component {
+  width: 100%; }
+
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0 0 1rem 1rem;
+  overflow: hidden; }
+
+.profile-pic {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover; }
+
+.greeting {
+  margin: 0 0 1rem 1rem; }
 
 .landing-component {
   display: flex;
