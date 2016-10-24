@@ -59,7 +59,7 @@ export default Backbone.Model.extend({
   },
   logout() {
     this.save(null, {
-      url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/`,
+      url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/_logout`,
       type: 'POST',
       success: (model, response) => {
         localStorage.clear();

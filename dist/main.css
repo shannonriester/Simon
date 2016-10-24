@@ -162,6 +162,13 @@
     cursor: pointer;
     border-bottom: solid 2px #F6F6F6; }
 
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  width: 50%; }
+
 .bars-icon {
   font-size: 2rem;
   color: #F6F6F6; }

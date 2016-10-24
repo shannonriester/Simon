@@ -3,6 +3,12 @@ import React from 'react';
 import store from '../store';
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      login: false,
+      signup: false,
+    }
+  }
   closeModal(e) {
     if (e.target.id === 'modal-component' && e.target.id !== 'modal-content') {
       this.props.hideModal();
@@ -11,6 +17,11 @@ export default React.createClass({
   closeModalBtn() {
     this.props.hideModal()
   },
+  toggleView(e) {
+    e.preventDefault();
+    let id = e.target.id
+    this.setState({{id}: !this.state.login});
+  }
   login(e) {
     e.preventDefault();
     let username = this.refs.username.value;
@@ -26,6 +37,7 @@ export default React.createClass({
   },
   render() {
     let modal;
+    let sessionLIs = (<li onClick={ store.game.logout(); }>Logout</li>);
     if (this.props.modal === 'login') {
       modal = (
         <div className="modal-content-container login-modal">
@@ -53,12 +65,23 @@ export default React.createClass({
       );
     }
 
+
+    if (this.props.username) {
+      sessionLIs = (
+        <li id="login" onClick={this.toggleView}>Login</li>
+        <li id="signup" onClick={this.toggleView}>Sign Up</li>
+      );
+    }
+
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">
+          <ul>
+            {sessionLIs}
+          </ul>
           {modal}
         </div>
       </div>
-    )
+    );
   }
 });

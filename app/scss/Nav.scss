@@ -28,6 +28,12 @@
   }
 }
 
+.icon-container {
+  @include flex-center;
+  justify-content: flex-start;
+  width: 50%;
+}
+
 .bars-icon {
   font-size: 2rem;
   color: $light-color;

@@ -45,49 +45,49 @@ export default Backbone.Model.extend({
     if (length === 5) {
       this.set({
         level: 2,
-        timeout: 350,
+        timeout: 300,
       }, {silent: true});
       console.log('5 hits!');
     } else if (length === 10) {
       this.set({
         level: 3,
-        timeout: 275,
+        timeout: 250,
       }, {silent: true});
       console.log('10 hits!');
     } else if (length === 15) {
       this.set({
         level: 4,
-        timeout: 225,
+        timeout: 200,
       }, {silent: true});
       console.log('15 hits!');
     } else if (length === 20) {
       this.set({
         level: 5,
-        timeout: 200,
+        timeout: 180,
       }, {silent: true});
       console.log('20 hits!');
     } else if (length === 25) {
       this.set({
         level: 6,
-        timeout: 180,
+        timeout: 160,
       }, {silent: true});
       console.log('25 hits!');
     } else if (length === 30) {
       this.set({
         level: 7,
-        timeout: 160,
+        timeout: 130,
       }, {silent: true});
       console.log('30 hits!');
     } else if (length === 35) {
       this.set({
         level: 8,
-        timeout: 140,
+        timeout: 100,
       }, {silent: true});
       console.log('30 hits!');
     } else if (length === 40) {
       this.set({
         level: 9,
-        timeout: 100,
+        timeout: 75,
       }, {silent: true});
       console.log('30 hits!');
     } else if (length === 45) {
