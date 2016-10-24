@@ -12,6 +12,7 @@ export default Backbone.Model.extend({
   },
   parse(response) {
     if (response) {
+      // response = response.toJSON();
       console.log('response', response);
       return {
         _id: response._id,
@@ -75,7 +76,7 @@ export default Backbone.Model.extend({
   },
   retrieve() {
     this.fetch({
-      url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/`,
+      url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/_me`,
       success: (model, response) => {
         // console.log('RETRIEVED USER: ', this);
       },
