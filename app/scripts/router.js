@@ -11,7 +11,11 @@ const router = (
     <Route path="/" component={Landing} />
     <Route path="/Home" component={Landing} />
     <Route path="/GameBoard" component={GameBoard} />
+    {
+      // <Route path="/GameBoard/Dashboard" component={GameBoard} showModal={false}/>
+    }
     <Route path="/LeaderBoard" component={LeaderBoard} />
+    <Route path="/*" component={GameBoard} />
   </Router>
 );
 

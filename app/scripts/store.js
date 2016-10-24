@@ -5,7 +5,7 @@ import Session from './Models/Session';
 
 const store = {
   session: new Session(),
-  userCollection: new Users(),
+  gameCollection: new Games(),
   game: new Game(),
   colors: ['green', 'red', 'yellow', 'blue'],
   settings: {

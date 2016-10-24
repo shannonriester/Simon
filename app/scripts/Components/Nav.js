@@ -13,11 +13,13 @@ export default React.createClass({
       modal: false,
     }
   },
-  showModal(modalID) {
-    this.setState({modal: modalID});
+  showModal() {
+    this.setState({modal: true});
+    browserHistory.push('GameBoard/Dashboard');
   },
   hideModal() {
     this.setState({modal: false});
+    browserHistory.push('/GameBoard');
   },
   newGame() {
     store.game.newGame();
@@ -49,16 +51,14 @@ export default React.createClass({
         username={this.state.username}
         />);
     }
-
+    console.log(this);
     return (
       <nav className="nav-component">
-        <div id="sideModal" className="icon-container" onClick={this.showModal}>
-          <i className="bars-icon nav-li fa fa-bars" aria-hidden="true"></i>
-        </div>
-
         <ul className="nav-ul nav-main">
+          <li className="nav-li" onClick={this.showModal}>
+            <i className="bars-icon fa fa-bars" aria-hidden="true"></i>
+          </li>
           <li id="Home" className="nav-li" onClick={this.routeTo}>Home</li>
-          <li className="nav-li" onClick={this.newGame}>Start Game</li>
           <li id="GameBoard" className="nav-li" onClick={this.routeTo}>Game Board</li>
           <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
         </ul>

@@ -6,14 +6,14 @@ import Nav from './Nav';
 export default React.createClass({
   getInitialState() {
     return {
-      users: store.userCollection.toJSON(),
+      games: store.gameCollection.toJSON(),
     }
   },
   updateState() {
-    this.setState({users: store.userCollection.toJSON()});
+    this.setState({games: store.gameCollection.toJSON()});
   },
   componentDidMount() {
-    store.userCollection.on('change update', this.updateState);
+    store.gameCollection.on('change', this.updateState);
   },
   render() {
     let userTable;

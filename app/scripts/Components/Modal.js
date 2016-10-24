@@ -77,6 +77,7 @@ export default React.createClass({
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
+          <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">High Score</p></li>
         </ul>);
     } else {
       sessionLIs = (
@@ -96,12 +97,11 @@ export default React.createClass({
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">
-        <div id="cancel-btn" className="cancel-container"><button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
+        <div id="cancel-btn btn" className="cancel-container"><button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
           <ModalHeader username ={this.props.username}/>
           {sessionLIs}
           <ul className="modal-ul">
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>
-            <li className="modal-li btn">High Score</li>
             <li className="modal-li btn">Leader Board</li>
           </ul>
         </div>
