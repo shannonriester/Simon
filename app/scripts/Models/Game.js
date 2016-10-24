@@ -1,11 +1,12 @@
 import Backbone from 'backbone';
+import moment from 'moment';
 
 export default Backbone.Model.extend({
   idAttribute: '_id',
-  urlRoot:`https://baas.kinvey.com/user/kid_BJ6LcoFC`,
+  urlRoot:`https://baas.kinvey.com/appdata/kid_BJ6LcoFC/Games`,
   defaults: {
     player: '',
-    score: 0,
+    date: '',
     compSliceArr: [],
     compHits: [],
     userHits: [],
@@ -14,7 +15,27 @@ export default Backbone.Model.extend({
     colors: ['green', 'red', 'yellow', 'blue'],
     level: 1,
     timeout: 400,
-    gamesPlayed: 0,
+  },
+  parse(response) {
+    if (response) {
+      return {
+        _id: response._id,
+        player: response.username,
+        date: response.date,
+        highScore: response.highScore,
+        gamesPlayed: response.gamesPlayed,
+      }
+    }
+  },
+  saveGame: function(score) {
+    let player = this.get('player');
+    let date = moment().format('MM Do YYYY, h:mm a');
+    if (player !== '') {
+      this.save({highScore:score, player:player, date:date}, {silent: true});
+    }
+  },
+  setUser: function(username) {
+    this.set({player: username}, {silent: true});
   },
   restart: function() {
     this.set({
@@ -112,6 +133,10 @@ export default Backbone.Model.extend({
     }, 1500);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
+    if (this.get('highScore') < userHitsArr.length) {
+      this.saveGame(userHitsArr.length);
+    }
+
     if (userHitsArr[n] !== compHitsArr[n]) {
       console.log('wrong!');
       this.restart();
@@ -120,18 +145,19 @@ export default Backbone.Model.extend({
   userHits(newHit, compHits) {
     let compHitsArr = this.get('compHits');
     let userHitsArr = this.get('userHits').concat(newHit);
+
     this.set({userHitLevel: userHitsArr}, {silent: true });
+
     let n = userHitsArr.length - 1;
 
     if (userHitsArr.length === compHitsArr.length) {
+      if (this.get('highScore') < userHitsArr.length) {
+        this.saveGame(userHitsArr.length);
+      }
       this.addLevel();
     } else {
       this.checkUserInput(userHitsArr, compHitsArr, n);
-      console.log('userHitsArr.length', userHitsArr.length);
-      let highScore = this.get('highScore');
-      if (highScore < userHitsArr.length) {
-        this.set({highScore: userHitsArr.length}, {silent: true});
-      }
+
       this.set({userHits: userHitsArr}, {silent: true });
     }
   },

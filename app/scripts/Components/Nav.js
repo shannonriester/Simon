@@ -30,6 +30,8 @@ export default React.createClass({
   },
   updateState() {
     this.setState({username: store.session.get('username')});
+    
+    store.game.setUser(store.session.get('username'));
   },
   componentWillMount() {
     if (localStorage.authtoken) {
@@ -51,7 +53,6 @@ export default React.createClass({
         username={this.state.username}
         />);
     }
-    console.log(this);
     return (
       <nav className="nav-component">
         <ul className="nav-ul nav-main">

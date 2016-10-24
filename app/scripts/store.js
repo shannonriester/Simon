@@ -1,5 +1,5 @@
 import ColorsCollection from './Collections/Colors';
-import Users from './Collections/Users';
+import Games from './Collections/Games';
 import Game from './Models/Game';
 import Session from './Models/Session';
 
