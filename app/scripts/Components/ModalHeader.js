@@ -2,12 +2,11 @@ import React from 'react';
 
 export default React.createClass({
   render() {
-    let greeting;
+    let greeting = (<p className="greeting">Hi, Welcome to Simon!</p>);
     if (this.props.username) {
       greeting = (<p className="greeting">Hi, {this.props.username}!</p>);
-    } else {
-      greeting = (<p className="greeting">Hi, Welcome to Simon!</p>);
     }
+
     return (
       <header className="modal-header-component">
         <div className="greeting-container">

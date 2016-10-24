@@ -25,15 +25,17 @@
 
 .modal-content-container, .session-form {
   @include flex-space-around;
+  align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  height: 60%;
 }
 
 .session-form {
+  width: 85%;
   input {
-    width: 90%;
+    width: 100%;
     height: 2rem;
+    padding-left: 10px;
     outline: none;
     border: none;
     background: $light-color;
@@ -66,13 +68,47 @@
 .modal-li {
   @include flex-center;
   justify-content: flex-start;
-  padding-left: 10px;
-  width: 100%;
-  height: 3rem;
+  // padding: .5rem 0 .5rem 1rem;
+  padding: 1rem;
+  width: 90%;
   color: $light-color;
   background: $font-color;
   border-top: solid 1px $light-color;
+  font-weight: 100;
   &:hover {
     background: rgba($font-color, .7);
+  }
+}
+
+.session-modal-li {
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.modal-p {
+  width: 90%;
+  height: 100%;
+  padding: 1rem;
+  margin: 0;
+  font-weight: 100;
+}
+
+.session-form {
+  height: 10rem;
+}
+
+.submit-btn {
+  border: none;
+  background: $dark-color;
+  color: $light-color;
+  width: 10rem;
+  height: 2rem;
+  margin: 0 auto;
+  border-radius: 2px;
+  &:hover {
+    transition: .5s;
+    color: $dark-color;
+    background: $light-color;
   }
 }

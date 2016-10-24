@@ -12,7 +12,7 @@ export default Backbone.Model.extend({
   },
   parse(response) {
     if (response) {
-      response = response[0];
+      console.log('response', response);
       return {
         _id: response._id,
         username: response.username,
@@ -33,6 +33,9 @@ export default Backbone.Model.extend({
         this.unset('password');
       },
       error: function(model, response) {
+        this.unset('username');
+        this.unset('password');
+        this.trigger('change');
         throw new Error('LOGIN FAILED');
       }
     });
