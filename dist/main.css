@@ -451,6 +451,34 @@
 .greeting {
   margin: 0 0 1rem 1rem; }
 
+.landing-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 50%;
+  height: 100%; }
+
+.h2-landing {
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-weight: 100; }
+
+.input-landing {
+  width: 100%;
+  max-width: 14rem;
+  height: 2rem;
+  padding-left: 5px;
+  outline: none;
+  border: none;
+  font-size: 12px;
+  color: #393d3f; }
+
+.cancel-landing-btn {
+  height: 0rem;
+  color: #000; }
+
 .landing-component {
   display: flex;
   align-items: center;

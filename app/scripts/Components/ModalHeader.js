@@ -6,7 +6,7 @@ export default React.createClass({
     if (this.props.username) {
       greeting = (<p className="greeting">Hi, {this.props.username}!</p>);
     }
-
+    
     return (
       <header className="modal-header-component">
         <div className="greeting-container">
@@ -16,5 +16,4 @@ export default React.createClass({
       </header>
     );
   }
-
 });

@@ -43,7 +43,7 @@ export default React.createClass({
     let username = this.refs.username.value;
     let password = this.refs.password1.value;
     let password2 = this.refs.password2.value;
-    store.session.signup(username, password, password2)
+    store.session.signup(username, password, password2);
   },
   logout() {
     store.session.logout();
