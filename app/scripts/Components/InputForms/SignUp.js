@@ -12,12 +12,14 @@ export default React.createClass({
   },
   closeSignup(e) {
     e.preventDefault();
+    console.log(this.props.hideSignup());
+    console.log(this.props);
     this.props.hideSignup();
   },
   render() {
       return (
         <form className="signup-form-component landing-form" onSubmit={this.login}>
-          <div id="cancel-btn cancel-landing btn" className="cancel-container"><button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeSignup}>X</button></div>
+          <div className="cancel-container cancel-landing-container"><button className="cancel-landing cancel-btn btn" tabIndex="1" role="button" onClick={this.closeSignup}>X</button></div>
           <h2 className="h2-landing">Sign Up</h2>
           <input className="input-landing" type="text" tabIndex="2" placeholder="Choose a username" role="textbox" ref="username"/>
           <input className="input-landing" type="password" tabIndex="3" placeholder="password" role="textbox" ref="password1"/>

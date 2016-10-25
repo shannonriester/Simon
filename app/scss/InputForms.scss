@@ -1,8 +1,8 @@
 .landing-form {
   @include flex-space-around;
   flex-direction: column;
-  width: 50%;
-  height: 100%;
+  width: 75%;
+  height: 95%;
 }
 
 .h2-landing {
@@ -22,7 +22,10 @@
   color: $font-color;
 }
 
-.cancel-landing-btn {
-  height: 0rem;
-  color: $dark-color;
+.cancel-landing {
+  color: $font-color;
+}
+
+.cancel-landing-container {
+  height: 1rem;
 }
