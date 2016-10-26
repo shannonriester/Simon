@@ -156,14 +156,14 @@
   justify-content: center;
   justify-content: space-around;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 0 0 20px;
   margin: 0;
-  width: 50%;
+  width: 45%;
   color: #F6F6F6; }
 
 .nav-li {
   list-style-type: none;
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px transparent;
   padding: 5px 0; }
   .nav-li:hover {
     cursor: pointer;
