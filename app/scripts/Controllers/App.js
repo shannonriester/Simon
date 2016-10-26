@@ -14,7 +14,6 @@ export default React.createClass({
 
     if (this.state.username || store.session.get('username')) {
       let player = store.session.get('username');
-      console.log('player', player);
       store.game.setPlayer(player);
       store.highScores.compareHighScores();
     }
@@ -26,7 +25,6 @@ export default React.createClass({
     store.session.off('change', this.updateState);
   },
   render() {
-    console.log('this.state.username', this.state.username );
     return (
       <div id="app-component">
         <Nav username={this.state.username}/>

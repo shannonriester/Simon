@@ -93,7 +93,7 @@ export default React.createClass({
         </ul>
       );
     }
-    console.log(this.props.username);
+    console.log('this.props', this.props);
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">

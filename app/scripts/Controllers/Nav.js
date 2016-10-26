@@ -36,7 +36,7 @@ export default React.createClass({
         username={this.props.username}
         />);
     }
-    console.log('this.props.username on modal', this.props.username);
+    
     return (
       <nav className="nav-component">
         <ul className="nav-ul nav-main">
