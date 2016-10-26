@@ -8,11 +8,13 @@ import ScoreBoard from '../Components/ScoreBoard';
 export default React.createClass({
   getInitialState() {
     return {
+      user: store.session.get('username'),
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
       timeout: store.game.get('timeout'),
       level: store.game.get('level'),
+      gameOver: store.game.get('gameOver'),
       showCompArr: false,
       currentColor: '',
       currentCompHitsArr: [],
@@ -33,6 +35,7 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
+      
       window.setTimeout(()=> {
         this.setState({flashColor: false});
 
@@ -48,6 +51,7 @@ export default React.createClass({
   },
   updateState() {
     this.setState({
+      user: store.session.get('username'),
       compHits: store.game.get('compHits'),
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
@@ -81,7 +85,6 @@ export default React.createClass({
                 colorId={this.state.colorId}
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
-                calcUserHits={this.calcUserHits}
                 key={i}/>);
     });
     return (

@@ -1,5 +1,7 @@
 import Backbone from 'backbone';
 
+import store from '../store';
+
 export default Backbone.Model.extend({
   idAttribute: '_id',
   urlRoot:`https://baas.kinvey.com/appdata/kid_BJ6LcoFC/Games`,
@@ -14,6 +16,7 @@ export default Backbone.Model.extend({
     colors: ['green', 'red', 'yellow', 'blue'],
     level: 1,
     timeout: 400,
+    gameOver: false,
   },
   parse(response) {
     if (response) {
@@ -37,6 +40,7 @@ export default Backbone.Model.extend({
       colors: ['green', 'red', 'yellow', 'blue'],
       level: 1,
       timeout: 400,
+      gameOver: false,
     });
   },
   newGame: function() {
@@ -123,11 +127,13 @@ export default Backbone.Model.extend({
     }, 1100);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
-    // store.session.saveGame(userHitsArr.length);
-    if (userHitsArr[n] !== compHitsArr[n]) {
-      store.highScores.compareHighScores()
-      console.log('wrong!');
-      this.restart();
+    for (var i = 0; i < userHitsArr.length; i++) {
+      if (userHitsArr[i] === compHitsArr[i] && userHitsArr[n] === compHitsArr[n]) {
+        return true;
+
+      } else {
+        return false;
+      }
     }
   },
   userHits(newHit, compHits) {
@@ -138,12 +144,28 @@ export default Backbone.Model.extend({
 
     let n = userHitsArr.length - 1;
 
-    if (userHitsArr.length === compHitsArr.length) {
-      this.addLevel();
-    } else {
-      this.checkUserInput(userHitsArr, compHitsArr, n);
+    if (this.checkUserInput(userHitsArr, compHitsArr, n)) {
       this.set({userHits: userHitsArr}, {silent: true });
+
+      if (userHitsArr.length === compHitsArr.length) {
+        this.addLevel();
+      }
+    } else {
+      console.log('gameover');
+      this.gameOver(userHitsArr);
     }
+  },
+  gameOver(userHitsArr) {
+    this.set({
+      compHits: [],
+      userHits: userHitsArr,
+      userHitLevel: userHitsArr.length,
+      timeout: 0,
+      gameOver: true,
+    });
+    window.setTimeout(() => {
+      this.restart();
+    }, 1500)
   },
   randomColor(colorsLength) {
     let randomColor = Math.floor(Math.random() * colorsLength);

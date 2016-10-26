@@ -14,14 +14,11 @@ export default React.createClass({
   },
   showModal() {
     this.setState({modal: true});
-    browserHistory.push('GameBoard/Dashboard');
+    browserHistory.push('/GameBoard/Dashboard');
   },
   hideModal() {
     this.setState({modal: false});
     browserHistory.push('/GameBoard');
-  },
-  newGame() {
-    store.game.newGame();
   },
   routeTo(e) {
     let route = e.target.id
@@ -36,7 +33,7 @@ export default React.createClass({
         username={this.props.username}
         />);
     }
-    
+
     return (
       <nav className="nav-component">
         <ul className="nav-ul nav-main">
@@ -47,7 +44,6 @@ export default React.createClass({
           <li id="GameBoard" className="nav-li" onClick={this.routeTo}>Game Board</li>
           <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
         </ul>
-
         {sideModal}
       </nav>
     );

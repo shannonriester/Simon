@@ -14,6 +14,10 @@ export default React.createClass({
     this.props.hideLogin();
   },
   render() {
+    // let h2;
+    // if (!this.props.hideH2) {
+    //   h2 = (<h2 className="h2-landing">Login</h2>);
+    // }
       return (
         <form className="login-form-component landing-form" onSubmit={this.login}>
           <div className="cancel-container cancel-landing-container"><input type="button" value="X" className="cancel-landing cancel-btn btn" role="button" onClick={this.closeLogin} /></div>

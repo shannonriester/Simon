@@ -12,15 +12,15 @@
 .nav-ul {
   @include flex-space-around;
   justify-content: space-between;
-  padding: 0;
+  padding: 0 0 0 20px;
   margin: 0;
-  width: 50%;
+  width: 45%;
   color: $light-color;
 }
 
 .nav-li {
   list-style-type: none;
-  border-bottom: solid 2px $dark-color;
+  border-bottom: solid 2px transparent;
   padding: 5px 0;
   &:hover {
     cursor: pointer;
@@ -28,16 +28,9 @@
   }
 }
 
-// .icon-container {
-//   @include flex-center;
-//   justify-content: flex-start;
-//   width: 50%;
-// }
-
 .bars-icon {
   width: 14px;
   color: $light-color;
-  // padding-left: 10px;
 }
 
 .nav-session {

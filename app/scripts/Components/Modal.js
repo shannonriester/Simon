@@ -55,6 +55,7 @@ export default React.createClass({
     let sessionLIs;
 
     if (this.state.form && this.state.type === 'login') {
+      // let classNames = "login-form session-form"
       login = (
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -93,7 +94,6 @@ export default React.createClass({
         </ul>
       );
     }
-    console.log('this.props', this.props);
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">

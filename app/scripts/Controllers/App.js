@@ -26,7 +26,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div id="app-component">
+      <div id="container">
         <Nav username={this.state.username}/>
         {this.props.children}
       </div>
