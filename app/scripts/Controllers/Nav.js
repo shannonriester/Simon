@@ -2,9 +2,9 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 import store from '../store';
-import SessionNav from './SessionNav';
-import Modal from './Modal';
-import GameSquare from './GameSquare';
+import SessionNav from '../Components/SessionNav';
+import Modal from '../Components/Modal';
+import GameSquare from '../Components/GameSquare';
 
 export default React.createClass({
   getInitialState() {

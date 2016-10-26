@@ -5,7 +5,9 @@ import store from '../store';
 export default React.createClass({
   startGame() {
     store.game.newGame();
-    store.session.addGame();
+    if (this.props.username) {
+      store.session.addGame();
+    }
   },
   render() {
     let id;

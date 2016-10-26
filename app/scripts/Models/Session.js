@@ -36,7 +36,9 @@ export default Backbone.Model.extend({
   addGame() {
     let numGames = this.get('gamesPlayed');
     numGames = numGames + 1;
-    // this.set({gamesPlayed: })
+    if (this.get('username')) {
+    this.set({gamesPlayed: numGames})
+    }
   },
   login(username, password) {
     this.save({

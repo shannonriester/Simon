@@ -1,7 +1,5 @@
 import Backbone from 'backbone';
 
-import store from '../store';
-
 export default Backbone.Model.extend({
   idAttribute: '_id',
   urlRoot:`https://baas.kinvey.com/appdata/kid_BJ6LcoFC/Games`,
@@ -18,14 +16,13 @@ export default Backbone.Model.extend({
     timeout: 400,
   },
   parse(response) {
-    // console.log(response);
     if (response) {
       return {
         _id: response._id,
         player: response.username,
         date: response.date,
-        highScore: response.highScore,
-        gamesPlayed: response.gamesPlayed,
+        // highScore: response.highScore,
+        // gamesPlayed: response.gamesPlayed,
       }
     }
   },
