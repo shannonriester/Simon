@@ -1,11 +1,11 @@
 import ColorsCollection from './Collections/Colors';
-import Games from './Collections/Games';
+import HighScores from './Collections/HighScores';
 import Game from './Models/Game';
 import Session from './Models/Session';
 
 const store = {
   session: new Session(),
-  gameCollection: new Games(),
+  highScores: new HighScores(),
   game: new Game(),
   colors: ['green', 'red', 'yellow', 'blue'],
   settings: {

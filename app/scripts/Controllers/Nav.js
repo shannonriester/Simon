@@ -9,7 +9,6 @@ import GameSquare from '../Components/GameSquare';
 export default React.createClass({
   getInitialState() {
     return {
-      username: store.session.get('username'),
       modal: false,
     }
   },
@@ -28,31 +27,16 @@ export default React.createClass({
     let route = e.target.id
     browserHistory.push(`/${route}`);
   },
-  updateState() {
-    this.setState({username: store.session.get('username')});
-
-    // store.game.setUser(store.session.get('username'));
-  },
-  componentWillMount() {
-    if (localStorage.authtoken) {
-      this.setState({username: store.session.get('username')});
-    }
-  },
-  componentDidMount() {
-    store.session.on('change', this.updateState);
-  },
-  componentWillUnmount() {
-    store.session.off('change', this.updateState);
-  },
   render() {
     let sideModal;
     if (this.state.modal) {
       sideModal = (<Modal
         modal={this.state.modal}
         hideModal={this.hideModal}
-        username={this.state.username}
+        username={this.props.username}
         />);
     }
+    console.log('this.props.username on modal', this.props.username);
     return (
       <nav className="nav-component">
         <ul className="nav-ul nav-main">

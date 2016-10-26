@@ -21,10 +21,11 @@ export default Backbone.Model.extend({
         _id: response._id,
         player: response.username,
         date: response.date,
-        // highScore: response.highScore,
-        // gamesPlayed: response.gamesPlayed,
       }
     }
+  },
+  setPlayer(username) {
+    this.set({player: username});
   },
   restart: function() {
     this.set({
@@ -119,11 +120,12 @@ export default Backbone.Model.extend({
         compSliceArr: nextCompHits,
         userHits: [],
       });
-    }, 1250);
+    }, 1100);
   },
   checkUserInput(userHitsArr, compHitsArr, n) {
     // store.session.saveGame(userHitsArr.length);
     if (userHitsArr[n] !== compHitsArr[n]) {
+      store.highScores.compareHighScores()
       console.log('wrong!');
       this.restart();
     }
@@ -132,11 +134,9 @@ export default Backbone.Model.extend({
     let compHitsArr = this.get('compHits');
     let userHitsArr = this.get('userHits').concat(newHit);
 
-    this.set({userHitLevel: userHitsArr}, {silent: true });
+    this.set({userHitLevel: userHitsArr}, {silent: true});
 
     let n = userHitsArr.length - 1;
-
-    store.session.saveGame(userHitsArr.length);
 
     if (userHitsArr.length === compHitsArr.length) {
       this.addLevel();

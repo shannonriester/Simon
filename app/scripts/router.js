@@ -2,20 +2,20 @@ import React from 'react';
 import { browserHistory, Route, Router } from 'react-router';
 
 import store from './store';
+import App from './Controllers/App';
 import Landing from './Components/Landing';
-import GameBoard from './Components/GameBoard';
+import GameBoard from './Controllers/GameBoard';
 import LeaderBoard from './Components/LeaderBoard';
 
 const router = (
   <Router history={browserHistory}>
-    <Route path="/" component={Landing} />
-    <Route path="/Home" component={Landing} />
-    <Route path="/GameBoard" component={GameBoard} />
-    {
-      // <Route path="/GameBoard/Dashboard" component={GameBoard} showModal={false}/>
-    }
-    <Route path="/LeaderBoard" component={LeaderBoard} />
-    <Route path="/*" component={GameBoard} />
+    <Route path="/" component={App}>
+      <Route path="/Home" component={Landing} />
+      <Route path="GameBoard" component={GameBoard} />
+      <Route path="GameBoard/Dashboard" component={GameBoard} />
+      <Route path="/LeaderBoard" component={LeaderBoard} />
+      <Route path="/*" component={Landing} />
+    </Route>
   </Router>
 );
 

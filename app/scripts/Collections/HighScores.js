@@ -11,18 +11,17 @@ export default Backbone.Collection.extend({
       if (currentScore >= score) {
         console.log('new high score!');
         // let gameModel = score._id
-        this.saveHighScore(username, score)
+        this.saveHighScore(username, score);
       }
     });
   },
   saveHighScore(username, score) {
-    // this.models.find()
     let date = moment().format('MM Do YYYY, h:mm a');
     console.log(score);
-    this.create({
-      player: username,
-      highScore: score,
-      moment: moment().format('MM Do YYYY, h:mm a');
-    })
+    // this.create({
+    //   player: username,
+    //   highScore: score,
+    //   moment: moment().format('MM Do YYYY, h:mm a'),
+    // })
   },
 });
