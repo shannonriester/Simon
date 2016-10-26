@@ -1,40 +1,48 @@
 import React from 'react';
 
 import store from '../store';
+import Nav from '../Controllers/Nav';
 
 export default React.createClass({
   getInitialState() {
     return {
-      scores: store.highScores.toJSON(),
+      highScores: store.highScores.toJSON(),
     }
   },
   updateState() {
-    this.setState({scores: store.highScores.toJSON()});
+    this.setState({
+      highScores: store.highScores.toJSON(),
+    });
+    if (this.state.highScores.length < 0) {
+      store.highScores.fetch();
+    }
   },
   componentDidMount() {
     store.highScores.fetch();
 
-    store.highScores.on('change', this.updateState);
+    store.highScores.on('change, update', this.updateState);
   },
   render() {
-    let scores;
-    console.log(this.state.scores);
-    if (this.state.scores.length) {
-      scores = this.state.scores.map((score, i) => {
+    let highScores;
+    if (this.state.highScores.length) {
+      highScores = this.state.highScores.map((score, i) => {
         console.log('score', score);
-        return score;
-        // <tr className="user-row">
-        //   <td>{user.username}</td>
-        //   <td>{user.highScore}</td>
-        //   <td>{user.highScoreDate}</td>
-        // </tr>
+        return (
+          <tr className="user-row">
+            <td>{score.player}</td>
+            <td>{score.highScore}</td>
+            <td>{score.level}</td>
+            <td>{score.moment}</td>
+          </tr>
+        );
       });
     }
 
     return (
       <div className="gameboard-component leaderboard-component">
+        <Nav />
         <table>
-          {scores}
+          {highScores}
         </table>
       </div>
     );
