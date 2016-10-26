@@ -43,6 +43,18 @@ export default Backbone.Model.extend({
       gameOver: false,
     });
   },
+  gameOver(userHitsArr) {
+    this.set({
+      compHits: [],
+      userHits: userHitsArr,
+      userHitLevel: userHitsArr.length,
+      timeout: 0,
+      gameOver: true,
+    });
+    window.setTimeout(() => {
+      this.restart();
+    }, 1500)
+  },
   newGame: function() {
     this.restart();
 
@@ -54,6 +66,48 @@ export default Backbone.Model.extend({
       compSliceArr: newCompHitsArr,
       compHits: newCompHitsArr,
     });
+  },
+  addLevel() {
+    let nextColor = this.randomColor(this.get('colors').length);
+    let nextCompHits = this.get('compHits').concat(nextColor);
+
+    window.setTimeout(() => {
+      this.increaseTime(nextCompHits.length);
+      this.set({
+        compHits: nextCompHits,
+        compSliceArr: nextCompHits,
+        userHits: [],
+      });
+    }, 1100);
+  },
+  userHits(newHit, compHits) {
+    let compHitsArr = this.get('compHits');
+    let userHitsArr = this.get('userHits').concat(newHit);
+
+    this.set({userHitLevel: userHitsArr}, {silent: true});
+
+    let n = userHitsArr.length - 1;
+
+    if (this.checkUserInput(userHitsArr, compHitsArr, n)) {
+      this.set({userHits: userHitsArr}, {silent: true});
+
+      if (userHitsArr.length === compHitsArr.length) {
+        this.addLevel();
+      }
+    } else {
+      console.log('gameover');
+      this.gameOver(userHitsArr);
+    }
+  },
+  checkUserInput(userHitsArr, compHitsArr, n) {
+    for (var i = 0; i < userHitsArr.length; i++) {
+      if (userHitsArr[i] === compHitsArr[i] && userHitsArr[n] === compHitsArr[n]) {
+        return true;
+
+      } else {
+        return false;
+      }
+    }
   },
   increaseTime(length) {
     length = length - 1;
@@ -112,60 +166,6 @@ export default Backbone.Model.extend({
       }, {silent: true});
       console.log('30 hits! Game over, you wierdo. Go do something fun outside ;)');
     }
-  },
-  addLevel() {
-    let nextColor = this.randomColor(this.get('colors').length);
-    let nextCompHits = this.get('compHits').concat(nextColor);
-
-    window.setTimeout(() => {
-      this.increaseTime(nextCompHits.length);
-      this.set({
-        compHits: nextCompHits,
-        compSliceArr: nextCompHits,
-        userHits: [],
-      });
-    }, 1100);
-  },
-  checkUserInput(userHitsArr, compHitsArr, n) {
-    for (var i = 0; i < userHitsArr.length; i++) {
-      if (userHitsArr[i] === compHitsArr[i] && userHitsArr[n] === compHitsArr[n]) {
-        return true;
-
-      } else {
-        return false;
-      }
-    }
-  },
-  userHits(newHit, compHits) {
-    let compHitsArr = this.get('compHits');
-    let userHitsArr = this.get('userHits').concat(newHit);
-
-    this.set({userHitLevel: userHitsArr}, {silent: true});
-
-    let n = userHitsArr.length - 1;
-
-    if (this.checkUserInput(userHitsArr, compHitsArr, n)) {
-      this.set({userHits: userHitsArr}, {silent: true });
-
-      if (userHitsArr.length === compHitsArr.length) {
-        this.addLevel();
-      }
-    } else {
-      console.log('gameover');
-      this.gameOver(userHitsArr);
-    }
-  },
-  gameOver(userHitsArr) {
-    this.set({
-      compHits: [],
-      userHits: userHitsArr,
-      userHitLevel: userHitsArr.length,
-      timeout: 0,
-      gameOver: true,
-    });
-    window.setTimeout(() => {
-      this.restart();
-    }, 1500)
   },
   randomColor(colorsLength) {
     let randomColor = Math.floor(Math.random() * colorsLength);

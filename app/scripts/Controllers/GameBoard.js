@@ -35,7 +35,7 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
-      
+
       window.setTimeout(()=> {
         this.setState({flashColor: false});
 
@@ -60,6 +60,10 @@ export default React.createClass({
     });
 
     this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
+    if (store.game.get('gameOver')) {
+      // store.highScores.compareHighScores(this.state.user, this.state.userHitLevel, this.state.level);
+      store.highScores.saveHighScore(this.state.user, this.state.userHitLevel.length, this.state.level);
+    }
   },
   componentDidMount() {
     store.game.on('change', this.updateState);

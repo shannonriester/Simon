@@ -20,6 +20,8 @@ export default React.createClass({
   },
   componentDidMount() {
     store.session.on('change', this.updateState);
+
+    store.highScores.fetch();
   },
   componentWillUnmount() {
     store.session.off('change', this.updateState);
