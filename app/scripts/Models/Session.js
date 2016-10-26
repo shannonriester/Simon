@@ -26,7 +26,7 @@ export default Backbone.Model.extend({
     let date = moment().format('MM Do YYYY, h:mm a');
     let numGames = this.get('gamesPlayed');
     numGames = numGames + 1;
-    console.log('numGames', numGames);
+    // console.log('numGames', numGames);
 
     if (newHighScore > this.get('highScore')) {
       this.save({highScore: newHighScore});
@@ -36,7 +36,7 @@ export default Backbone.Model.extend({
   addGame() {
     let numGames = this.get('gamesPlayed');
     numGames = numGames + 1;
-    this.set({gamesPlayed: })
+    // this.set({gamesPlayed: })
   },
   login(username, password) {
     this.save({
@@ -58,7 +58,14 @@ export default Backbone.Model.extend({
     });
   },
   signup(username, password, password2) {
+    console.log('in the signup');
+    console.log('username', username);
+    console.log('password1', password1);
+    console.log('password2', password2);
+
     if (password === password2) {
+      console.log('in the signup and matching passwords');
+
       this.save({
         username: username,
         password: password,
@@ -66,11 +73,14 @@ export default Backbone.Model.extend({
         url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/`,
         type: 'POST',
         success: (model, response) => {
-          localStorage.setItem('authtoken', response._kmd.authtoken);
+          // localStorage.removeItem('authtoken');
+          // localStorage.setItem('authtoken', response._kmd.authtoken);
           this.unset('password');
         },
         error: function(model, response) {
-          throw new Error('LOGIN FAILED');
+          console.log('model', model);
+          console.log('response', response);
+          throw new Error('SIGN UP FAILED');
         }
       });
     } else {

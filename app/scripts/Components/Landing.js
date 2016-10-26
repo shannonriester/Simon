@@ -11,27 +11,29 @@ export default React.createClass({
       signup: false,
     }
   },
-  showLogin(e) {
+  showLogin() {
     this.setState({
       login: true,
       signup: false,
     });
   },
   hideLogin() {
-    console.log('working hideFunction on landing...');
     this.setState({login: false});
   },
   showSignup() {
     this.setState({
-      login: true,
-      signup: false,
+      login: false,
+      signup: true,
     });
   },
   hideSignup() {
     this.setState({signup: false});
   },
-  routeTo(e) {
-    browserHistory.push(`/${e.target.id}`);
+  startGame() {
+    browserHistory.push(`/GameBoard`);
+  },
+  leaderBoard() {
+    browserHistory.push(`/LeaderBoard`);
   },
   render() {
     let login;
@@ -52,10 +54,10 @@ export default React.createClass({
 
     return (
       <ul className="landing-component">
-        <li id="StartGame" className="landing-li outer-square greenDiv green" onClick={this.routeTo} ref="green"><div className="landing-inner inner-square greenDiv btn">Start Game</div></li>
+        <li className="landing-li outer-square greenDiv green" onClick={this.startGame} ref="green"><div className="landing-inner inner-square greenDiv btn"><h1 className="h1-landing">Start Game</h1></div></li>
         <li className="landing-li outer-square redDiv red " ref="red"><div className="Login landing-inner inner-square redDiv btn" >{login}</div></li>
-        <li className="SignUp landing-li outer-square yellow" ref="yellow"><div className="landing-inner inner-square yellowDiv btn">{signup}</div></li>
-        <li id="HighScore" className="landing-li outer-square blue" onClick={this.routeTo} ref="blue"><div className="landing-inner inner-square blueDiv btn">High Score</div></li>
+        <li className="landing-li outer-square yellow" ref="yellow"><div className="landing-inner inner-square yellowDiv btn">{signup}</div></li>
+        <li id="HighScore" className="landing-li outer-square blue" onClick={this.leaderBoard} ref="blue"><div className="landing-inner inner-square blueDiv btn"><h1 className="h1-landing">Leader Board</h1></div></li>
       </ul>
     );
   }

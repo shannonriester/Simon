@@ -533,6 +533,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
   font-weight: 100;
   font-size: 2rem;
   margin: 0; }
@@ -551,5 +553,8 @@ body {
 
 .btn:hover {
   cursor: pointer; }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */

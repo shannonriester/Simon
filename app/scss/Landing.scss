@@ -64,6 +64,8 @@
 
 .h1-landing {
   @include flex-center;
+  height: 100%;
+  width: 100%;
   font-weight: 100;
   font-size: 2rem;
   margin: 0;
