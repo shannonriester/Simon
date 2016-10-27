@@ -27,12 +27,11 @@ export default React.createClass({
     let highScores;
     if (this.state.highScores.length) {
       this.state.highScores = _.sortBy(this.state.highScores, 'highScore').reverse();
-      console.log('highScores', this.state.highScores);
 
       highScores = this.state.highScores.map((score, i) => {
         return (
             <tr className="player-row" key={i}>
-              <td className="player-cell">{score.player}</td>
+              <td className="player-cell"><label className="rank">{i + 1}.</label> <p className="player-name">{score.player}</p></td>
               <td className="player-cell">{score.highScore}</td>
               <td className="player-cell">{score.level}</td>
               <td className="player-cell">{score.moment}</td>
@@ -41,7 +40,7 @@ export default React.createClass({
       });
 
       if (highScores.length > 10) {
-        highScores = highScores.slice(0,9);
+        highScores = highScores.slice(0,10);
       }
     }
 
