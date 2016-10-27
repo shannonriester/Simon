@@ -555,7 +555,7 @@
   font-weight: 100; }
 
 .player-row {
-  height: 5rem; }
+  height: 4rem; }
 
 .player-row td {
   width: 10%; }
@@ -592,6 +592,19 @@ th {
 @media (min-width: 900px) {
   .score-table {
     padding: 2rem; } }
+.rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 10%; }
+
+.player-name {
+  display: inline-flex;
+  width: 30%;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start; }
+
 .landing-component {
   display: flex;
   align-items: center;
