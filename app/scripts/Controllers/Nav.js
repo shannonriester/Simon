@@ -15,11 +15,11 @@ export default React.createClass({
   },
   showModal() {
     this.setState({modal: true});
-    browserHistory.push('/GameBoard/Dashboard');
+    // browserHistory.push('/GameBoard/Dashboard');
   },
   hideModal() {
     this.setState({modal: false});
-    browserHistory.push('/GameBoard');
+    // browserHistory.push('/GameBoard');
   },
   routeTo(e) {
     let route = e.target.id
@@ -54,13 +54,13 @@ export default React.createClass({
 
     return (
       <nav className="nav-component">
+        <div className="bars-icon-container" onClick={this.showModal}>
+          <i className="bars-icon fa fa-bars btn" aria-hidden="true"></i>
+        </div>
         <ul className="nav-ul nav-main">
-          <li className="nav-li" onClick={this.showModal}>
-            <i className="bars-icon fa fa-bars" aria-hidden="true"></i>
-          </li>
-          <li id="Home" className="nav-li" onClick={this.routeTo}>Home</li>
-          <li id="GameBoard" className="nav-li" onClick={this.routeTo}>Game Board</li>
-          <li id="LeaderBoard" className="nav-li" onClick={this.routeTo}>Leader Board</li>
+          <li id="Home" className="nav-li btn" onClick={this.routeTo}>Home</li>
+          <li id="GameBoard" className="nav-li btn" onClick={this.routeTo}>Game</li>
+          <li id="LeaderBoard" className="nav-li btn" onClick={this.routeTo}>Board</li>
         </ul>
         {sideModal}
       </nav>

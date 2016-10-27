@@ -1,38 +1,35 @@
 .nav-component {
-  @include flex-center;
-  justify-content: flex-start;
-  width: 100%;
+  @include flex-space-around;
   height: 3rem;
 }
 
-.session-nav-component {
-  width: 30%;
-}
-
 .nav-ul {
-  @include flex-space-around;
-  justify-content: space-between;
-  padding: 0 0 0 20px;
-  margin: 0;
-  width: 45%;
+  position: relative;
+  right: 12px;
+  @include flex-center;
+  width: 100%;
+  padding: 0;
+  margin-top: 0;
   color: $light-color;
 }
 
-.nav-li {
+.nav-li, .bars-icon {
   list-style-type: none;
   border-bottom: solid 2px transparent;
   padding: 5px 0;
   &:hover {
-    cursor: pointer;
     border-bottom: solid 2px $light-color;
   }
 }
 
-.bars-icon {
-  width: 14px;
-  color: $light-color;
+.nav-li {
+  margin: 0 30px;
 }
 
-.nav-session {
-  width: 100%;
+.bars-icon-container {
+  margin-right: 10px;
+}
+
+.bars-icon {
+  color: $light-color;
 }

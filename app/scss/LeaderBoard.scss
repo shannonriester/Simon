@@ -1,0 +1,7 @@
+.score-table {
+  @include flex-space-around;
+  flex-direction: column;
+  color: $light-color;
+  font-size: 1rem;
+  font-weight: 100;
+}
