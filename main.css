@@ -143,38 +143,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: flex-start;
-  width: 100%;
+  justify-content: space-around;
   height: 3rem; }
 
-.session-nav-component {
-  width: 30%; }
-
 .nav-ul {
+  position: relative;
+  right: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-around;
-  justify-content: space-between;
-  padding: 0 0 0 20px;
-  margin: 0;
-  width: 45%;
+  width: 100%;
+  padding: 0;
+  margin-top: 0;
   color: #F6F6F6; }
 
-.nav-li {
+.nav-li, .bars-icon {
   list-style-type: none;
   border-bottom: solid 2px transparent;
   padding: 5px 0; }
-  .nav-li:hover {
-    cursor: pointer;
+  .nav-li:hover, .bars-icon:hover {
     border-bottom: solid 2px #F6F6F6; }
 
-.bars-icon {
-  width: 14px;
-  color: #F6F6F6; }
+.nav-li {
+  margin: 0 30px; }
 
-.nav-session {
-  width: 100%; }
+.bars-icon-container {
+  margin-right: 10px; }
+
+.bars-icon {
+  color: #F6F6F6; }
 
 .gameboard-component {
   background-color: #000;
@@ -480,6 +477,16 @@
 
 .cancel-landing-container {
   height: 1rem; }
+
+.score-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  flex-direction: column;
+  color: #F6F6F6;
+  font-size: 1rem;
+  font-weight: 100; }
 
 .landing-component {
   display: flex;
