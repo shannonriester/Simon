@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../store';
 import Nav from '../Controllers/Nav';
@@ -25,8 +26,10 @@ export default React.createClass({
   render() {
     let highScores;
     if (this.state.highScores.length) {
+      this.state.highScores = _.sortBy(this.state.highScores, 'highScore').reverse();
+      console.log('highScores', this.state.highScores);
+
       highScores = this.state.highScores.map((score, i) => {
-        console.log('score', score);
         return (
             <tr className="player-row" key={i}>
               <td className="player-cell">{score.player}</td>
@@ -36,6 +39,10 @@ export default React.createClass({
             </tr>
         );
       });
+
+      if (highScores.length > 10) {
+        highScores = highScores.slice(0,9);
+      }
     }
 
     return (

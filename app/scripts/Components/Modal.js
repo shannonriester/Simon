@@ -55,7 +55,6 @@ export default React.createClass({
     let sessionLIs;
 
     if (this.state.form && this.state.type === 'login') {
-      // let classNames = "login-form session-form"
       login = (
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -103,6 +102,18 @@ export default React.createClass({
           <ul className="modal-ul">
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>
             <li className="modal-li btn">Leader Board</li>
+            <li>
+              <p className="modal-p">About</p>
+              <ol className="ol-directions">
+                <li className="li-directions">Press the <span className="span">'Start Game'</span> button in the center of the board.</li>
+                <li className="li-directions">A random color is generated and the board flashes this neon color.</li>
+                <li className="li-directions">The player must click the flashed color(s) in the same order as the computer generated color pattern.</li>
+                <li className="li-directions">If player selects correctly, another random color is added and the pattern becomes longer and longer.</li>
+                <li className="li-directions">Each 'hit' is the user's correct number of color selections.</li>
+                <li className="li-directions">After 5 'hits', the user proceeds to the next level.</li>
+                <li className="li-directions">The flash-time increases with each level, getting harder and harder!</li>
+              </ol>
+            </li>
           </ul>
         </div>
       </div>
