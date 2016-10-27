@@ -487,6 +487,12 @@
     color: #000;
     background: #F6F6F6; }
 
+.ol-directions {
+  margin: 0; }
+
+.li-directions {
+  list-style-type: decimal !important; }
+
 .modal-header-component {
   width: 100%; }
 
