@@ -1,7 +1,62 @@
 .score-table {
-  @include flex-space-around;
-  flex-direction: column;
+  width: 80%;
+  padding: 3rem 0;
+  margin: 0rem auto;
+  text-align: center;
   color: $light-color;
   font-size: 1rem;
   font-weight: 100;
+  // @mixin flex-center() {
+  //   -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
+  //   -moz-animation: textNeon1 1s ease-in-out infinite alternate;
+  //   animation: textNeon1 1s ease-in-out infinite alternate;
+  // }
+
+}
+
+.player-row {
+  height: 5rem;
+}
+
+.player-row td{
+  width: 10%;
+}
+
+.player-row td:last-child {
+  width: 10%;
+  font-size: 12px;
+}
+
+th {
+  font-weight: 100;
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+.th-1 {
+  -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon1 1s ease-in-out infinite alternate;
+  animation: textNeon1 1s ease-in-out infinite alternate;
+}
+.th-2 {
+  -webkit-animation: textNeon2 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon2 1s ease-in-out infinite alternate;
+  animation: textNeon2 1s ease-in-out infinite alternate;
+}
+.th-3 {
+  -webkit-animation: textNeon3 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon3 1s ease-in-out infinite alternate;
+  animation: textNeon3 1s ease-in-out infinite alternate;
+}
+.th-4 {
+  -webkit-animation: textNeon4 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon4 1s ease-in-out infinite alternate;
+  animation: textNeon4 1s ease-in-out infinite alternate;
+}
+
+
+@media(min-width: 900px) {
+  .score-table {
+    padding: 2rem;
+  }
 }

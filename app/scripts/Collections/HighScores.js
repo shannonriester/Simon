@@ -20,7 +20,7 @@ export default Backbone.Collection.extend({
       player: username,
       highScore: score,
       level: level,
-      moment: moment().format('MMMM Do YYYY, h:mm a'),
+      moment: moment().format('MMM Do YYYY, h:mm a'),
     }, {
       success: (model, response) => {
         // console.log('SAVED HIGH SCORE', response);

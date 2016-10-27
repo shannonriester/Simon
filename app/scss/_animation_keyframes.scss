@@ -1,3 +1,116 @@
+//text-shadow neon
+@-webkit-keyframes textNeon1 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color1, 0 0 70px $color1, 0 0 80px $color1, 0 0 100px $color1, 0 0 150px $color1;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color1, 0 0 35px $color1, 0 0 40px $color1, 0 0 50px $color1, 0 0 75px $color1;
+  }
+}
+
+@-webkit-keyframes textNeon2 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color2, 0 0 70px $color2, 0 0 80px $color2, 0 0 100px $color2, 0 0 150px $color2;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color2, 0 0 35px $color2, 0 0 40px $color2, 0 0 50px $color2, 0 0 75px $color2;
+  }
+}
+
+@-webkit-keyframes textNeon3 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color3, 0 0 70px $color3, 0 0 80px $color3, 0 0 100px $color3, 0 0 150px $color3;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color3, 0 0 35px $color3, 0 0 40px $color3, 0 0 50px $color3, 0 0 75px $color3;
+  }
+}
+
+@-webkit-keyframes textNeon4 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color4, 0 0 70px $color4, 0 0 80px $color4, 0 0 100px $color4, 0 0 150px $color4;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color4, 0 0 35px $color4, 0 0 40px $color4, 0 0 50px $color4, 0 0 75px $color4;
+  }
+}
+
+/*glow for mozilla*/
+@-moz-keyframes textNeon1 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color1, 0 0 70px $color1, 0 0 80px $color1, 0 0 100px $color1, 0 0 150px $color1;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color1, 0 0 35px $color1, 0 0 40px $color1, 0 0 50px $color1, 0 0 75px $color1;
+  }
+}
+
+@-moz-keyframes textNeon2 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color2, 0 0 70px $color2, 0 0 80px $color2, 0 0 100px $color2, 0 0 150px $color2;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color2, 0 0 35px $color2, 0 0 40px $color2, 0 0 50px $color2, 0 0 75px $color2;
+  }
+}
+
+@-moz-keyframes textNeon3 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color3, 0 0 70px $color3, 0 0 80px $color3, 0 0 100px $color3, 0 0 150px $color3;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color3, 0 0 35px $color3, 0 0 40px $color3, 0 0 50px $color3, 0 0 75px $color3;
+  }
+}
+
+@-moz-keyframes textNeon4 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color4, 0 0 70px $color4, 0 0 80px $color4, 0 0 100px $color4, 0 0 150px $color4;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color4, 0 0 35px $color4, 0 0 40px $color4, 0 0 50px $color4, 0 0 75px $color4;
+  }
+}
+
+/*glow*/
+@keyframes textNeon1 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color1, 0 0 70px $color1, 0 0 80px $color1, 0 0 100px $color1, 0 0 150px $color1;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color1, 0 0 35px $color1, 0 0 40px $color1, 0 0 50px $color1, 0 0 75px $color1;
+  }
+}
+
+@keyframes textNeon2 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color2, 0 0 70px $color2, 0 0 80px $color2, 0 0 100px $color2, 0 0 150px $color2;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color2, 0 0 35px $color2, 0 0 40px $color2, 0 0 50px $color2, 0 0 75px $color2;
+  }
+}
+
+@keyframes textNeon3 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color3, 0 0 70px $color3, 0 0 80px $color3, 0 0 100px $color3, 0 0 150px $color3;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color3, 0 0 35px $color3, 0 0 40px $color3, 0 0 50px $color3, 0 0 75px $color3;
+  }
+}
+
+@keyframes textNeon4 {
+  from {
+    text-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px $color4, 0 0 70px $color4, 0 0 80px $color4, 0 0 100px $color4, 0 0 150px $color4;
+  }
+  to {
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px $color4, 0 0 35px $color4, 0 0 40px $color4, 0 0 50px $color4, 0 0 75px $color4;
+  }
+}
+
+
+
 /*glow for webkit*/
 @-webkit-keyframes neon1 {
   from {

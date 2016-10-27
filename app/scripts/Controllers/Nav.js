@@ -60,7 +60,7 @@ export default React.createClass({
         <ul className="nav-ul nav-main">
           <li id="Home" className="nav-li btn" onClick={this.routeTo}>Home</li>
           <li id="GameBoard" className="nav-li btn" onClick={this.routeTo}>Game</li>
-          <li id="LeaderBoard" className="nav-li btn" onClick={this.routeTo}>Board</li>
+          <li id="LeaderBoard" className="nav-li btn" onClick={this.routeTo}>Scores</li>
         </ul>
         {sideModal}
       </nav>

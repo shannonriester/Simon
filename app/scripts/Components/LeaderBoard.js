@@ -28,14 +28,12 @@ export default React.createClass({
       highScores = this.state.highScores.map((score, i) => {
         console.log('score', score);
         return (
-          <tbody key={i}>
-            <tr className="user-row">
-              <td>{score.player}</td>
-              <td>{score.highScore}</td>
-              <td>{score.level}</td>
-              <td>{score.moment}</td>
+            <tr className="player-row" key={i}>
+              <td className="player-cell">{score.player}</td>
+              <td className="player-cell">{score.highScore}</td>
+              <td className="player-cell">{score.level}</td>
+              <td className="player-cell">{score.moment}</td>
             </tr>
-          </tbody>
         );
       });
     }
@@ -44,15 +42,18 @@ export default React.createClass({
       <div className="gameboard-component leaderboard-component">
         <Nav />
         <table className="score-table">
+        <colgroup span="4"></colgroup>
           <thead>
-            <tr>
-              <th>Player</th>
-              <th>High Score</th>
-              <th>High Score</th>
-              <th>Date</th>
+            <tr className="tr-theads">
+              <th className="th-1">Player</th>
+              <th className="th-2">High Score</th>
+              <th className="th-3">Level</th>
+              <th className="th-4">Date</th>
             </tr>
           </thead>
+          <tbody>
             {highScores}
+          </tbody>
         </table>
       </div>
     );
