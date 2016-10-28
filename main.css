@@ -682,6 +682,9 @@ th {
   font-size: 2rem;
   margin: 0; }
 
+.cancel-landing-container {
+  justify-content: flex-end; }
+
 body {
   background: #070707;
   margin: 0;
