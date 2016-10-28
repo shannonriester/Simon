@@ -274,10 +274,10 @@
 
 .red {
   border-top-right-radius: 100%;
-  border-top: solid #233746 2px;
-  border-right: solid #233746 2px;
-  border-left: solid #233746 1px;
-  border-bottom: solid #233746 1px; }
+  border-top: solid #1E1E24 2px;
+  border-right: solid #1E1E24 2px;
+  border-left: solid #1E1E24 1px;
+  border-bottom: solid #1E1E24 1px; }
   .red .redDiv {
     -webkit-animation: none;
     -moz-animation: none;
@@ -289,10 +289,10 @@
 
 .green {
   border-top-left-radius: 100%;
-  border-top: solid #233746 2px;
-  border-left: solid #233746 2px;
-  border-right: solid #233746 1px;
-  border-bottom: solid #233746 1px; }
+  border-top: solid #1E1E24 2px;
+  border-left: solid #1E1E24 2px;
+  border-right: solid #1E1E24 1px;
+  border-bottom: solid #1E1E24 1px; }
   .green .greenDiv {
     -webkit-animation: none;
     -moz-animation: none;
@@ -304,10 +304,10 @@
 
 .yellow {
   border-bottom-left-radius: 100%;
-  border-top: solid #233746 1px;
-  border-right: solid #233746 1px;
-  border-left: solid #233746 2px;
-  border-bottom: solid #233746 2px; }
+  border-top: solid #1E1E24 1px;
+  border-right: solid #1E1E24 1px;
+  border-left: solid #1E1E24 2px;
+  border-bottom: solid #1E1E24 2px; }
   .yellow .yellowDiv {
     -webkit-animation: none;
     -moz-animation: none;
@@ -319,10 +319,10 @@
 
 .blue, #blue {
   border-bottom-right-radius: 100%;
-  border-top: solid #233746 1px;
-  border-right: solid #233746 2px;
-  border-left: solid #233746 1px;
-  border-bottom: solid #233746 2px; }
+  border-top: solid #1E1E24 1px;
+  border-right: solid #1E1E24 2px;
+  border-left: solid #1E1E24 1px;
+  border-bottom: solid #1E1E24 2px; }
   .blue .blueDiv, #blue .blueDiv {
     -webkit-animation: none;
     -moz-animation: none;
@@ -347,7 +347,7 @@
   margin: 0 auto;
   border-radius: 50%;
   color: #FFF;
-  background-color: #393d3f;
+  background-color: #1E1E24;
   font-family: monospace;
   font-size: 11px; }
 
@@ -683,7 +683,7 @@ th {
   margin: 0; }
 
 body {
-  background: #F6F6F6;
+  background: #070707;
   margin: 0;
   padding: 0;
   font-family: monospace;

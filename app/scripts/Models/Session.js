@@ -86,7 +86,7 @@ export default Backbone.Model.extend({
       success: (model, response) => {
         localStorage.clear();
         this.clear();
-        localStorage.authtoken = '991879eb-0605-4ac7-9e90-0cf5b8e4e597.ZosH1NxXsgeFuWO4F7LAq7eWqjt0wf5zA2rp7Fmhwu4=';
+        localStorage.authtoken = 'f5b1b13a-7860-4d0b-9c0e-41aa50ad3c6c.fZqFhKmrDiWkGIhgPYiw/lKcya2rxRG+eT0LxNjrQ5M=';
       },
       error: function(model, response) {
         throw new Error('LOGOUT FAILED');

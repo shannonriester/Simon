@@ -7,11 +7,11 @@ import store from './store';
 
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   if (localStorage.authtoken) {
-    if (localStorage.authtoken === store.anon.authtoken) {
-      xhrAjax.setRequestHeader('Authorization', `Kinvey ${store.anon.authtoken}`);
-    } else {
-      xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
-    }
+        if (localStorage.authtoken === store.anon.authtoken && jqueryAjax.url.indexOf('user') !== -1) {
+          xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
+        } else {
+          xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
+        }
   } else {
     xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
   }
@@ -22,7 +22,7 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
 if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anon.authtoken) {
   store.session.retrieve();
 } else if (!localStorage.authtoken) {
-  localStorage.authtoken = store.anon.authtoken;
+  // localStorage.authtoken = store.anon.authtoken;
 }
 
 

@@ -73,14 +73,14 @@ export default React.createClass({
       );
     }
 
-    if (localStorage.authtoken !== store.anon.authtoken) {
+    if (localStorage.authtoken && localStorage.authtoken !== store.anon.authtoken) {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" onClick={this.uploadPhoto}><p className="modal-p">Upload A Profile Pic</p></li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">High Score</p></li>
         </ul>);
-    } else if (localStorage.authtoken === store.anon.authtoken) {
+    } else {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" id="login">

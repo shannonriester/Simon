@@ -39,10 +39,10 @@
 
 .red, {
   border-top-right-radius: 100%;
-  border-top: solid $border 2px;
-  border-right: solid $border 2px;
-  border-left: solid $border 1px;
-  border-bottom: solid $border 1px;
+  border-top: solid $dark-accent 2px;
+  border-right: solid $dark-accent 2px;
+  border-left: solid $dark-accent 1px;
+  border-bottom: solid $dark-accent 1px;
     .redDiv {
       -webkit-animation: none;
       -moz-animation: none;
@@ -60,10 +60,10 @@
 
 .green, {
   border-top-left-radius: 100%;
-  border-top: solid $border 2px;
-  border-left: solid $border 2px;
-  border-right: solid $border 1px;
-  border-bottom: solid $border 1px;
+  border-top: solid $dark-accent 2px;
+  border-left: solid $dark-accent 2px;
+  border-right: solid $dark-accent 1px;
+  border-bottom: solid $dark-accent 1px;
     .greenDiv {
       -webkit-animation: none;
       -moz-animation: none;
@@ -81,10 +81,10 @@
 
 .yellow, {
   border-bottom-left-radius: 100%;
-  border-top: solid $border 1px;
-  border-right: solid $border 1px;
-  border-left: solid $border 2px;
-  border-bottom: solid $border 2px;
+  border-top: solid $dark-accent 1px;
+  border-right: solid $dark-accent 1px;
+  border-left: solid $dark-accent 2px;
+  border-bottom: solid $dark-accent 2px;
     .yellowDiv {
       -webkit-animation: none;
       -moz-animation: none;
@@ -102,10 +102,10 @@
 
 .blue, #blue {
   border-bottom-right-radius: 100%;
-  border-top: solid $border 1px;
-  border-right: solid $border 2px;
-  border-left: solid $border 1px;
-  border-bottom: solid $border 2px;
+  border-top: solid $dark-accent 1px;
+  border-right: solid $dark-accent 2px;
+  border-left: solid $dark-accent 1px;
+  border-bottom: solid $dark-accent 2px;
     .blueDiv  {
       -webkit-animation: none;
       -moz-animation: none;
