@@ -8,12 +8,17 @@ export default React.createClass({
   },
   render() {
     let id;
+    let prompt = 'Game on...';
     if (!this.props.flashColor && this.props.compHits < 1) {
       id = "startGame"
     }
+    if (this.props.compHits < 1) {
+      prompt = 'Start Game';
+    }
+
     return (
       <div id={id} className="start-btn-component btn" onClick={this.startGame}>
-        Start Game
+        {prompt}
       </div>
     )
   }

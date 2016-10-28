@@ -67,9 +67,13 @@ export default React.createClass({
   },
   componentDidMount() {
     store.game.on('change', this.updateState);
+    store.session.on('change', this.updateState);
   },
   componentWillUnmount() {
     store.game.off('change', this.updateState);
+    store.session.off('change', this.updateState);
+    this.setState({showCompArr: false});
+
   },
   render() {
     let colorId;

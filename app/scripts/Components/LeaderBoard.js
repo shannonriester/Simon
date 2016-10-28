@@ -23,10 +23,13 @@ export default React.createClass({
 
     store.highScores.on('change, update', this.updateState);
   },
+  componentWillUnmount() {
+    store.highScores.off('change, update', this.updateState);
+  },
   render() {
     let highScores;
     if (this.state.highScores.length) {
-      console.log(this.state.highScores);
+      // console.log(this.state.highScores);
       this.state.highScores = _.sortBy(this.state.highScores, 'highScore').reverse();
 
       highScores = this.state.highScores.map((score, i) => {
