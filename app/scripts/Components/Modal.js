@@ -73,13 +73,14 @@ export default React.createClass({
       );
     }
 
-    if (localStorage.authtoken) {
+    if (localStorage.authtoken !== store.anon.authtoken) {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
+          <li className="modal-li session-modal-li btn" onClick={this.uploadPhoto}><p className="modal-p">Upload A Profile Pic</p></li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">High Score</p></li>
         </ul>);
-    } else {
+    } else if (localStorage.authtoken === store.anon.authtoken) {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" id="login">
@@ -96,22 +97,23 @@ export default React.createClass({
     return (
       <div id="modal-component" className="modal-component" onClick={this.closeModal}>
         <div id="modal-content" className="modal-content">
-        <div id="cancel-btn btn" className="cancel-container"><button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button></div>
+        <div id="cancel-btn btn" className="cancel-container">
+          <h2 className="header-title">Simon</h2>
+          <button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button>
+        </div>
           <ModalHeader username ={this.props.username}/>
           {sessionLIs}
           <ul className="modal-ul">
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>
             <li className="modal-li btn">Leader Board</li>
             <li>
-              <p className="modal-p">About</p>
+              <p className="modal-p how-to-p">Simon How To:</p>
               <ol className="ol-directions">
-                <li className="li-directions">Press the <span className="span">'Start Game'</span> button in the center of the board.</li>
-                <li className="li-directions">A random color is generated and the board flashes this neon color.</li>
-                <li className="li-directions">The player must click the flashed color(s) in the same order as the computer generated color pattern.</li>
-                <li className="li-directions">If player selects correctly, another random color is added and the pattern becomes longer and longer.</li>
-                <li className="li-directions">Each 'hit' is the user's correct number of color selections.</li>
-                <li className="li-directions">After 5 'hits', the user proceeds to the next level.</li>
-                <li className="li-directions">The flash-time increases with each level, getting harder and harder!</li>
+                <li className="li-directions">To begin, press the <span className="span">'Start Game'</span> button in the center of the board.</li>
+                <li className="li-directions">The computer will generate a random color and flash that color on the board.</li>
+                <li className="li-directions">The player must click the flashed color(s) in the same order as the computer generated pattern to get to the next round.</li>
+                <li className="li-directions">Each new round increases the pattern by one random color.</li>
+                <li className="li-directions">After 5 'hits' (AKA, 'clicks'), the user proceeds to the next level, generating faster and faster flashes!</li>
               </ol>
             </li>
           </ul>

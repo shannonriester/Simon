@@ -6,7 +6,7 @@
   @include flex-center;
   align-items: flex-end;
   justify-content: flex-start;
-  width: 100%;
+  width: 90%;
   margin: 0 0 1rem 1rem;
   overflow: hidden;
 }
@@ -15,7 +15,8 @@
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
-  object-fit: cover;
+  background-size: contain;
+  margin: 0;
 }
 
 .greeting {

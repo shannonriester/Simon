@@ -6,18 +6,24 @@ import router from './router';
 import store from './store';
 
 $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
-    if (jqueryAjax.url.indexOf('kinvey') !== -1) {
-      if (localStorage.authtoken) {
-        xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
-      } else {
-        xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
-      }
+  if (localStorage.authtoken) {
+    if (localStorage.authtoken === store.anon.authtoken) {
+      xhrAjax.setRequestHeader('Authorization', `Kinvey ${store.anon.authtoken}`);
+    } else {
+      xhrAjax.setRequestHeader('Authorization', `Kinvey ${localStorage.authtoken}`);
+    }
+  } else {
+    xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
   }
+
 });
 
-if (localStorage.authtoken) {
+
+if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anon.authtoken) {
   store.session.retrieve();
-  // store.game.setPlayer(store.session.get('username'));
+} else if (!localStorage.authtoken) {
+  localStorage.authtoken = store.anon.authtoken;
 }
 
-ReactDOM.render(router, document.getElementById('app'));
+
+ReactDOM.render(router, document.getElementById('container'));

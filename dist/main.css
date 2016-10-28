@@ -383,7 +383,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(7, 7, 7, 0.5); }
 
 .modal-content {
   position: relative;
@@ -396,7 +396,7 @@
   width: 20rem;
   max-width: 25rem;
   height: 100%;
-  color: #000;
+  color: #070707;
   -webkit-animation: showModal 1s ease-in-out;
   -moz-animation: showModal 1s ease-in-out;
   animation: showModal 1s ease-in-out; }
@@ -425,13 +425,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: flex-end;
-  width: 100%;
-  height: 2rem; }
+  justify-content: space-between;
+  width: 100%; }
+
+.header-title {
+  width: 60%;
+  margin: 10px 0 0 0;
+  color: #393d3f;
+  font-weight: 100;
+  text-align: right; }
 
 .cancel-btn {
+  padding: 10px;
   background: none;
-  padding: 5px;
   outline: none;
   border: none;
   color: grey; }
@@ -471,12 +477,21 @@
   margin: 0;
   font-weight: 100; }
 
+.how-to-p {
+  width: 102px;
+  padding: 1rem 0px 2px 0rem;
+  margin: 0 0 10px 1rem;
+  font-weight: bold;
+  border-bottom: solid 1px;
+  color: #393d3f;
+  text-align: center; }
+
 .session-form {
   height: 10rem; }
 
 .submit-btn {
   border: none;
-  background: #000;
+  background: #070707;
   color: #F6F6F6;
   width: 10rem;
   height: 2rem;
@@ -484,13 +499,15 @@
   border-radius: 2px; }
   .submit-btn:hover {
     transition: .5s;
-    color: #000;
+    color: #070707;
     background: #F6F6F6; }
 
 .ol-directions {
-  margin: 0; }
+  margin: 0;
+  color: #393d3f; }
 
 .li-directions {
+  color: #393d3f;
   list-style-type: decimal !important; }
 
 .modal-header-component {
@@ -502,7 +519,7 @@
   justify-content: center;
   align-items: flex-end;
   justify-content: flex-start;
-  width: 100%;
+  width: 90%;
   margin: 0 0 1rem 1rem;
   overflow: hidden; }
 
@@ -510,7 +527,8 @@
   height: 5rem;
   width: 5rem;
   border-radius: 50%;
-  object-fit: cover; }
+  background-size: contain;
+  margin: 0; }
 
 .greeting {
   margin: 0 0 1rem 1rem; }
@@ -674,7 +692,7 @@ body {
 
 #container {
   padding: 3px;
-  background: #000; }
+  background: #070707; }
 
 .btn:hover {
   cursor: pointer; }

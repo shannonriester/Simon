@@ -45,14 +45,21 @@
 
 .cancel-container {
   @include flex-center;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
-  height: 2rem;
+}
+
+.header-title  {
+  width: 60%;
+  margin: 10px 0 0 0;
+  color: $font-color;
+  font-weight: 100;
+  text-align: right;
 }
 
 .cancel-btn {
+  padding: 10px;
   background: none;
-  padding: 5px;
   outline: none;
   border: none;
   color: grey;
@@ -94,6 +101,16 @@
   font-weight: 100;
 }
 
+.how-to-p {
+  width: 102px;
+  padding: 1rem 0px 2px 0rem;
+  margin: 0 0 10px 1rem;
+  font-weight: bold;
+  border-bottom: solid 1px;
+  color: $font-color;
+  text-align: center;
+}
+
 .session-form {
   height: 10rem;
 }
@@ -114,10 +131,11 @@
 }
 
 .ol-directions {
-  // padding: 0;
   margin: 0;
+  color: $font-color;
 }
 
 .li-directions {
+  color: $font-color;
   list-style-type: decimal !important;
 }

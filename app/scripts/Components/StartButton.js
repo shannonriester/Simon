@@ -20,6 +20,6 @@ export default React.createClass({
       <div id={id} className="start-btn-component btn" onClick={this.startGame}>
         {prompt}
       </div>
-    )
+    );
   }
 });

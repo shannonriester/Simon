@@ -26,7 +26,6 @@ export default Backbone.Model.extend({
     let date = moment().format('MM Do YYYY, h:mm a');
     let numGames = this.get('gamesPlayed');
     numGames = numGames + 1;
-    // console.log('numGames', numGames);
 
     if (newHighScore > this.get('highScore')) {
       this.save({highScore: newHighScore});
@@ -52,19 +51,11 @@ export default Backbone.Model.extend({
         this.unset('password');
       },
       error: function(model, response) {
-        // this.unset('username');
-        // this.unset('password');
-        // this.trigger('change');
         throw new Error('LOGIN FAILED');
       }
     });
   },
   signup(username, password, password2) {
-    console.log('in the signup');
-    console.log('username', username);
-    console.log('password1', password1);
-    console.log('password2', password2);
-
     if (password === password2) {
       console.log('in the signup and matching passwords');
 
@@ -76,13 +67,12 @@ export default Backbone.Model.extend({
         type: 'POST',
         success: (model, response) => {
           // localStorage.removeItem('authtoken');
-          // localStorage.setItem('authtoken', response._kmd.authtoken);
           this.unset('password');
+          console.log('response in the sign up', response);
+          localStorage.setItem('authtoken', response._kmd.authtoken);
         },
         error: function(model, response) {
-          console.log('model', model);
-          console.log('response', response);
-          throw new Error('SIGN UP FAILED');
+          throw new Error('SIGN UP FAILED', response);
         }
       });
     } else {
@@ -96,6 +86,7 @@ export default Backbone.Model.extend({
       success: (model, response) => {
         localStorage.clear();
         this.clear();
+        localStorage.authtoken = '991879eb-0605-4ac7-9e90-0cf5b8e4e597.ZosH1NxXsgeFuWO4F7LAq7eWqjt0wf5zA2rp7Fmhwu4=';
       },
       error: function(model, response) {
         throw new Error('LOGOUT FAILED');
