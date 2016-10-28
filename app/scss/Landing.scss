@@ -24,9 +24,6 @@
   @include flex-center;
   font-size: 2rem;
   &:hover {
-    // -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
-    // -moz-animation: neon1 1.5s ease-in-out infinite alternate;
-    // animation: neon1 1.5s ease-in-out infinite alternate;
     .landing-li {
       width: 49.6%;
     }
@@ -69,4 +66,8 @@
   font-weight: 100;
   font-size: 2rem;
   margin: 0;
+}
+
+.cancel-landing-container {
+  justify-content: flex-end;
 }

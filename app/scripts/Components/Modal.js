@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import $ from 'jquery';
 
 import store from '../store';
@@ -7,7 +8,8 @@ import ModalHeader from './ModalHeader';
 export default React.createClass({
   getInitialState() {
     return {
-      form: false,
+      login: false,
+      signup: false,
       type: false,
     }
   },
@@ -19,10 +21,19 @@ export default React.createClass({
   closeModalBtn() {
     this.props.hideModal();
   },
-  toggleView(e) {
+  toggleLogin(e) {
     let type = e.target.innerText.split(' ').join('').toLowerCase();
     this.setState({
-      form: !this.state.form,
+      login: !this.state.form,
+      signup: false,
+      type: type,
+    });
+  },
+  toggleSignup(e) {
+    let type = e.target.innerText.split(' ').join('').toLowerCase();
+    this.setState({
+      login: false,
+      signup: !this.state.form,
       type: type,
     });
   },
@@ -48,13 +59,19 @@ export default React.createClass({
   logout() {
     store.session.logout();
   },
+  routeHighScore() {
+    browserHistory.push('/LeaderBoard');
+  },
+  routeHome() {
+    browserHistory.push('/Home');
+  },
   render() {
     let login;
     let signup;
     let modalHeader;
     let sessionLIs;
 
-    if (this.state.form && this.state.type === 'login') {
+    if (this.state.login) {
       login = (
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -62,7 +79,7 @@ export default React.createClass({
             <button className="submit-btn btn" tabIndex="4" role="button" onClick={this.login}>Enter</button>
           </form>
       );
-    } else if (this.state.form && this.state.type === 'signup') {
+    } else if (this.state.signup) {
       signup = (
           <form className="signup-form session-form" type="submit" onSubmit={this.signup}>
             <input type="text" tabIndex="2" placeholder="Choose a username" role="textbox" ref="username"/>
@@ -78,17 +95,16 @@ export default React.createClass({
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" onClick={this.uploadPhoto}><p className="modal-p">Upload A Profile Pic</p></li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
-          <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">High Score</p></li>
         </ul>);
     } else {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn" id="login">
-            <p className="modal-p" onClick={this.toggleView}>Login</p>
+            <p className="modal-p" onClick={this.toggleLogin}>Login</p>
             {login}
           </li>
-          <li className="modal-li session-modal-li btn" id="signup" onClick={this.toggleView}>
-            <p className="modal-p" onClick={this.toggleView}>Sign Up</p>
+          <li className="modal-li session-modal-li btn" id="signup">
+            <p className="modal-p" onClick={this.toggleSignup}>Sign Up</p>
             {signup}
           </li>
         </ul>
@@ -102,10 +118,11 @@ export default React.createClass({
           <button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button>
         </div>
           <ModalHeader username ={this.props.username}/>
-          {sessionLIs}
           <ul className="modal-ul">
+            <li className="modal-li btn" onClick={this.routeHome}>Home</li>
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>
-            <li className="modal-li btn">Leader Board</li>
+            <li className="modal-li session-modal-li btn" onClick={this.routeHighScore}><p className="modal-p">High Scores</p></li>
+            {sessionLIs}
             <li>
               <p className="modal-p how-to-p">Simon How To:</p>
               <ol className="ol-directions">
@@ -117,6 +134,7 @@ export default React.createClass({
               </ol>
             </li>
           </ul>
+
         </div>
       </div>
     );

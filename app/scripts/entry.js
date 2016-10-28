@@ -15,14 +15,13 @@ $(document).ajaxSend(function(e, xhrAjax, jqueryAjax) {
   } else {
     xhrAjax.setRequestHeader('Authorization', `Basic ${store.settings.basicAuth}`);
   }
-
 });
 
 
 if (localStorage.getItem('authtoken') && localStorage.authtoken !== store.anon.authtoken) {
   store.session.retrieve();
 } else if (!localStorage.authtoken) {
-  // localStorage.authtoken = store.anon.authtoken;
+  localStorage.authtoken = store.anon.authtoken;
 }
 
 

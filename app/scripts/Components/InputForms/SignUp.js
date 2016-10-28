@@ -9,8 +9,8 @@ export default React.createClass({
     let password1 = this.refs.password1.value;
     let password2 = this.refs.password2.value;
     store.session.signup(username, password1, password2);
-    
-    if (localStorage.authtoken) {
+
+    if (localStorage.authtoken !== store.anon.authtoken) {
       this.props.hideSignup();
     }
   },

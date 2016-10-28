@@ -8,16 +8,16 @@ export default React.createClass({
     let username = this.refs.username.value;
     let password = this.refs.password.value;
     store.session.login(username, password);
+
+    if (localStorage.authtoken !== store.anon.authtoken) {
+      this.props.hideLogin();
+    }
   },
   closeLogin(e) {
     e.preventDefault();
     this.props.hideLogin();
   },
   render() {
-    // let h2;
-    // if (!this.props.hideH2) {
-    //   h2 = (<h2 className="h2-landing">Login</h2>);
-    // }
       return (
         <form className="login-form-component landing-form" onSubmit={this.login}>
           <div className="cancel-container cancel-landing-container"><input type="button" value="X" className="cancel-landing cancel-btn btn" role="button" onClick={this.closeLogin} /></div>
