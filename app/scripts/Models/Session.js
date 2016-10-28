@@ -52,9 +52,9 @@ export default Backbone.Model.extend({
         this.unset('password');
       },
       error: function(model, response) {
-        this.unset('username');
-        this.unset('password');
-        this.trigger('change');
+        // this.unset('username');
+        // this.unset('password');
+        // this.trigger('change');
         throw new Error('LOGIN FAILED');
       }
     });

@@ -26,6 +26,7 @@ export default React.createClass({
   render() {
     let highScores;
     if (this.state.highScores.length) {
+      console.log(this.state.highScores);
       this.state.highScores = _.sortBy(this.state.highScores, 'highScore').reverse();
 
       highScores = this.state.highScores.map((score, i) => {

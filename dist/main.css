@@ -591,7 +591,8 @@ th {
 
 @media (min-width: 900px) {
   .score-table {
-    padding: 2rem; } }
+    padding: 2rem;
+    padding-bottom: 0; } }
 .rank {
   display: inline-flex;
   align-items: center;

@@ -6,7 +6,7 @@ import App from './Controllers/App';
 import Landing from './Components/Landing';
 import GameBoard from './Controllers/GameBoard';
 import LeaderBoard from './Components/LeaderBoard';
-import PageNotFound from './Components/LeaderBoard';
+import PageNotFound from './Components/PageNotFound';
 
 const router = (
   <Router history={browserHistory}>
