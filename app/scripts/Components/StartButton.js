@@ -8,17 +8,19 @@ export default React.createClass({
   },
   render() {
     let id;
-    let prompt = 'Game on...';
-    if (!this.props.flashColor && this.props.compHits < 1) {
+    
+    if (!this.props.flashColor && this.props.compHits.length < 1) {
+      prompt = 'Start Game'
       id = "startGame"
-    }
-    if (this.props.compHits < 1) {
-      prompt = 'Start Game';
+    } else if (this.props.showCompArr) {
+      prompt = 'Simon says...'
+    } else if (!this.props.flashColor && this.props.compHits.length > 0) {
+      prompt = 'Player\'s move';
     }
 
     return (
       <div id={id} className="start-btn-component btn" onClick={this.startGame}>
-        {prompt}
+        <p className="prompt">{prompt}</p>
       </div>
     );
   }

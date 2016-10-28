@@ -59,8 +59,9 @@ export default React.createClass({
       level: store.game.get('level'),
       timeout: store.game.get('timeout'),
     });
-
-    this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
+    if (store.game.get('compHits').length > 0) {
+      this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
+    }
     if (store.game.get('gameOver')) {
       store.highScores.compareHighScores(this.state.user, this.state.userHitLevel.length, this.state.level);
     }
@@ -108,6 +109,7 @@ export default React.createClass({
             resetUserHits={this.resetUserHits}
             flashColor={this.state.flashColor}
             compHits={this.state.compHits}
+            showCompArr={this.state.showCompArr}
             />
         </div>
 
