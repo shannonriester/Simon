@@ -36,12 +36,14 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
+      let soundColor = new Audio(`/assets/sounds/${newCurrColor}.wav`);
 
-      window.setTimeout(()=> {
+      window.setTimeout(() => {
         this.setState({flashColor: false});
-
+        // soundColor.stop();
         window.setTimeout(() => {
           if (mapCompHits.length) {
+            // soundColor.play();
             this.flashColorArr(mapCompHits, timeout);
           } else {
             this.setState({showCompArr: false});
@@ -94,7 +96,9 @@ export default React.createClass({
                 colorId={this.state.colorId}
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
-                key={i}/>);
+                key={i}
+                gameOver={this.state.gameOver}
+                />);
     });
     return (
       <div className="gameboard-component" id={colorId}>

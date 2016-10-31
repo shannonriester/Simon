@@ -8,13 +8,16 @@ export default React.createClass({
   },
   render() {
     let id;
+    let prompt;
     
-    if (!this.props.flashColor && this.props.compHits.length < 1) {
+    if (this.props.gameOver) {
+      prompt = 'Game Over!'
+    } else if (!this.props.showCompArr && this.props.compHits.length < 1) {
       prompt = 'Start Game'
       id = "startGame"
     } else if (this.props.showCompArr) {
       prompt = 'Simon says...'
-    } else if (!this.props.flashColor && this.props.compHits.length > 0) {
+    } else if (!this.props.showCompArr && this.props.compHits.length > 0) {
       prompt = 'Player\'s move';
     }
 
