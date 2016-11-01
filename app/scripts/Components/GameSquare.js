@@ -28,7 +28,6 @@ export default React.createClass({
 
       window.setTimeout(() => {
         this.setState({clicked: false});
-        // soundColor.pause();
       }, 200);
     }
   },

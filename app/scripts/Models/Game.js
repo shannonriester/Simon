@@ -95,7 +95,7 @@ export default Backbone.Model.extend({
         this.addLevel();
       }
     } else {
-      console.log('gameover');
+      // console.log('gameover');
       this.gameOver(userHitsArr);
     }
   },

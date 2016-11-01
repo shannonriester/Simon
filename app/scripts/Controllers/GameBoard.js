@@ -66,6 +66,7 @@ export default React.createClass({
       userHits: store.game.get('userHits'),
       userHitLevel: store.game.get('userHitLevel'),
       level: store.game.get('level'),
+      gameOver: store.game.get('gameOver'),
       timeout: store.game.get('timeout'),
     });
     if (store.game.get('compHits').length > 0) {
@@ -91,6 +92,7 @@ export default React.createClass({
       colorId = 'border-' + this.state.colorId;
     }
 
+    console.log('this.state.gameOver', this.state.gameOver);
     let gameSquare = store.colors.map((color, i) => {
       let classLi = "outer-square " + color;
       let classDiv = "inner-square " + color + "Div";
@@ -104,7 +106,7 @@ export default React.createClass({
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
                 key={i}
-                gameOver={this.state.gameOver}
+
                 />);
     });
     return (
@@ -121,6 +123,7 @@ export default React.createClass({
             flashColor={this.state.flashColor}
             compHits={this.state.compHits}
             showCompArr={this.state.showCompArr}
+            gameOver={this.state.gameOver}
             />
         </div>
 

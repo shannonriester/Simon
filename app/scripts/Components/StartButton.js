@@ -9,7 +9,8 @@ export default React.createClass({
   render() {
     let id;
     let prompt;
-    
+    console.log('this.props.gameOver', this.props.gameOver);
+
     if (this.props.gameOver) {
       prompt = 'Game Over!'
     } else if (!this.props.showCompArr && this.props.compHits.length < 1) {
