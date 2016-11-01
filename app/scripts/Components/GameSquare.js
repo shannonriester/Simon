@@ -11,12 +11,24 @@ export default React.createClass({
     }
   },
   selectSquare(e) {
-    if (!this.props.showCompArr) {
-      let className = e.target.className.split(' ')[1];
-      let userHit = className.slice(0, className.length - 3);
+    let className = e.target.className.split(' ')[1];
+    let userHit = className.slice(0, className.length - 3);
 
+    if (!this.props.showCompArr && this.props.compHits.length) {
       store.game.userHits(userHit);
 
+      this.setState({
+        clicked: true,
+        clickColor: userHit,
+      });
+
+      let soundColor = new Audio(`/assets/sounds/${userHit}1.wav`);
+      soundColor.play();
+
+      window.setTimeout(() => {
+        this.setState({clicked: false});
+      }, 200);
+    } else {
       this.setState({
         clicked: true,
         clickColor: userHit,
