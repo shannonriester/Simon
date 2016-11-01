@@ -37,7 +37,10 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
+
       console.log('newCurrColor', newCurrColor);
+      console.log(`/assets/sounds/${newCurrColor}.wav`);
+
       let soundColor = new Audio(`/assets/sounds/${newCurrColor}.wav`);
       soundColor.play();
 

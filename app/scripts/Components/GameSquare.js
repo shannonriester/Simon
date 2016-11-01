@@ -22,8 +22,13 @@ export default React.createClass({
         clickColor: userHit,
       });
 
+      let soundColor = new Audio(`/assets/sounds/${userHit}.wav`);
+      soundColor.play();
+
+
       window.setTimeout(() => {
         this.setState({clicked: false});
+        // soundColor.pause();
       }, 200);
     }
   },
