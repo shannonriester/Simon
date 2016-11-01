@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 import store from '../store';
 import Nav from './Nav';
@@ -38,10 +38,10 @@ export default React.createClass({
         colorId: newCurrColor,
       });
 
-      console.log('newCurrColor', newCurrColor);
-      console.log(`/assets/sounds/${newCurrColor}.wav`);
+      // console.log('newCurrColor', newCurrColor);
+      console.log(`/assets/sounds/${newCurrColor}1.wav`);
 
-      let soundColor = new Audio(`/assets/sounds/${newCurrColor}.wav`);
+      let soundColor = new Audio(`/assets/sounds/${newCurrColor}1.wav`);
       soundColor.play();
 
       window.setTimeout(() => {
@@ -84,7 +84,6 @@ export default React.createClass({
     store.game.off('change', this.updateState);
     store.session.off('change', this.updateState);
     this.setState({showCompArr: false});
-
   },
   render() {
     let colorId;
@@ -92,7 +91,6 @@ export default React.createClass({
       colorId = 'border-' + this.state.colorId;
     }
 
-    console.log('this.state.gameOver', this.state.gameOver);
     let gameSquare = store.colors.map((color, i) => {
       let classLi = "outer-square " + color;
       let classDiv = "inner-square " + color + "Div";

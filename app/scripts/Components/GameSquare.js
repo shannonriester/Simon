@@ -22,9 +22,8 @@ export default React.createClass({
         clickColor: userHit,
       });
 
-      let soundColor = new Audio(`/assets/sounds/${userHit}.wav`);
+      let soundColor = new Audio(`/assets/sounds/${userHit}1.wav`);
       soundColor.play();
-
 
       window.setTimeout(() => {
         this.setState({clicked: false});
