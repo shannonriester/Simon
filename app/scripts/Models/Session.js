@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import $ from 'jquery';
 import moment from 'moment';
 
 
@@ -11,6 +12,7 @@ export default Backbone.Model.extend({
     userHits: [],
     highScore: 0,
     gamesPlayed: 0,
+    profilePic: '',
   },
   parse(response) {
     if (response) {
@@ -22,21 +24,83 @@ export default Backbone.Model.extend({
       }
     }
   },
-  saveGame(newHighScore) {
-    let date = moment().format('MM Do YYYY, h:mm a');
-    let numGames = this.get('gamesPlayed');
-    numGames = numGames + 1;
+  convertImgFile: function(file) {
+    let fileId;
+    return new Promise((resolve, reject) => {
+      this.postToKinveyFile(file)
+        .then((kinveyFile) => {
+          fileId = kinveyFile._id;
+          this.putToGoogle(file, kinveyFile)
+            .then(() => {
+              this.getPicFromKinvey(fileId)
+                .then((downloadURL) => {
+                  resolve(downloadURL);
+                })
 
-    if (newHighScore > this.get('highScore')) {
-      this.save({highScore: newHighScore});
-    }
-    this.save({gamesPlayed: numGames});
+            })
+        })
+    })
   },
-  addGame() {
-    let numGames = this.get('gamesPlayed');
-    numGames = numGames + 1;
-    if (this.get('username')) {
-    this.set({gamesPlayed: numGames})
+  postToKinveyFile: function(file) {
+      return $.ajax({
+      url: 'https://baas.kinvey.com/blob/kid_BJ6LcoFC',
+      type: 'POST',
+      headers: {
+        Authorization: 'Kinvey ' + localStorage.authtoken,
+        "X-Kinvey-Content-Type": file.type,
+      },
+      contentType: 'application/json',
+      data: JSON.stringify({
+        _public: true,
+        mimeType: file.type,
+      })
+    });
+  },
+  putToGoogle: function(file, kinveyFile){
+    console.log('kinveyFile', kinveyFile);
+    return $.ajax({
+      url: kinveyFile._uploadURL,
+      headers: kinveyFile._requiredHeaders,
+      data: file,
+      contentLength: file.size,
+      type: 'PUT',
+      processData: false,
+      contentType: false,
+    });
+  },
+  getPicFromKinvey: function(fileId) {
+    return new Promise((resolve, reject) => {
+      $.ajax({
+        url: `https://baas.kinvey.com/blob/kid_BJ6LcoFC/${fileId}`,
+        headers: {
+          Authorization: 'Kinvey ' + localStorage.authtoken,
+        },
+      })
+      .then((response) => {
+        // console.log('response', response);
+        // this.save({'profilePic': fileId});
+        resolve(response._downloadURL);
+      })
+      .fail((e) => {
+        console.error(e);
+      })
+    });
+  },
+  uploadProfilePic(file) {
+    if (file) {
+      this.convertImgFile(file).then((downloadURL) => {
+        let profilePic = this.get('profilePic');
+        profilePic = downloadURL;
+        this.set('profilePic', profilePic);
+
+        this.save(null, {
+          type: 'PUT',
+          url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/${this.get('_id')}`,
+          success: (response) => {
+            console.log(response);
+          }
+        });
+      });
     }
   },
   login(username, password) {
