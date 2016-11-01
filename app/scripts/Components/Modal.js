@@ -4,6 +4,7 @@ import $ from 'jquery';
 
 import store from '../store';
 import ModalHeader from './ModalHeader';
+import ImgUploader from './ImgUploader';
 
 export default React.createClass({
   getInitialState() {
@@ -39,6 +40,7 @@ export default React.createClass({
   },
   newGame() {
     this.props.hideModal();
+
     window.setTimeout(() => {
       store.game.newGame();
     }, 1000);
@@ -64,6 +66,9 @@ export default React.createClass({
   },
   routeHome() {
     browserHistory.push('/Home');
+  },
+  uploadPhoto() {
+    // window.open()
   },
   render() {
     let login;
@@ -93,7 +98,10 @@ export default React.createClass({
     if (localStorage.authtoken && localStorage.authtoken !== store.anon.authtoken) {
       sessionLIs = (
         <ul className="session-modal-ul modal-ul">
-          <li className="modal-li session-modal-li btn" onClick={this.uploadPhoto}><p className="modal-p">Upload A Profile Pic</p></li>
+          <li className="modal-li session-modal-li btn">
+            <p className="modal-p">Upload a Profile Pic</p>
+            <ImgUploader/>
+          </li>
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
         </ul>);
     } else {
