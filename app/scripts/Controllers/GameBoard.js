@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 
 import store from '../store';
 import Nav from './Nav';
@@ -36,17 +37,20 @@ export default React.createClass({
         currentColor: newCurrColor,
         colorId: newCurrColor,
       });
+      console.log('newCurrColor', newCurrColor);
       let soundColor = new Audio(`/assets/sounds/${newCurrColor}.wav`);
+      soundColor.play();
 
       window.setTimeout(() => {
         this.setState({flashColor: false});
-        // soundColor.stop();
+        soundColor.pause();
         window.setTimeout(() => {
           if (mapCompHits.length) {
-            // soundColor.play();
+
             this.flashColorArr(mapCompHits, timeout);
           } else {
             this.setState({showCompArr: false});
+            soundColor.pause();
           }
         }, timeout);
 
