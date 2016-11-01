@@ -54,7 +54,7 @@ export default React.createClass({
 
     return (
       <ul className="landing-component">
-        <li className="landing-li outer-square greenDiv green" onClick={this.startGame} ref="green"><div className="landing-inner inner-square greenDiv btn"><h1 className="h1-landing">Start Game</h1></div></li>
+        <li className="landing-li outer-square greenDiv green" onClick={this.startGame} ref="green"><div className="landing-inner inner-square greenDiv btn"><h1 className="h1-landing">Game Board</h1></div></li>
         <li className="landing-li outer-square redDiv red " ref="red"><div className="Login landing-inner inner-square redDiv btn" >{login}</div></li>
         <li className="landing-li outer-square yellow" ref="yellow"><div className="landing-inner inner-square yellowDiv btn">{signup}</div></li>
         <li id="HighScore" className="landing-li outer-square blue" onClick={this.leaderBoard} ref="blue"><div className="landing-inner inner-square blueDiv btn"><h1 className="h1-landing">Leader Board</h1></div></li>

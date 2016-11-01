@@ -38,9 +38,6 @@ export default React.createClass({
         colorId: newCurrColor,
       });
 
-      // console.log('newCurrColor', newCurrColor);
-      console.log(`/assets/sounds/${newCurrColor}1.wav`);
-
       let soundColor = new Audio(`/assets/sounds/${newCurrColor}1.wav`);
       soundColor.play();
 
@@ -104,7 +101,6 @@ export default React.createClass({
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
                 key={i}
-
                 />);
     });
     return (

@@ -2,7 +2,9 @@
   background-color: #000;
   border: solid 8px transparent;
   border-radius: 3px;
+  margin: 3px;
 }
+
 .gameboard-container {
   @include flex-center;
   flex-direction: column;

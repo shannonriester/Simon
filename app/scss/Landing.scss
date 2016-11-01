@@ -16,7 +16,6 @@
   border-radius: 0;
   .inner-square {
     border-radius: 0;
-    // width: 50%;
   }
 }
 
@@ -63,9 +62,13 @@
   @include flex-center;
   height: 100%;
   width: 100%;
+  margin: 0;
   font-weight: 100;
   font-size: 2rem;
-  margin: 0;
+  color: $dark-accent;
+  &:hover {
+    color: #FFF;
+  }
 }
 
 .cancel-landing-container {
