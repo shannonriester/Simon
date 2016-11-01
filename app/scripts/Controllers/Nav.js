@@ -2,7 +2,6 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 import store from '../store';
-import SessionNav from '../Components/SessionNav';
 import Modal from '../Components/Modal';
 import GameSquare from '../Components/GameSquare';
 
@@ -11,6 +10,7 @@ export default React.createClass({
     return {
       modal: false,
       username: store.session.get('username'),
+      session: store.session.toJSON(),
     }
   },
   showModal() {
@@ -26,7 +26,10 @@ export default React.createClass({
     browserHistory.push(`/${route}`);
   },
   updateState() {
-    this.setState({username: store.session.get('username')});
+    this.setState({
+      username: store.session.get('username'),
+      session: store.session.toJSON(),
+    });
 
     if (this.state.username || store.session.get('username')) {
       let player = store.session.get('username');
@@ -35,9 +38,8 @@ export default React.createClass({
     }
   },
   componentDidMount() {
-    store.session.on('change', this.updateState);
-
     store.highScores.fetch();
+    store.session.on('change', this.updateState);
   },
   componentWillUnmount() {
     store.session.off('change', this.updateState);
@@ -48,7 +50,7 @@ export default React.createClass({
       sideModal = (<Modal
         modal={this.state.modal}
         hideModal={this.hideModal}
-        username={this.state.username}
+        session={this.state.session}
         />);
     }
 

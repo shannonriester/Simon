@@ -67,9 +67,6 @@ export default React.createClass({
   routeHome() {
     browserHistory.push('/Home');
   },
-  uploadPhoto() {
-    // window.open()
-  },
   render() {
     let login;
     let signup;
@@ -125,7 +122,7 @@ export default React.createClass({
           <h2 className="header-title">Simon</h2>
           <button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button>
         </div>
-          <ModalHeader username ={this.props.username}/>
+          <ModalHeader session={this.props.session}/>
           <ul className="modal-ul">
             <li className="modal-li btn" onClick={this.routeHome}>Home</li>
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>

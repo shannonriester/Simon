@@ -10,7 +10,7 @@ export default React.createClass({
     return (
       <header className="modal-header-component">
         <div className="greeting-container">
-          <figure className="profile-pic" style={{backgroundImage:`url('http://www.fillmurray.com/g/400/400')`}} alt="profile picture"></figure>
+          <figure className="profile-pic" style={{backgroundImage:`url(${this.props.session.profilePic})`}} alt="profile picture"></figure>
           <figcaption>{greeting}</figcaption>
         </div>
       </header>

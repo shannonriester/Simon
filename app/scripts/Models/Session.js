@@ -2,7 +2,6 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 import moment from 'moment';
 
-
 export default Backbone.Model.extend({
   idAttribute: '_id',
   urlRoot:`https://baas.kinvey.com/user/kid_BJ6LcoFC`,
@@ -12,7 +11,7 @@ export default Backbone.Model.extend({
     userHits: [],
     highScore: 0,
     gamesPlayed: 0,
-    profilePic: '',
+    profilePic: 'http://www.fillmurray.com/g/400/400',
   },
   parse(response) {
     if (response) {
@@ -21,6 +20,7 @@ export default Backbone.Model.extend({
         username: response.username,
         authtoken: response._kmd.authtoken,
         highScore: response.highScore,
+        profilePic: response.profilePic,
       }
     }
   },
@@ -66,6 +66,7 @@ export default Backbone.Model.extend({
       type: 'PUT',
       processData: false,
       contentType: false,
+      profilePic: '',
     });
   },
   getPicFromKinvey: function(fileId) {
@@ -77,8 +78,6 @@ export default Backbone.Model.extend({
         },
       })
       .then((response) => {
-        // console.log('response', response);
-        // this.save({'profilePic': fileId});
         resolve(response._downloadURL);
       })
       .fail((e) => {
@@ -97,7 +96,7 @@ export default Backbone.Model.extend({
           type: 'PUT',
           url: `https://baas.kinvey.com/user/kid_BJ6LcoFC/${this.get('_id')}`,
           success: (response) => {
-            console.log(response);
+            // console.log(response);
           }
         });
       });
