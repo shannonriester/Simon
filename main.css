@@ -237,7 +237,8 @@
 .gameboard-component {
   background-color: #000;
   border: solid 8px transparent;
-  border-radius: 3px; }
+  border-radius: 3px;
+  margin: 3px; }
 
 .gameboard-container {
   display: flex;
@@ -682,9 +683,12 @@ th {
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin: 0;
   font-weight: 100;
   font-size: 2rem;
-  margin: 0; }
+  color: #1E1E24; }
+  .h1-landing:hover {
+    color: #FFF; }
 
 .cancel-landing-container {
   justify-content: flex-end; }
@@ -698,7 +702,6 @@ body {
   line-height: 1.3; }
 
 #container {
-  padding: 3px;
   background: #070707; }
 
 .btn:hover {
