@@ -1,22 +1,20 @@
-#Live Site
+#My Simon Game
+  My version of the 1990's Simon game
+
+##Live Site
 [simon](simon-says.surge.sh)
 
-# Basic Build with NPM scripts
-This is a project scaffolding and build tool for the TIY Austin Front-End Engineering course. Feel free to use and enjoy! Feedback and PRs welcome!
-
-## Features
-- A bare bones scaffolding for an SPA, without any libraries built in
-- A static server for serving up your dev environment via http
-- `app` directory for development, preloaded with an `index.html`, `scripts/entry.js`, `scss/main.scss` and `assets/`
-- `dist` directory for deployable code
-- es2015 and babel, including module syntax
-- mocha test runner, for support testing modules and react components with es2015 and jsx syntax using enzyme and the chai assertion library
-- sass (.scss)
+##Features
+  - Game Board  
+    - Each game played will flash cool neon colors and play sounds when a color is flashed or when the player clicks on a game-square
+  - Leader Board
+    - Account holders highest scores can be added to the Leader Board if they are good enough ;)!
+  - Logged-in users can upload a profile photo
+  - Personal Best
+    - Users can see their best games/scores
 
 ## Installation
 - Clone this repo (or fork then clone, if you prefer)
-- Remove the git history by running `rm -rf .git`
-- Set up a new git repo
 - Run `npm install`
 - if you get permission errors you may need to run `sudo npm install` to install a couple global dependencies
 
@@ -28,14 +26,10 @@ This is a project scaffolding and build tool for the TIY Austin Front-End Engine
 - When the server is running, your site will be live on [http://localhost:8080/](http://localhost:8080/)
 
 ## Dependencies
-- `sass` [install guide here](http://sass-lang.com/install)
+- `React.js`
+- `Backbone.js`
+- `jQuery`
+- `Sass` [install guide here](http://sass-lang.com/install)
 
-
-##Extra Features
-  - Repeat button appears after computer gives memory test
-    - User can use this button 3 times until death
-    - User can only use this button to repeat _once_ per memory round
-
-# To DO
-  - mobile version
-    - onClick doesn't hover off...
+##Back End
+- BaaS, [Kinvey](https://www.kinvey.com)
