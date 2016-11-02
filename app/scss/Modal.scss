@@ -112,7 +112,7 @@
 }
 
 .session-form {
-  height: 10rem;
+  // height: 10rem;
 }
 
 .submit-btn {
@@ -138,4 +138,12 @@
 .li-directions {
   color: $font-color;
   list-style-type: decimal !important;
+}
+
+
+.session-form {
+  animation: accordion 1s;
+  -webkit-animation: accordion 1s;
+  -moz-animation: accordion 1s;
+  // height: 10rem;
 }

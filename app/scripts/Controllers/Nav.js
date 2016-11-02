@@ -36,15 +36,24 @@ export default React.createClass({
       store.game.setPlayer(player);
       store.highScores.compareHighScores();
     }
+
+    // console.log(store.highScores);
+    // if (store.highScores.length) {
+      console.log('deleting');
+      store.highScores.deleteModels();
+    // }
   },
   componentDidMount() {
     store.highScores.fetch();
-    store.session.on('change', this.updateState);
+    store.session.on('change update', this.updateState);
+
   },
   componentWillUnmount() {
-    store.session.off('change', this.updateState);
+    store.session.off('change update', this.updateState);
   },
   render() {
+    store.highScores.deleteModels();
+
     let sideModal;
     if (this.state.modal) {
       sideModal = (<Modal
