@@ -15,8 +15,8 @@
   justify-content: flex-start;
   background: $light-color;
   width: 20rem;
-  max-width: 25rem;
-  height: 100%;
+  max-width: 30rem;
+  // height: 100%;
   color: $dark-color;
   -webkit-animation: showModal 1s ease-in-out;
   -moz-animation: showModal 1s ease-in-out;
@@ -69,13 +69,11 @@
   @include ul-normalize;
   box-sizing: border-box;
   width: 100%;
-  overflow: hidden;
 }
 
 .modal-li {
   @include flex-center;
   justify-content: flex-start;
-  // padding: .5rem 0 .5rem 1rem;
   padding: 1rem;
   width: 90%;
   color: $light-color;
@@ -112,7 +110,7 @@
 }
 
 .session-form {
-  // height: 10rem;
+  height: 10rem;
 }
 
 .submit-btn {
@@ -138,12 +136,4 @@
 .li-directions {
   color: $font-color;
   list-style-type: decimal !important;
-}
-
-
-.session-form {
-  animation: accordion 1s;
-  -webkit-animation: accordion 1s;
-  -moz-animation: accordion 1s;
-  // height: 10rem;
 }

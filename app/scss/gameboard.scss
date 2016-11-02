@@ -8,7 +8,6 @@
 .gameboard-container {
   @include flex-center;
   flex-direction: column;
-  height: 42rem;
 }
 
 .gameboard {

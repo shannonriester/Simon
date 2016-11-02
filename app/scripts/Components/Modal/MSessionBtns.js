@@ -8,18 +8,21 @@ export default React.createClass({
     return {
       login: false,
       signup: false,
+      animation: '',
     }
   },
   toggleLogin(e) {
     this.setState({
       login: !this.state.login,
       signup: false,
+      animation: 'accordion',
     });
   },
   toggleSignup(e) {
     this.setState({
       login: false,
       signup: !this.state.signup,
+      animation: 'accordion',
     });
   },
   login(e) {
@@ -41,8 +44,10 @@ export default React.createClass({
   render() {
     let signup;
     let login;
+    let animation;
 
     if (this.state.login) {
+      animation = 'accordion';
       login = (
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -71,13 +76,14 @@ export default React.createClass({
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
         </ul>);
     } else {
+      console.log('this.state.animation', this.state.animation);
       return (
         <ul className="session-modal-ul modal-ul">
-          <li className="modal-li session-modal-li btn" id="login">
+          <li id={this.state.animation} className="modal-li session-modal-li btn">
             <p className="modal-p" onClick={this.toggleLogin}>Login</p>
             {login}
           </li>
-          <li className="modal-li session-modal-li btn" id="signup">
+          <li className="modal-li session-modal-li btn">
             <p className="modal-p" onClick={this.toggleSignup}>Sign Up</p>
             {signup}
           </li>
