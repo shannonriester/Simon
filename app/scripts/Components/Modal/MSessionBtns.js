@@ -49,7 +49,7 @@ export default React.createClass({
     if (this.state.login) {
       animation = 'accordion';
       login = (
-          <form className="login-form session-form" type="submit" onSubmit={this.login}>
+          <form id={this.state.animation} className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
             <input type="password" tabIndex="3" placeholder="password" role="textbox" ref="password"/>
             <button className="submit-btn btn" tabIndex="4" role="button" onClick={this.login}>Enter</button>
@@ -57,7 +57,7 @@ export default React.createClass({
       );
     } else if (this.state.signup) {
       signup = (
-          <form className="signup-form session-form" type="submit" onSubmit={this.signup}>
+          <form id={this.state.animation} className="signup-form session-form" type="submit" onSubmit={this.signup}>
             <input type="text" tabIndex="2" placeholder="Choose a username" role="textbox" ref="username"/>
             <input type="password" tabIndex="3" placeholder="password" role="textbox" ref="password1"/>
             <input type="password" tabIndex="4" placeholder="confirm password" role="textbox" ref="password2"/>
@@ -79,7 +79,7 @@ export default React.createClass({
       console.log('this.state.animation', this.state.animation);
       return (
         <ul className="session-modal-ul modal-ul">
-          <li id={this.state.animation} className="modal-li session-modal-li btn">
+          <li className="modal-li session-modal-li btn">
             <p className="modal-p" onClick={this.toggleLogin}>Login</p>
             {login}
           </li>

@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render() {
     return (
-      <li>
+      <li className="game-directions-component">
         <p className="modal-p how-to-p">Simon How To:</p>
         <ol className="ol-directions">
           <li className="li-directions">To begin, press the <span className="span">'Start Game'</span> button.</li>

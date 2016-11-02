@@ -18,9 +18,7 @@ export default Backbone.Collection.extend({
     sortedModels.filter((game, i) => {
       if (currentScore > game.highScore) {
         let model = this.findWhere({_id: game._id});
-        console.log('model', model);
         this.saveHighScore(username, currentScore, level);
-        model.destroy();
       }
     });
   },
@@ -52,13 +50,10 @@ export default Backbone.Collection.extend({
     }
   },
   deleteModels() {
-    let models = this.models.filter((game, i) => {
-      game = game.toJSON();
-      // console.log('game', game.player);
-      if (game.player === '' || game.player === "") {
-        // console.log('game', game);
-        // game.destroy();
-      }
-    });
+    if (this.models.length > 20) {
+      let sortedModels = _.sortBy(this.models, 'highScore').reverse();
+      // console.log('sortedModels', sortedModels);
+      console.log('to be deleted', sortedModels[0]);
+    }
   }
 });

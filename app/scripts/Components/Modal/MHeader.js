@@ -8,7 +8,7 @@ export default React.createClass({
     let url = '/assets/Simon.png';
 
     if (localStorage.authtoken && localStorage.authtoken !== store.anon.authtoken) {
-      greeting = (<p className="greeting">Hi, {this.props.session.username}! Welcome back =]</p>);
+      greeting = (<p className="greeting">Hi {this.props.session.username}. Welcome back!</p>);
       url = this.props.session.profilePic;
     }
 
