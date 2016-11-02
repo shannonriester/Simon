@@ -654,8 +654,6 @@ th {
 .landing-li {
   width: 50%;
   height: 50%;
-  max-width: 50%;
-  max-height: 50%;
   border: none;
   border-radius: 0; }
   .landing-li .inner-square {
@@ -705,6 +703,13 @@ th {
 .cancel-landing-container {
   justify-content: flex-end; }
 
+@media (min-width: 400px) {
+  .landing-li {
+    width: 99%; } }
+@media (min-width: 800px) {
+  .landing-li {
+    width: 50%;
+    height: 50%; } }
 body {
   background: #070707;
   margin: 0;

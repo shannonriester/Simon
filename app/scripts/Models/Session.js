@@ -11,7 +11,7 @@ export default Backbone.Model.extend({
     userHits: [],
     highScore: 0,
     gamesPlayed: 0,
-    profilePic: 'http://www.fillmurray.com/g/400/400',
+    profilePic: '/assets/Simon.png',
   },
   parse(response) {
     if (response) {

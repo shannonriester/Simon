@@ -10,24 +10,35 @@ export default Backbone.Collection.extend({
     this.models.map((game, i) => {
       game = game.toJSON();
       if (currentScore >= game.highScore) {
+        console.log('currentScore', currentScore);
+        console.log('game.highScore', game.highScore);
         this.saveHighScore(username, currentScore, level);
       }
     });
   },
+  findUsersGames(username) {
+    this.models.map((game, i) => {
+      console.log('game', game);
+    });
+  },
   saveHighScore(username, score, level) {
     let date = moment().format('MM Do YYYY, h:mm a');
-    this.create({
-      player: username,
-      highScore: score,
-      level: level,
-      moment: moment().format('MMM Do YYYY, h:mm a'),
-    }, {
-      success: (model, response) => {
-        // console.log('SAVED HIGH SCORE', response);
-      },
-      error: function(response) {
-        console.error('FAILED TO SAVE HIGH SCORE TO SERVER: ', response);
-      }
-    });
+    this.findUsersGames(username);
+
+    if (username !== '') {
+      this.create({
+        player: username,
+        highScore: score,
+        level: level,
+        moment: moment().format('MMM Do YYYY, h:mm a'),
+      }, {
+        success: (model, response) => {
+          console.log('SAVED HIGH SCORE', response);
+        },
+        error: function(response) {
+          console.error('FAILED TO SAVE HIGH SCORE TO SERVER: ', response);
+        }
+      });
+    }
   },
 });
