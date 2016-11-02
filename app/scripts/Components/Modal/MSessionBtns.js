@@ -4,6 +4,24 @@ import store from '../../store';
 import MImgUploader from './MImgUploader';
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      login: false,
+      signup: false,
+    }
+  },
+  toggleLogin(e) {
+    this.setState({
+      login: !this.state.login,
+      signup: false,
+    });
+  },
+  toggleSignup(e) {
+    this.setState({
+      login: false,
+      signup: !this.state.signup,
+    });
+  },
   login(e) {
     e.preventDefault();
     let username = this.refs.username.value;
@@ -24,7 +42,7 @@ export default React.createClass({
     let signup;
     let login;
 
-    if (this.props.login) {
+    if (this.state.login) {
       login = (
           <form className="login-form session-form" type="submit" onSubmit={this.login}>
             <input type="text" tabIndex="2" placeholder="username" role="textbox" ref="username"/>
@@ -32,7 +50,7 @@ export default React.createClass({
             <button className="submit-btn btn" tabIndex="4" role="button" onClick={this.login}>Enter</button>
           </form>
       );
-    } else if (this.props.signup) {
+    } else if (this.state.signup) {
       signup = (
           <form className="signup-form session-form" type="submit" onSubmit={this.signup}>
             <input type="text" tabIndex="2" placeholder="Choose a username" role="textbox" ref="username"/>

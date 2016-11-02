@@ -2,7 +2,7 @@ import React from 'react';
 import { browserHistory } from 'react-router';
 
 import store from '../store';
-import Modal from '../Components/Modal';
+import Modal from '../Components/Modal/Modal';
 import GameSquare from '../Components/GameSquare';
 
 export default React.createClass({
@@ -15,11 +15,9 @@ export default React.createClass({
   },
   showModal() {
     this.setState({modal: true});
-    // browserHistory.push('/GameBoard/Dashboard');
   },
   hideModal() {
     this.setState({modal: false});
-    // browserHistory.push('/GameBoard');
   },
   routeTo(e) {
     let route = e.target.id
@@ -39,7 +37,6 @@ export default React.createClass({
 
     // console.log(store.highScores);
     // if (store.highScores.length) {
-      console.log('deleting');
       store.highScores.deleteModels();
     // }
   },

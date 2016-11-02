@@ -6,34 +6,15 @@ import store from '../../store';
 import ModalHeader from './MHeader';
 import MSessionBtns from './MSessionBtns';
 import GameDirections from './MGameDirections';
-import ImgUploader from './MImgUploader';
 
 export default React.createClass({
-  getInitialState() {
-    return {
-      login: false,
-      signup: false,
-    }
-  },
   closeModal(e) {
-    if (e.target.id === 'modal-component' && e.target.id !== 'modal-content') {
+    if ((e.target.id === 'modal-component' && e.target.id !== 'modal-content') || e.target.id === 'close-modal-button') {
       this.props.hideModal();
     }
   },
   closeModalBtn() {
     this.props.hideModal();
-  },
-  toggleLogin(e) {
-    this.setState({
-      login: !this.state.login,
-      signup: false,
-    });
-  },
-  toggleSignup(e) {
-    this.setState({
-      login: false,
-      signup: !this.state.signup,
-    });
   },
   newGame() {
     this.props.hideModal();
@@ -54,7 +35,7 @@ export default React.createClass({
         <div id="modal-content" className="modal-content">
         <div id="cancel-btn btn" className="cancel-container">
           <h2 className="header-title">Simon</h2>
-          <button className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button>
+          <button id="close-modal-button" className="cancel-btn btn" tabIndex="1" role="button" onClick={this.closeModalBtn}>X</button>
         </div>
 
           <ModalHeader session={this.props.session}/>
@@ -63,7 +44,7 @@ export default React.createClass({
             <li className="modal-li btn" onClick={this.routeHome}>Home</li>
             <li className="modal-li btn" onClick={this.newGame}>New Game</li>
             <li className="modal-li session-modal-li btn" onClick={this.routeHighScore}><p className="modal-p">High Scores</p></li>
-            <MSessionBtns login={this.state.login} signup={this.state.signup}/>
+            <MSessionBtns />
             <GameDirections />
           </ul>
 
