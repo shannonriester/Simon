@@ -153,6 +153,17 @@
     box-shadow: 0 0 10px #FFF, 0 0 20px #FFF, 0 0 30px #FFF, 0 0 40px #000, 0 0 70px #000, 0 0 80px #000, 0 0 100px #000, 0 0 150px #000; }
   to {
     box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #000, 0 0 35px #000, 0 0 40px #000, 0 0 50px #000, 0 0 75px #000; } }
+@keyframes accordion {
+  from-transform: translateY(-100%);
+  to-transform: translateY(100%); }
+@-moz-keyframes accordion {
+  from-transform: translateY(-100%);
+  to-transform: translateY(100%); }
+@-webkit-keyframes accordion {
+  from-transform: translateY(-100%);
+  from-height: 0rem;
+  to-transform: translateY(100%);
+  to-height: 10rem; }
 #border-green {
   border: solid 8px #00CD36;
   -webkit-animation: neonBorder1 1s ease-in-out infinite alternate;
@@ -491,9 +502,6 @@
   color: #393d3f;
   text-align: center; }
 
-.session-form {
-  height: 10rem; }
-
 .submit-btn {
   border: none;
   background: #070707;
@@ -514,6 +522,11 @@
 .li-directions {
   color: #393d3f;
   list-style-type: decimal !important; }
+
+.session-form {
+  animation: accordion 1s;
+  -webkit-animation: accordion 1s;
+  -moz-animation: accordion 1s; }
 
 .modal-header-component {
   width: 100%; }
