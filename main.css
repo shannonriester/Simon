@@ -225,6 +225,7 @@
   justify-content: center;
   width: 100%;
   padding: 0;
+  margin: 0;
   color: #F6F6F6; }
 
 .nav-li, .bars-icon {
@@ -247,7 +248,8 @@
   background-color: #000;
   border: solid 8px transparent;
   border-radius: 3px;
-  margin: 3px; }
+  margin: 8px;
+  box-sizing: border-box; }
 
 .gameboard-container {
   display: flex;
@@ -261,11 +263,13 @@
   justify-content: center;
   flex-wrap: wrap;
   padding: 0;
-  width: 40rem; }
+  height: 32rem;
+  width: 32rem;
+  margin: 40px 0 0 0; }
 
 .outer-square {
-  height: 17rem;
-  width: 17rem;
+  height: 50%;
+  width: 50%;
   list-style-type: none;
   box-sizing: border-box; }
   .outer-square:hover {
@@ -347,13 +351,13 @@
   justify-content: center;
   z-index: 1;
   position: relative;
-  top: -20rem;
+  top: -19rem;
   right: 0;
   bottom: 0;
   left: 0;
   height: 5rem;
   width: 5rem;
-  margin: 0 auto;
+  margin: 0;
   border-radius: 50%;
   color: #FFF;
   background-color: #1E1E24;
@@ -376,7 +380,7 @@
   flex-direction: column;
   height: 5rem;
   width: 15rem;
-  margin: 1rem auto;
+  margin: 0 auto;
   border: dashed 2px #F6F6F6;
   color: #F6F6F6; }
 
@@ -669,34 +673,19 @@ th {
   justify-content: center; }
 
 .welcome-message-content {
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-around; }
+  justify-content: space-around;
+  width: 90%;
+  height: 90%;
+  border-radius: 3px;
+  background-color: rgba(7, 7, 7, 0.8); }
   .welcome-message-content p {
     margin: 0;
     color: #F6F6F6;
     font-size: 2rem; }
-
-.spanNeon1 {
-  -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon1 1s ease-in-out infinite alternate;
-  animation: textNeon1 1s ease-in-out infinite alternate; }
-
-.spanNeon2 {
-  -webkit-animation: textNeon2 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon2 1s ease-in-out infinite alternate;
-  animation: textNeon2 1s ease-in-out infinite alternate; }
-
-.spanNeon3 {
-  -webkit-animation: textNeon3 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon3 1s ease-in-out infinite alternate;
-  animation: textNeon3 1s ease-in-out infinite alternate; }
-
-.spanNeon4 {
-  -webkit-animation: textNeon4 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon4 1s ease-in-out infinite alternate;
-  animation: textNeon4 1s ease-in-out infinite alternate; }
 
 .landing-component {
   display: flex;
