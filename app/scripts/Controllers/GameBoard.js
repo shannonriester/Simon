@@ -22,7 +22,6 @@ export default React.createClass({
       currentColor: '',
       flashColor: false,
       welcomeMessage: false,
-      // colorId: '',
       playedIntro: false,
     }
   },
@@ -37,7 +36,6 @@ export default React.createClass({
         showCompArr: true,
         flashColor: true,
         currentColor: newCurrColor,
-        // colorId: newCurrColor,
       });
 
       let soundColor = new Audio(`/assets/sounds/${newCurrColor}1.wav`);
@@ -86,14 +84,11 @@ export default React.createClass({
     let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
     colorArr = _.shuffle(colorArr);
 
-    let time = 140;
-    let timeOut = 140 * colorArr.length;
+    let time = 500;
+    let timeOut = time * colorArr.length;
 
     this.setState({welcomeMessage: true});
     this.flashColorArr(colorArr, time);
-    window.setTimeout(() => {
-      // this.setState({welcomeMessage: false});
-    }, timeOut);
   },
   componentDidMount() {
       window.setTimeout(() => {

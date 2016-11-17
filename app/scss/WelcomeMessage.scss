@@ -8,32 +8,41 @@
 }
 
 .welcome-message-content {
+  z-index: 2;
   @include flex-space-around;
-
+  width: 90%;
+  height: 90%;
+  border-radius: 3px;
+  background-color: rgba($dark-color, .8);
   p {
     margin: 0;
     color: $light-color;
     font-size: 2rem;
   }
+
 }
 
-.spanNeon1 {
-  -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon1 1s ease-in-out infinite alternate;
-  animation: textNeon1 1s ease-in-out infinite alternate;
+.message-content-container {
+
 }
-.spanNeon2 {
-  -webkit-animation: textNeon2 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon2 1s ease-in-out infinite alternate;
-  animation: textNeon2 1s ease-in-out infinite alternate;
-}
-.spanNeon3 {
-  -webkit-animation: textNeon3 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon3 1s ease-in-out infinite alternate;
-  animation: textNeon3 1s ease-in-out infinite alternate;
-}
-.spanNeon4 {
-  -webkit-animation: textNeon4 1s ease-in-out infinite alternate;
-  -moz-animation: textNeon4 1s ease-in-out infinite alternate;
-  animation: textNeon4 1s ease-in-out infinite alternate;
-}
+//
+// .spanNeon1 {
+//   -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
+//   -moz-animation: textNeon1 1s ease-in-out infinite alternate;
+//   animation: textNeon1 1s ease-in-out infinite alternate;
+// }
+// .spanNeon2 {
+//   -webkit-animation: textNeon2 1s ease-in-out infinite alternate;
+//   -moz-animation: textNeon2 1s ease-in-out infinite alternate;
+//   animation: textNeon2 1s ease-in-out infinite alternate;
+// }
+// .spanNeon3 {
+//   -webkit-animation: textNeon3 1s ease-in-out infinite alternate;
+//   -moz-animation: textNeon3 1s ease-in-out infinite alternate;
+//   animation: textNeon3 1s ease-in-out infinite alternate;
+// }
+// .spanNeon4 {
+//   -webkit-animation: textNeon4 1s ease-in-out infinite alternate;
+//   -moz-animation: textNeon4 1s ease-in-out infinite alternate;
+//   animation: textNeon4 1s ease-in-out infinite alternate;
+// }
