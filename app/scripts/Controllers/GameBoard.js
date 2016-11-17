@@ -1,10 +1,12 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../store';
 import Nav from './Nav';
 import GameSquare from '../Components/GameSquare';
 import StartButton from '../Components/StartButton';
 import ScoreBoard from '../Components/ScoreBoard';
+import WelcomeMessage from '../Components/WelcomeMessage';
 
 export default React.createClass({
   getInitialState() {
@@ -21,6 +23,7 @@ export default React.createClass({
       currentCompHitsArr: [],
       flashColor: false,
       colorId: '',
+      playedIntro: false,
     }
   },
   flashColorArr(compHitsArr, timeout) {
@@ -48,7 +51,10 @@ export default React.createClass({
 
             this.flashColorArr(mapCompHits, timeout);
           } else {
-            this.setState({showCompArr: false});
+            this.setState({
+              showCompArr: false,
+              playedIntro: true,
+            });
             soundColor.pause();
           }
         }, timeout);
@@ -56,23 +62,35 @@ export default React.createClass({
       }, secondTime);
   },
   updateState() {
-    this.setState({
-      user: store.session.get('username'),
-      compHits: store.game.get('compHits'),
-      userHits: store.game.get('userHits'),
-      userHitLevel: store.game.get('userHitLevel'),
-      level: store.game.get('level'),
-      gameOver: store.game.get('gameOver'),
-      timeout: store.game.get('timeout'),
-    });
-    if (store.game.get('compHits').length > 0) {
-      this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
-    }
-    if (store.game.get('gameOver')) {
-      store.highScores.compareHighScores(this.state.user, this.state.userHitLevel.length, this.state.level);
+    if (this.state.playedIntro) {
+      this.setState({
+        user: store.session.get('username'),
+        compHits: store.game.get('compHits'),
+        userHits: store.game.get('userHits'),
+        userHitLevel: store.game.get('userHitLevel'),
+        level: store.game.get('level'),
+        gameOver: store.game.get('gameOver'),
+        timeout: store.game.get('timeout'),
+        playedIntro: true,
+      });
+      if (store.game.get('compHits').length > 0 && this.state.playedIntro) {
+        this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
+      }
+      if (store.game.get('gameOver')) {
+        store.highScores.saveHighScore(this.state.user, this.state.userHitLevel.length, this.state.level);
+      }
     }
   },
+  playIntro() {
+    let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
+    colorArr = _.shuffle(colorArr);
+    this.flashColorArr(colorArr, 130);
+    this.setState({welcomeMessage: true});
+  },
   componentDidMount() {
+      window.setTimeout(() => {
+        this.playIntro();
+      },1000);
     store.game.on('change', this.updateState);
     store.session.on('change', this.updateState);
   },
@@ -105,7 +123,8 @@ export default React.createClass({
     return (
       <div className="gameboard-component" id={colorId}>
         <Nav />
-        <ScoreBoard hits={this.state.userHitLevel} level={this.state.level}/>
+        <WelcomeMessage username={this.state.user}/>
+        <ScoreBoard hits={this.state.userHitLevel} level={this.state.level} welcome={this.state.playedIntro}/>
         <div className="gameboard-container">
           <ul className="gameboard">
             {gameSquare}

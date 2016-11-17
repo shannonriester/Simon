@@ -28,8 +28,13 @@
 ## Dependencies
 - `React.js`
 - `Backbone.js`
+- `underscore.js`
 - `jQuery`
 - `Sass` [install guide here](http://sass-lang.com/install)
 
 ##Back End
 - BaaS, [Kinvey](https://www.kinvey.com)
+
+to do
+  - login/sign up interaction on the landing
+  - game intro loading games (play intro theme)

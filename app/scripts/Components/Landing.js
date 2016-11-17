@@ -51,7 +51,6 @@ export default React.createClass({
       signup = <h1 className="h1-landing" onClick={this.showSignup}>Sign Up</h1>;
     }
 
-
     return (
       <ul className="landing-component">
         <li className="landing-li outer-square greenDiv green" onClick={this.startGame} ref="green"><div className="landing-inner inner-square greenDiv btn"><h1 className="h1-landing">Game Board</h1></div></li>

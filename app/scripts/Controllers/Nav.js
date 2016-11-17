@@ -33,23 +33,18 @@ export default React.createClass({
       let player = store.session.get('username');
       store.game.setPlayer(player);
       store.highScores.compareHighScores();
-    }
-
-    // console.log(store.highScores);
-    // if (store.highScores.length) {
       store.highScores.deleteModels();
-    // }
+    }
   },
   componentDidMount() {
     store.highScores.fetch();
     store.session.on('change update', this.updateState);
-
   },
   componentWillUnmount() {
     store.session.off('change update', this.updateState);
   },
   render() {
-    store.highScores.deleteModels();
+    // store.highScores.deleteModels();
 
     let sideModal;
     if (this.state.modal) {

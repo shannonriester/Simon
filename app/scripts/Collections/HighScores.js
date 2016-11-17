@@ -7,7 +7,7 @@ import HighScore from '../Models/HighScore';
 export default Backbone.Collection.extend({
   model: HighScore,
   url: `https://baas.kinvey.com/appdata/kid_BJ6LcoFC/HighScores`,
-  compareHighScores(username, currentScore, level) {
+  sortModels() {
     let models = this.models.map((model, i) => {
       model = model.toJSON();
       return model;
@@ -15,12 +15,9 @@ export default Backbone.Collection.extend({
 
     let sortedModels = _.sortBy(models, 'highScore').reverse();
 
-    sortedModels.filter((game, i) => {
-      if (currentScore > game.highScore) {
-        let model = this.findWhere({_id: game._id});
-        this.saveHighScore(username, currentScore, level);
-      }
-    });
+    if (sortedModels.length > 20) {
+      this.deleteModels();
+    }
   },
   findUsersGames(username) {
     return this.models.filter((game, i) => {
@@ -42,6 +39,7 @@ export default Backbone.Collection.extend({
       }, {
         success: (model, response) => {
           console.log('SAVED HIGH SCORE', response);
+          this.sortModels();
         },
         error: function(response) {
           console.error('FAILED TO SAVE HIGH SCORE TO SERVER: ', response);
@@ -50,10 +48,10 @@ export default Backbone.Collection.extend({
     }
   },
   deleteModels() {
-    if (this.models.length > 20) {
-      let sortedModels = _.sortBy(this.models, 'highScore').reverse();
-      // console.log('sortedModels', sortedModels);
-      console.log('to be deleted', sortedModels[0]);
-    }
+    this.models.forEach((model, i, scoresCollection) => {
+      if (i > 20) {
+        model[i].destroy();
+      }
+    });
   }
 });

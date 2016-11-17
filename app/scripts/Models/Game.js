@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import _ from 'underscore';
 
 import store from '../store';
 
@@ -17,6 +18,7 @@ export default Backbone.Model.extend({
     level: 1,
     timeout: 400,
     gameOver: false,
+    intro: [],
   },
   parse(response) {
     if (response) {
