@@ -20,9 +20,9 @@ export default React.createClass({
       gameOver: store.game.get('gameOver'),
       showCompArr: false,
       currentColor: '',
-      currentCompHitsArr: [],
       flashColor: false,
-      colorId: '',
+      welcomeMessage: false,
+      // colorId: '',
       playedIntro: false,
     }
   },
@@ -37,7 +37,7 @@ export default React.createClass({
         showCompArr: true,
         flashColor: true,
         currentColor: newCurrColor,
-        colorId: newCurrColor,
+        // colorId: newCurrColor,
       });
 
       let soundColor = new Audio(`/assets/sounds/${newCurrColor}1.wav`);
@@ -54,6 +54,7 @@ export default React.createClass({
             this.setState({
               showCompArr: false,
               playedIntro: true,
+              welcomeMessage: false,
             });
             soundColor.pause();
           }
@@ -84,13 +85,20 @@ export default React.createClass({
   playIntro() {
     let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
     colorArr = _.shuffle(colorArr);
-    this.flashColorArr(colorArr, 130);
+
+    let time = 140;
+    let timeOut = 140 * colorArr.length;
+
     this.setState({welcomeMessage: true});
+    this.flashColorArr(colorArr, time);
+    window.setTimeout(() => {
+      // this.setState({welcomeMessage: false});
+    }, timeOut);
   },
   componentDidMount() {
       window.setTimeout(() => {
         this.playIntro();
-      },1000);
+      }, 1120);
     store.game.on('change', this.updateState);
     store.session.on('change', this.updateState);
   },
@@ -101,8 +109,10 @@ export default React.createClass({
   },
   render() {
     let colorId;
+    let welcomeMessage;
+
     if (this.state.flashColor) {
-      colorId = 'border-' + this.state.colorId;
+      colorId = 'border-' + this.state.currentColor;
     }
 
     let gameSquare = store.colors.map((color, i) => {
@@ -114,17 +124,26 @@ export default React.createClass({
                 compHits={this.state.compHits}
                 classLi={classLi}
                 classDiv={classDiv}
-                colorId={this.state.colorId}
+                colorId={this.state.currentColor}
                 flashColor={this.state.flashColor}
                 showCompArr={this.state.showCompArr}
                 key={i}
                 />);
     });
+
+    if (this.state.welcomeMessage) {
+      welcomeMessage = (<WelcomeMessage username={this.state.user} color={this.state.currentColor}/>);
+    }
     return (
       <div className="gameboard-component" id={colorId}>
         <Nav />
-        <WelcomeMessage username={this.state.user}/>
-        <ScoreBoard hits={this.state.userHitLevel} level={this.state.level} welcome={this.state.playedIntro}/>
+        {welcomeMessage}
+        <ScoreBoard
+          hits={this.state.userHitLevel}
+          level={this.state.level}
+          welcome={this.state.playedIntro}
+          />
+
         <div className="gameboard-container">
           <ul className="gameboard">
             {gameSquare}
