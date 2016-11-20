@@ -52,8 +52,8 @@ export default React.createClass({
             this.setState({
               showCompArr: false,
               playedIntro: true,
-              welcomeMessage: false,
             });
+            store.session.set('playedIntro', false);
             soundColor.pause();
           }
         }, timeout);
@@ -84,7 +84,7 @@ export default React.createClass({
     let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
     colorArr = _.shuffle(colorArr);
 
-    let time = 500;
+    let time = 300;
     let timeOut = time * colorArr.length;
 
     this.setState({welcomeMessage: true});
@@ -93,7 +93,8 @@ export default React.createClass({
   componentDidMount() {
       window.setTimeout(() => {
         this.playIntro();
-      }, 1120);
+      }, 200);
+
     store.game.on('change', this.updateState);
     store.session.on('change', this.updateState);
   },
@@ -125,8 +126,8 @@ export default React.createClass({
                 key={i}
                 />);
     });
-
-    if (this.state.welcomeMessage) {
+    console.log('playedIntro', );
+    if (this.state.welcomeMessage && !this.state.playedIntro && !store.session.get('playedIntro')) {
       welcomeMessage = (<WelcomeMessage username={this.state.user} color={this.state.currentColor}/>);
     }
     return (

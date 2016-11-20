@@ -23,7 +23,6 @@ export default React.createClass({
       <div className="welcome-message-container">
         <div id={border} className="welcome-message-content">
           <div className="message-content-container">
-          <p>Hi{this.props.username}!</p>
           <p>Welcome to <span className={classColor}>Simon</span>!</p>
           </div>
         </div>

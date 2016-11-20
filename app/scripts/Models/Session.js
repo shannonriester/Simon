@@ -12,6 +12,7 @@ export default Backbone.Model.extend({
     highScore: 0,
     gamesPlayed: 0,
     profilePic: '/assets/Simon.png',
+    playedIntro: false,
   },
   parse(response) {
     if (response) {
@@ -149,6 +150,7 @@ export default Backbone.Model.extend({
       success: (model, response) => {
         localStorage.clear();
         this.clear();
+        playedIntro: false,
         localStorage.authtoken = 'f5b1b13a-7860-4d0b-9c0e-41aa50ad3c6c.fZqFhKmrDiWkGIhgPYiw/lKcya2rxRG+eT0LxNjrQ5M=';
       },
       error: function(model, response) {

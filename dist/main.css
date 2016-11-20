@@ -265,7 +265,7 @@
   padding: 0;
   height: 32rem;
   width: 32rem;
-  margin: 40px 0 0 0; }
+  margin: 0px 0 0 0; }
 
 .outer-square {
   height: 50%;
@@ -378,9 +378,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 5rem;
   width: 15rem;
-  margin: 0 auto;
+  padding: 1rem;
+  margin: 1.5rem auto;
   border: dashed 2px #F6F6F6;
   color: #F6F6F6; }
 
@@ -677,15 +677,42 @@ th {
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-content: space-around;
   width: 90%;
   height: 90%;
   border-radius: 3px;
-  background-color: rgba(7, 7, 7, 0.8); }
-  .welcome-message-content p {
+  background-color: rgba(7, 7, 7, 0.8);
+  box-sizing: border-box; }
+
+.message-content-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%; }
+  .message-content-container p {
     margin: 0;
     color: #F6F6F6;
     font-size: 2rem; }
+
+.spanNeon1 {
+  -webkit-animation: textNeon1 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon1 1s ease-in-out infinite alternate;
+  animation: textNeon1 1s ease-in-out infinite alternate; }
+
+.spanNeon2 {
+  -webkit-animation: textNeon2 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon2 1s ease-in-out infinite alternate;
+  animation: textNeon2 1s ease-in-out infinite alternate; }
+
+.spanNeon3 {
+  -webkit-animation: textNeon3 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon3 1s ease-in-out infinite alternate;
+  animation: textNeon3 1s ease-in-out infinite alternate; }
+
+.spanNeon4 {
+  -webkit-animation: textNeon4 1s ease-in-out infinite alternate;
+  -moz-animation: textNeon4 1s ease-in-out infinite alternate;
+  animation: textNeon4 1s ease-in-out infinite alternate; }
 
 .landing-component {
   display: flex;
@@ -757,7 +784,7 @@ th {
     width: 50%;
     height: 50%; } }
 body {
-  background: #070707;
+  background: #000;
   margin: 0;
   padding: 0;
   font-family: monospace;
@@ -765,7 +792,7 @@ body {
   line-height: 1.3; }
 
 #container {
-  background: #070707; }
+  background: #000; }
 
 .btn:hover {
   cursor: pointer; }
