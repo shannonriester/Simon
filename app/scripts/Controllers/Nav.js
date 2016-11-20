@@ -57,13 +57,13 @@ export default React.createClass({
 
     return (
       <nav className="nav-component">
-        <div className="bars-icon-container" onClick={this.showModal}>
+        <div className="bars-icon-container" onClick={this.showModal} onTouchEnd={this.showModal}>
           <i className="bars-icon fa fa-bars btn" aria-hidden="true"></i>
         </div>
         <ul className="nav-ul nav-main">
-          <li id="Home" className="nav-li btn" onClick={this.routeTo}>Home</li>
-          <li id="GameBoard" className="nav-li btn" onClick={this.routeTo}>Game</li>
-          <li id="LeaderBoard" className="nav-li btn" onClick={this.routeTo}>Scores</li>
+          <li id="Home" className="nav-li btn" onClick={this.routeTo} onTouchEnd={this.routeTo}>Home</li>
+          <li id="GameBoard" className="nav-li btn" onClick={this.routeTo} onTouchEnd={this.routeTo}>Game</li>
+          <li id="LeaderBoard" className="nav-li btn" onClick={this.routeTo} onTouchEnd={this.routeTo}>Scores</li>
         </ul>
         {sideModal}
       </nav>

@@ -4,7 +4,6 @@ export default React.createClass({
   render() {
     let classColor;
     let border;
-    console.log('color', this.props.color);
     if (this.props.color === 'green') {
       border = 'border-green';
       classColor = 'spanNeon1';

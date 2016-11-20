@@ -22,7 +22,7 @@ export default React.createClass({
     }
 
     return (
-      <div id={id} className="start-btn-component btn" onClick={this.startGame}>
+      <div id={id} className="start-btn-component btn" onClick={this.startGame} onTouchEnd={this.startGame}>
         <p className="prompt">{prompt}</p>
       </div>
     );

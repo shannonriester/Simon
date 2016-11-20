@@ -51,7 +51,7 @@ export default React.createClass({
       id = 'background-' + this.state.clickColor;
     }
     return (
-      <li className={this.props.classLi} onClick={this.selectSquare} ref="li">
+      <li className={this.props.classLi} onClick={this.selectSquare} onTouchEnd={this.selectSquare} ref="li">
         <div id={id} className={this.props.classDiv} ref="div"></div>
       </li>
     );

@@ -81,14 +81,16 @@ export default React.createClass({
     }
   },
   playIntro() {
-    let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
-    colorArr = _.shuffle(colorArr);
+    if (!store.game.get('compHits').length) {
+      let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
+      colorArr = _.shuffle(colorArr);
 
-    let time = 300;
-    let timeOut = time * colorArr.length;
+      let time = 300;
+      let timeOut = time * colorArr.length;
 
-    this.setState({welcomeMessage: true});
-    this.flashColorArr(colorArr, time);
+      this.setState({welcomeMessage: true});
+      this.flashColorArr(colorArr, time);
+    }
   },
   componentDidMount() {
       window.setTimeout(() => {
@@ -126,8 +128,11 @@ export default React.createClass({
                 key={i}
                 />);
     });
-    console.log('playedIntro', );
-    if (this.state.welcomeMessage && !this.state.playedIntro && !store.session.get('playedIntro')) {
+    if (this.state.welcomeMessage &&
+        !this.state.playedIntro &&
+        !store.session.get('playedIntro') &&
+        !this.state.compHits.length
+      ) {
       welcomeMessage = (<WelcomeMessage username={this.state.user} color={this.state.currentColor}/>);
     }
     return (
