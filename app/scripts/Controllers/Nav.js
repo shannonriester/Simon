@@ -32,20 +32,16 @@ export default React.createClass({
     if (this.state.username || store.session.get('username')) {
       let player = store.session.get('username');
       store.game.setPlayer(player);
-      store.highScores.compareHighScores();
-      store.highScores.deleteModels();
     }
   },
   componentDidMount() {
     store.highScores.fetch();
-    store.session.on('change update', this.updateState);
+    store.session.on('change', this.updateState);
   },
   componentWillUnmount() {
-    store.session.off('change update', this.updateState);
+    store.session.off('change', this.updateState);
   },
   render() {
-    // store.highScores.deleteModels();
-
     let sideModal;
     if (this.state.modal) {
       sideModal = (<Modal

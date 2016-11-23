@@ -81,7 +81,7 @@ export default React.createClass({
     }
   },
   playIntro() {
-    if (!store.game.get('compHits').length) {
+    if (!localStorage.getItem('playedIntro')) {
       let colorArr = ['red', 'green', 'yellow', 'blue', 'red', 'green', 'yellow', 'blue'];
       colorArr = _.shuffle(colorArr);
 
@@ -90,6 +90,7 @@ export default React.createClass({
 
       this.setState({welcomeMessage: true});
       this.flashColorArr(colorArr, time);
+      localStorage.setItem('playedIntro', true);
     }
   },
   componentDidMount() {

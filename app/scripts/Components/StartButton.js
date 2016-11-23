@@ -4,6 +4,7 @@ import store from '../store';
 
 export default React.createClass({
   startGame() {
+    console.log('working...?');
     store.game.newGame();
   },
   render() {

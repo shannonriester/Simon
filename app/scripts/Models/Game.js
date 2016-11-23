@@ -59,7 +59,7 @@ export default Backbone.Model.extend({
   },
   newGame: function() {
     this.restart();
-
+    
     let newCompHitsArr = [];
     let newColor = this.randomColor(this.get('colors').length);
     newCompHitsArr = newCompHitsArr.concat(newColor);

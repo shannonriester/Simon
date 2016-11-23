@@ -76,7 +76,6 @@ export default React.createClass({
           <li className="modal-li session-modal-li btn" onClick={this.logout}><p className="modal-p">Logout</p></li>
         </ul>);
     } else {
-      console.log('this.state.animation', this.state.animation);
       return (
         <ul className="session-modal-ul modal-ul">
           <li className="modal-li session-modal-li btn">
