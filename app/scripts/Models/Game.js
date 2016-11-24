@@ -57,7 +57,7 @@ export default Backbone.Model.extend({
       this.restart();
     }, 1500)
   },
-  newGame: function() {
+  newGame: function() {    
     this.restart();
 
     let newCompHitsArr = [];

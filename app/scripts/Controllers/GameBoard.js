@@ -61,23 +61,21 @@ export default React.createClass({
       }, secondTime);
   },
   updateState() {
-    if (this.state.playedIntro) {
-      this.setState({
-        user: store.session.get('username'),
-        compHits: store.game.get('compHits'),
-        userHits: store.game.get('userHits'),
-        userHitLevel: store.game.get('userHitLevel'),
-        level: store.game.get('level'),
-        gameOver: store.game.get('gameOver'),
-        timeout: store.game.get('timeout'),
-        playedIntro: true,
-      });
-      if (store.game.get('compHits').length > 0 && this.state.playedIntro) {
-        this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
-      }
-      if (store.game.get('gameOver')) {
-        store.highScores.saveHighScore(this.state.user, this.state.userHitLevel.length, this.state.level);
-      }
+    this.setState({
+      user: store.session.get('username'),
+      compHits: store.game.get('compHits'),
+      userHits: store.game.get('userHits'),
+      userHitLevel: store.game.get('userHitLevel'),
+      level: store.game.get('level'),
+      gameOver: store.game.get('gameOver'),
+      timeout: store.game.get('timeout'),
+      playedIntro: true,
+    });
+    if (store.game.get('compHits').length > 0 && this.state.playedIntro) {
+      this.flashColorArr(store.game.get('compHits'), store.game.get('timeout'));
+    }
+    if (store.game.get('gameOver')) {
+      store.highScores.saveHighScore(this.state.user, this.state.userHitLevel.length, this.state.level);
     }
   },
   playIntro() {
@@ -94,9 +92,11 @@ export default React.createClass({
     }
   },
   componentDidMount() {
-      window.setTimeout(() => {
+    window.setTimeout(() => {
+      if (!localStorage.getItem('playedIntro')) {
         this.playIntro();
-      }, 200);
+      }
+    }, 200);
 
     store.game.on('change', this.updateState);
     store.session.on('change', this.updateState);
