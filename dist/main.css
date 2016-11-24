@@ -351,16 +351,16 @@
   justify-content: center;
   z-index: 1;
   position: relative;
-  top: -19rem;
   right: 0;
-  bottom: 0;
+  bottom: 22rem;
   left: 0;
-  height: 5rem;
-  width: 5rem;
+  height: 11rem;
+  width: 11rem;
   margin: 0;
   border-radius: 50%;
+  border: solid #1E1E24 1px;
   color: #FFF;
-  background-color: #1E1E24;
+  background-color: #000;
   font-family: monospace;
   font-size: 11px; }
 
@@ -568,6 +568,8 @@
   flex-direction: column;
   width: 75%;
   height: 95%; }
+  .landing-form:hover {
+    cursor: default; }
 
 .h2-landing {
   margin: 0 0 1rem 0;
@@ -714,6 +716,9 @@ th {
   -moz-animation: textNeon4 1s ease-in-out infinite alternate;
   animation: textNeon4 1s ease-in-out infinite alternate; }
 
+.greet-session-component .greet-session-p {
+  color: #FFF; }
+
 .landing-component {
   display: flex;
   align-items: center;
@@ -796,6 +801,12 @@ body {
 
 .btn:hover {
   cursor: pointer; }
+
+.btn-border {
+  border: solid 1px transparent; }
+  .btn-border:hover {
+    border: solid 1px #393D3F;
+    border-radius: 2px; }
 
 .hidden {
   display: none; }

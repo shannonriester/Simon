@@ -12,6 +12,7 @@
 @import 'LeaderBoard.scss';
 @import 'ImgUploader.scss';
 @import 'WelcomeMessage.scss';
+@import '_GreetSession.scss';
 
 //make landing last
 @import 'Landing.scss';
@@ -33,6 +34,15 @@ body {
 .btn {
   &:hover {
     cursor: pointer;
+  }
+}
+
+.btn-border {
+  border: solid 1px transparent;
+  &:hover {
+    // border: solid 1px $font-color;
+    border: solid 1px #393D3F;
+    border-radius: 2px;
   }
 }
 

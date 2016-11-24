@@ -3,6 +3,10 @@
   flex-direction: column;
   width: 75%;
   height: 95%;
+
+  &:hover {
+    cursor: default;
+  }
 }
 
 .h2-landing {

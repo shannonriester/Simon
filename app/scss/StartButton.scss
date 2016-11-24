@@ -2,16 +2,18 @@
   @include flex-center;
   z-index: 1;
   position: relative;
-  top: -19rem;
+  // top: -21rem;
   right: 0;
-  bottom: 0;
+  bottom: 22rem;
   left: 0;
-  height: 5rem;
-  width: 5rem;
+  height: 11rem;
+  width: 11rem;
   margin: 0;
   border-radius: 50%;
+  border: solid $dark-accent 1px;
   color: #FFF;
-  background-color: $dark-accent;
+  // background-color: $dark-accent;
+  background-color: #000;
   font-family: $font-family;
   font-size: 11px;
 
